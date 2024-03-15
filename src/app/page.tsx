@@ -1,15 +1,17 @@
-import { ExperienceList } from "@/components/experience-list";
+import { HeroView } from "@/components/home/hero-view";
+import { ProcessOverview } from "@/components/process/process-overview";
 import { FeaturedProject } from "@/components/project/featured-project";
 import { ProjectListLines } from "@/components/project/project-list-lines";
-import { TypographyDemo } from "@/components/typography";
-import { HeroView } from "@/components/hero-view";
 
 export default function Home() {
   return (
     <div>
       <HeroView />
-      <FeaturedProject />
-      <ProjectListLines />
+      <div className="bg-background relative z-auto">
+        <FeaturedProject />
+        <ProcessOverview />
+        <ProjectListLines />
+      </div>
     </div>
   );
 }

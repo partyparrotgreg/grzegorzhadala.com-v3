@@ -26,7 +26,7 @@ export const SectionTitle = ({
 }) => {
   return (
     <div
-      className="content-padding sticky top-0 bg-background z-[200] flex flex-row justify-between items-center"
+      className="content-padding sticky top-12 bg-background z-[200] flex flex-row justify-between items-center"
       {...props}
     >
       <h2 className="text-4xl font-medium">{children}</h2>

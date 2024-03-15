@@ -79,6 +79,6 @@
 
 @layer components {
   .content-padding {
-    @apply py-2 px-4 md:py-4 md:px-8 lg:py-6 lg:px-12;
+    @apply py-2 px-2 md:py-4 md:px-4 lg:py-6 lg:px-6;
   }
 }

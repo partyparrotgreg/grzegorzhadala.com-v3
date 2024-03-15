@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 import { safiro } from "@/constants/fonts";
 import { MainNavigation } from "@/components/shared/main-navigation";
+import { GetInTouch } from "@/components/contact/get-in-touch";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,6 +27,7 @@ export default function RootLayout({
         >
           <MainNavigation />
           <main>{children}</main>
+          <GetInTouch />
         </ThemeProvider>
       </body>
     </html>
