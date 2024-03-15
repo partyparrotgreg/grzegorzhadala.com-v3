@@ -1,4 +1,4 @@
-import { SectionTitle } from "../typography";
+import { SectionTitle } from "../typography/section-title";
 import { AspectRatio } from "../ui/aspect-ratio";
 
 export const FeaturedProject = () => {

@@ -2,8 +2,8 @@
 
 import { ProjectLineItem } from "./project-line-item";
 import Link from "next/link";
-import { SectionTitle } from "../typography";
 import { useProjectData } from "@/api/projects";
+import { SectionTitle } from "../typography/section-title";
 
 export const ProjectListLines = () => {
   const { projects } = useProjectData();

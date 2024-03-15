@@ -1,4 +1,4 @@
-import { SectionTitle } from "../typography";
+import { SectionTitle } from "../typography/section-title";
 
 export const ProcessOverview = () => {
   return (
