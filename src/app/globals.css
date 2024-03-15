@@ -74,3 +74,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .content-padding {
+    @apply py-2 px-4 md:py-4 md:px-8 lg:py-6 lg:px-12;
+  }
+}
