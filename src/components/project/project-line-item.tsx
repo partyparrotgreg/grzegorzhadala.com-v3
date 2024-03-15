@@ -1,7 +1,7 @@
 "use client";
 
 import { ProjectType } from "@/types";
-import { Eye } from "lucide-react";
+import { ArrowRight, Eye } from "lucide-react";
 
 export const ProjectLineItem = ({
   client,
@@ -9,12 +9,14 @@ export const ProjectLineItem = ({
   role,
 }: Omit<ProjectType, "id">) => {
   return (
-    <div className="border-b border-border content-padding hover:bg-foreground hover:text-background flex flex-row justify-between transition-all text-2xl">
+    <div className="border-b border-border items-center content-padding hover:bg-foreground hover:text-background flex flex-row justify-start transition-all text-2xl gap-6">
       <div>{year}</div>
+      <div className="w-2 h-2 rounded-full bg-brand" />
       <div>{client}</div>
-      <div>{role}</div>
+      <div className="w-2 h-2 rounded-full bg-brand" />
+      <div className="flex flex-grow text-muted-foreground">{role}</div>
       <div>
-        <Eye />
+        <ArrowRight />
       </div>
     </div>
   );

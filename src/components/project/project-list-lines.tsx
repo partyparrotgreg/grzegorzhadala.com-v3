@@ -3,25 +3,22 @@
 import { ProjectLineItem } from "./project-line-item";
 import Link from "next/link";
 import { SectionTitle } from "../typography";
+import { useProjectData } from "@/api/projects";
 
 export const ProjectListLines = () => {
-  const clients = ["Rolla, Inc.", "FreeBird", "SEI Labs, LLC", "ucreate.it"];
-  const roles = ["Product Designer", "UX Designer", "UI Designer", "Developer"];
-  const years = ["2019", "2020", "2021", "2022"];
-  const dummyProjects = Array.from({ length: 10 }).map((_, i) => {
-    return {
-      id: i,
-      client: clients[Math.floor(Math.random() * clients.length)],
-      role: roles[Math.floor(Math.random() * roles.length)],
-      year: years[Math.floor(Math.random() * years.length)],
-    };
-  });
+  const { projects } = useProjectData();
+
   return (
     <div className="flex flex-col">
-      <SectionTitle>All Projects</SectionTitle>
-      {dummyProjects.map((project) => {
+      <SectionTitle>Experience</SectionTitle>
+      {projects.map((project) => {
         return (
-          <Link href={`/projects/${project.id}`} key={project.id}>
+          <Link
+            href={`/projects/${project.id}`}
+            key={project.id}
+            passHref
+            legacyBehavior
+          >
             <ProjectLineItem
               client={project.client}
               role={project.role}

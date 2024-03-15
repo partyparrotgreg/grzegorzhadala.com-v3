@@ -6,7 +6,7 @@ export const FeaturedProject = () => {
     <div>
       <SectionTitle>Featured Project</SectionTitle>
       <AspectRatio ratio={16 / 9}>
-        <div className="bg-gray-200 relative w-full h-full">Project Image</div>
+        <div className="bg-secondary relative w-full h-full">Project Image</div>
       </AspectRatio>
     </div>
   );
