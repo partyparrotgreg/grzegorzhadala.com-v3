@@ -18,8 +18,6 @@ export const HeroImage = () => {
   );
   return (
     <div className="w-full h-full fixed top-0 left-0 z-0">
-      <div className="absolute z-50 grid place-content-center bottom-24 right-24 bg-brand w-[200px] h-[200px] rounded-full mix-blend-color-dodge" />
-
       <div className="w-full h-full fixed top-0 left-0 z-10 bg-gradient-to-t from-background to-transparent" />
       <Image
         src={"/images/head4-dark.jpg"}

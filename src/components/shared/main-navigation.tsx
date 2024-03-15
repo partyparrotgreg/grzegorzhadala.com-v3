@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useWindowScrollPosition, useWindowSize } from "rooks";
 import { ThemeSwitch } from "./theme-switch";
+import { Menu } from "./menu";
 export const MainNavigation = () => {
   const position = useWindowScrollPosition();
   const size = useWindowSize();
@@ -24,14 +25,7 @@ export const MainNavigation = () => {
         <div className="text-brand ml-2">HELLO!</div>
         <Link href={"/"}>Greg Hadala &mdash; Designer & Developer</Link>
       </div>
-      <nav className="flex flex-row items-center gap-4 uppercase transition-all">
-        <Link href="/" className="shadow-brand shadow-nav">
-          Start
-        </Link>
-        <Link href="/projects">Work</Link>
-        <Link href="/challenges">Challenges</Link>
-        <Link href="/sandbox">Sandbox</Link>
-      </nav>
+      <Menu />
       <ThemeSwitch />
     </div>
   );

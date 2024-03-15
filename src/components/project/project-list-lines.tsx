@@ -13,12 +13,7 @@ export const ProjectListLines = () => {
       <SectionTitle>Experience</SectionTitle>
       {projects.map((project) => {
         return (
-          <Link
-            href={`/projects/${project.id}`}
-            key={project.id}
-            passHref
-            legacyBehavior
-          >
+          <Link href={`/projects/${project.id}`} key={project.id} passHref>
             <ProjectLineItem
               client={project.client}
               role={project.role}

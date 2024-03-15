@@ -9,7 +9,7 @@ export const ProjectLineItem = ({
   role,
 }: Omit<ProjectType, "id">) => {
   return (
-    <div className="border-b border-border items-center content-padding hover:bg-foreground hover:text-background flex flex-row justify-start transition-all text-2xl gap-6">
+    <div className="border-b border-border items-center content-padding hover:bg-foreground hover:text-background flex flex-row justify-start transition-all text-2xl gap-6 duration-300 hover:delay-500">
       <div>{year}</div>
       <div className="w-2 h-2 rounded-full bg-brand" />
       <div>{client}</div>
