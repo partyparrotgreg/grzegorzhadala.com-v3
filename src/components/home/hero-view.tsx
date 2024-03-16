@@ -4,9 +4,9 @@ import { Button } from "../ui/button";
 
 export const HeroView = () => {
   return (
-    <div className="w-full items-end flex overflow-hidden flex-col h-screen justify-end isolate">
+    <div className="w-full items-end flex overflow-hidden flex-col h-dvh justify-end isolate">
       <div
-        className="justify-start w-full text-9xl tracking-tighter font-semibold content-padding gap-4  z-20"
+        className="justify-start w-full text-5xl md:text-9xl tracking-tighter font-semibold content-padding gap-4 z-20"
         style={{ lineHeight: 0.9 }}
       >
         <div className="-ml-2">Design</div>
@@ -14,7 +14,7 @@ export const HeroView = () => {
           <div className="opacity-30 font-light italic mr-6">&amp;</div>
           <div>Development</div>
         </div>
-        <div className="text-4xl tracking-tight font-normal w-1/2 mb-6">
+        <div className="text-3xl tracking-tight font-normal md:w-1/2 mb-6">
           for good old <span className="text-brand">Fintech</span>, spicy new
           web3 ecosystems, blockchain and whatever the crap your want.
         </div>

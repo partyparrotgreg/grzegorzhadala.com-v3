@@ -1,5 +1,6 @@
 "use client";
 
+import { nav } from "@/constants/nav";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -12,18 +13,11 @@ export const Menu = () => {
     }`;
   return (
     <nav className="flex flex-row items-center gap-4 uppercase  transition-opacity">
-      <Link href="/" className={linkClass("/")}>
-        <div>Start</div>
-      </Link>
-      <Link href="/projects" className={linkClass("/projects")}>
-        Work
-      </Link>
-      <Link href="/challenges" className={linkClass("/challenges")}>
-        Challenges
-      </Link>
-      <Link href="/sandbox" className={linkClass("/sandbox")}>
-        Sandbox
-      </Link>
+      {nav.map(({ label, href }, index) => (
+        <Link href={href} className={linkClass(href)} key={`nav-item-${index}`}>
+          {label}
+        </Link>
+      ))}
     </nav>
   );
 };

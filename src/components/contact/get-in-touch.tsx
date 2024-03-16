@@ -3,6 +3,8 @@
 import { ArrowUp, Linkedin, LinkedinIcon } from "lucide-react";
 import { TypographyHero, TypographyP } from "../typography";
 import { Button } from "../ui/button";
+import Link from "next/link";
+import { ButtonLinkedIn } from "./button-linkedin";
 
 export const GetInTouch = () => {
   const handleScrollUp = () => {
@@ -14,10 +16,7 @@ export const GetInTouch = () => {
       <div className="bg-brand text-black content-padding grid grid-cols-2 gap-16 items-center">
         <TypographyHero>Get in touch</TypographyHero>
         <div className="flex justify-end">
-          <Button size={"icon"} variant={"ghost"}>
-            <Linkedin />
-          </Button>
-          <Button size={"icon"} variant={"ghost"}></Button>
+          <ButtonLinkedIn />
           <Button size={"icon"} variant={"ghost"} onClick={handleScrollUp}>
             <ArrowUp />
           </Button>
