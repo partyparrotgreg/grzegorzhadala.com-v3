@@ -6,7 +6,7 @@ export const HeroView = () => {
   return (
     <div className="w-full items-end flex overflow-hidden flex-col h-screen justify-end isolate">
       <div
-        className="justify-start w-full text-9xl tracking-tighter font-semibold content-padding gap-4  z-10"
+        className="justify-start w-full text-9xl tracking-tighter font-semibold content-padding gap-4  z-20"
         style={{ lineHeight: 0.9 }}
       >
         <div className="-ml-2">Design</div>
@@ -23,6 +23,8 @@ export const HeroView = () => {
           <Button variant={"outline"}>Get in touch</Button>
         </div>
       </div>
+      <div className="w-full h-2/3 absolute bottom-0 left-0 z-[10] bg-gradient-to-t from-background to-transparent" />
+
       <HeroImage />
     </div>
   );

@@ -1,27 +1,46 @@
 import Image from "next/image";
+import Link, { LinkProps } from "next/link";
+import { AspectRatio } from "../ui/aspect-ratio";
+import { Badge } from "../ui/badge";
+import { ReactNode } from "react";
 
-export const ChallengeCard = () => {
+export const ChallengeCard = ({
+  href,
+  passHref,
+  summary,
+  cover,
+  categories,
+}: LinkProps & {
+  summary: ReactNode;
+  categories: ReactNode[];
+  cover: string;
+}) => {
   return (
-    <div className="flex-col justify-start items-start gap-4 inline-flex w-full">
+    <Link
+      href={href}
+      passHref={passHref}
+      className="transition-all flex-col justify-start items-start gap-4 inline-flex w-full hover:bg-foreground  group"
+    >
       <Image
-        className="relative"
-        objectFit="cover"
-        width={600}
-        height={477}
-        src="/images/0_1.webp"
+        className="relative object-cover  rounded-lg aspect-square"
+        width={800}
+        height={800}
+        src={cover}
         alt="Challenge Image"
       />
-      <div className="self-stretch justify-between items-start inline-flex">
+      <div className="self-stretch justify-between items-start inline-flex group-hover:px-4  transition-all">
         <div className="text-muted-foreground text-sm font-medium leading-tight">
-          05.09.2022
+          2 days ago
         </div>
         <div className="text-muted-foreground text-sm font-medium leading-tight">
-          Gaming
+          {categories.map((category, index) => (
+            <span key={index}>{category}</span>
+          ))}
         </div>
       </div>
-      <p className="text-xl w-full line-clamp-2 font-normal">
-        Design a game that is fun to play max two lines of text and truncate
+      <p className="text-2xl w-full line-clamp-2 font-normal group-hover:px-4 group-hover:-mt-2  transition-all group-hover:text-white">
+        {summary}
       </p>
-    </div>
+    </Link>
   );
 };

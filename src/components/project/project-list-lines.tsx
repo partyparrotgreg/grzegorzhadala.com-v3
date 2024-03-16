@@ -1,29 +1,25 @@
 "use client";
 
-import { ProjectLineItem } from "./project-line-item";
+import { projectsMock } from "@/mocks/projects";
 import Link from "next/link";
-import { useProjectData } from "@/api/projects";
 import { SectionTitle } from "../typography/section-title";
+import { ProjectLineItem } from "./project-line-item";
 
 export const ProjectListLines = () => {
-  const { projects } = useProjectData();
-
   return (
     <div className="flex flex-col">
       <SectionTitle>Experience</SectionTitle>
-      <div>
-        {projects.map((project) => {
-          return (
-            <Link href={`/projects/${project.id}`} key={project.id} passHref>
-              <ProjectLineItem
-                client={project.client}
-                role={project.role}
-                year={project.year}
-              />
-            </Link>
-          );
-        })}
-      </div>
+      {projectsMock.map((project) => {
+        return (
+          <Link href={`/projects/${project.id}`} key={project.id} passHref>
+            <ProjectLineItem
+              client={project.client}
+              role={project.role}
+              year={project.year}
+            />
+          </Link>
+        );
+      })}
     </div>
   );
 };

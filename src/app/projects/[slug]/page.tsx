@@ -30,7 +30,7 @@ export default function Project({ params }: { params: { slug: string } }) {
           width={1603}
           height={506}
           alt=""
-          className="rounded-xl relative -mt-32"
+          className="rounded-xl relative -mt-32 object-cover w-full h-96"
         />
         <div className="content-padding pt-24 relative z-50 bg-background">
           {Array.from({ length: 3 }).map((_, index) => (

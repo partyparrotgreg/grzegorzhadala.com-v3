@@ -75,6 +75,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  :focus-visible {
+  @apply outline-1 outline-brand outline-offset-8 opacity-100;
+  }
 }
 
 @layer components {

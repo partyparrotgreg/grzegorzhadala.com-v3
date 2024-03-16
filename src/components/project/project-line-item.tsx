@@ -2,6 +2,7 @@
 
 import { ProjectType } from "@/types";
 import { ArrowRight, Eye } from "lucide-react";
+import { Badge } from "../ui/badge";
 
 export const ProjectLineItem = ({
   client,
@@ -16,6 +17,9 @@ export const ProjectLineItem = ({
         <div>{client}</div>
         <div className="w-2 h-2 rounded-full bg-brand" />
         <div className="flex flex-grow text-muted-foreground">{role}</div>
+        <div className="flex flex-grow justify-end">
+          <Badge>UX/UI</Badge>
+        </div>
         <div>
           <ArrowRight />
         </div>

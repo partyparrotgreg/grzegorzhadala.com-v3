@@ -15,7 +15,7 @@ export const WordCycleAnimation = ({ words }: { words: string[] }) => {
   }, [words.length]);
 
   return (
-    <div className="overflow-hidden w-28 text-brand">
+    <div className="overflow-hidden w-24 text-brand">
       <AnimatePresence>
         <motion.div
           key={words[index]}
