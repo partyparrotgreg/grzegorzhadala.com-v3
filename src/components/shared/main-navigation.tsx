@@ -29,7 +29,7 @@ export const MainNavigation = () => {
   };
   return (
     <div>
-      <div className="fixed top-12 right-0 z-[1000] md:hidden grid place-content-center">
+      <div className="fixed top-0 right-0 z-[1000] md:hidden grid place-content-center">
         <MobileNavigation />
       </div>
 
@@ -60,8 +60,8 @@ export const MainNavigation = () => {
         </div>
         <div className="hidden md:flex">
           <Menu />
+          <ThemeSwitch />
         </div>
-        <ThemeSwitch />
       </div>
     </div>
   );

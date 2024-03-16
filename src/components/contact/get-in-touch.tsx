@@ -22,7 +22,7 @@ export const GetInTouch = () => {
           </Button>
         </div>
         <div>
-          <TypographyP>
+          <TypographyP className="text-sm">
             Copyright © {currentYear} Grzegorz Hadala. All assets, artworks, and
             screenshots are copyright of their respective owners.
           </TypographyP>

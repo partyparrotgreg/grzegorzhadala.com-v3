@@ -19,15 +19,20 @@ export interface TypographyListProps {
 }
 
 export function TypographyHero({ children, ...props }: TypographyProps) {
-  const mergedClasses = cn(
-    "text-6xl",
-    "font-bold",
-    "tracking-tight",
-    "lg:text-8xl",
-    props.className
-  );
 
-  return <p className={mergedClasses}>{children}</p>;
+  return (
+    <p
+      className={cn(
+        "text-6xl",
+        "font-bold",
+        "tracking-tight",
+        "lg:text-8xl",
+        props.className
+      )}
+    >
+      {children}
+    </p>
+  );
 }
 
 export function TypographyH1({ children }: TypographyProps) {
@@ -63,8 +68,9 @@ export function TypographyH6({ children }: TypographyProps) {
 }
 
 export function TypographyP({ children, ...props }: TypographyProps) {
-  const mergedClasses = `text-xl opacity-75 ${props.className || ""}`;
-  return <p className={mergedClasses}>{children}</p>;
+  return (
+    <p className={cn("text-base opacity-75", props.className)}>{children}</p>
+  );
 }
 
 export function TypographyBlockquote({ children }: TypographyProps) {

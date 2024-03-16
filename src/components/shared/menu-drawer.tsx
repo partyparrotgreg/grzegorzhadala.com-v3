@@ -1,4 +1,4 @@
-import { MenuIcon } from "lucide-react";
+import { MenuIcon, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -9,12 +9,15 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { nav } from "@/constants/nav";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
 import { ButtonLinkedIn } from "../contact/button-linkedin";
+import { ThemeSwitch } from "./theme-switch";
+import { useState } from "react";
 
 export function MobileNavigation() {
+  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   const linkClass = (href: string) =>
@@ -22,11 +25,15 @@ export function MobileNavigation() {
       pathname === href ? "shadow-nav" : "opacity-50 hover:opacity-100"
     }`;
 
+  const onOpenChange = (open: boolean) => {
+    setIsOpen(open);
+  };
+
   return (
-    <Drawer>
+    <Drawer onOpenChange={(open) => onOpenChange(open)}>
       <DrawerTrigger asChild>
         <Button variant="brand" size={"icon"}>
-          <MenuIcon />
+          {isOpen ? <X /> : <MenuIcon />}
         </Button>
       </DrawerTrigger>
       <DrawerContent>
@@ -40,12 +47,19 @@ export function MobileNavigation() {
               </DrawerClose>
             ))}
           </nav>
-          <ButtonLinkedIn />
         </div>
         <DrawerFooter>
-          <DrawerClose asChild>
+          {/* <DrawerClose asChild>
             <Button variant="ghost">Close</Button>
-          </DrawerClose>
+          </DrawerClose> */}
+          <div className="flex flex-row gap-6">
+            <DrawerClose asChild>
+              <ButtonLinkedIn />
+            </DrawerClose>
+            <DrawerClose asChild>
+              <ThemeSwitch />
+            </DrawerClose>
+          </div>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
