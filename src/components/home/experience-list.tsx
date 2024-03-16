@@ -1,6 +1,7 @@
 "use client";
 
-import { SectionTitle } from "../typography";
+import { SectionTitle } from "../typography/section-title";
+
 
 export function ExperienceList() {
   return (
