@@ -11,17 +11,19 @@ export const ProjectListLines = () => {
   return (
     <div className="flex flex-col">
       <SectionTitle>Experience</SectionTitle>
-      {projects.map((project) => {
-        return (
-          <Link href={`/projects/${project.id}`} key={project.id} passHref>
-            <ProjectLineItem
-              client={project.client}
-              role={project.role}
-              year={project.year}
-            />
-          </Link>
-        );
-      })}
+      <div>
+        {projects.map((project) => {
+          return (
+            <Link href={`/projects/${project.id}`} key={project.id} passHref>
+              <ProjectLineItem
+                client={project.client}
+                role={project.role}
+                year={project.year}
+              />
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 };

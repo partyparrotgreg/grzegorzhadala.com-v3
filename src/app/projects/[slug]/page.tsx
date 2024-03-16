@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Project({ params }: { params: { slug: string } }) {
   return (
     <div>
-      <div className="bg-blue-500 sticky inset-0 content-padding pt-24">
+      <div className="bg-blue-500 sticky inset-0 content-padding pt-24 pl-24 pr-24">
         <div className="flex-col justify-start items-start inline-flex">
           <div className="flex flex-row gap-16">
             {Array.from({ length: 3 }).map((_, index) => (
@@ -21,7 +21,7 @@ export default function Project({ params }: { params: { slug: string } }) {
             ))}
           </div>
 
-          <div className="text-zinc-950 text-[220px] -ml-6">Rolla</div>
+          <div className="text-primary text-[220px] -ml-6">Rolla</div>
         </div>
       </div>
       <div className="content-padding pt-24 relative z-50 bg-background">

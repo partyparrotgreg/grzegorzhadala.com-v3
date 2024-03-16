@@ -17,12 +17,12 @@ export const MainNavigation = () => {
 
   return (
     <div
-      className={`transition-all flex flex-row h-12 p-2 justify-between gap-4 fixed top-0 left-0 right-0 items-center z-[800] ${
+      className={`transition-all flex flex-row h-12 justify-between gap-4 fixed top-0 left-0 right-0 items-center z-[800] ${
         isScrolled ? "bg-background" : ""
       }`}
     >
       <div className="flex-grow font-normal tracking-tight flex gap-4 uppercase">
-        <div className="text-brand ml-2">HELLO!</div>
+        <div className="text-brand ml-4">HELLO!</div>
         <Link href={"/"}>Greg Hadala &mdash; Designer & Developer</Link>
       </div>
       <Menu />

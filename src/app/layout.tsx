@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { safiro } from "@/constants/fonts";
 import { MainNavigation } from "@/components/shared/main-navigation";
 import { GetInTouch } from "@/components/contact/get-in-touch";
+import { BlogCards } from "@/components/blog/blog-cards";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,7 +28,10 @@ export default function RootLayout({
         >
           <MainNavigation />
           <main>{children}</main>
-          <GetInTouch />
+          <div className="relative z-[100]">
+            <BlogCards />
+            <GetInTouch />
+          </div>
         </ThemeProvider>
       </body>
     </html>

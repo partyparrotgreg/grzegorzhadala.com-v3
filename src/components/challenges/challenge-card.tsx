@@ -4,7 +4,7 @@ export const ChallengeCard = () => {
   return (
     <div className="flex-col justify-start items-start gap-4 inline-flex w-full">
       <Image
-        className="relative rounded-2xl"
+        className="relative"
         objectFit="cover"
         width={600}
         height={477}
