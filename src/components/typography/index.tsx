@@ -2,6 +2,7 @@
 
 import React from "react";
 import { SectionTitle } from "./section-title";
+import { cn } from "@/lib/utils";
 
 export interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
@@ -18,11 +19,15 @@ export interface TypographyListProps {
 }
 
 export function TypographyHero({ children, ...props }: TypographyProps) {
-  return (
-    <p className="text-6xl font-bold tracking-tight lg:text-8xl" {...props}>
-      {children}
-    </p>
+  const mergedClasses = cn(
+    "text-6xl",
+    "font-bold",
+    "tracking-tight",
+    "lg:text-8xl",
+    props.className
   );
+
+  return <p className={mergedClasses}>{children}</p>;
 }
 
 export function TypographyH1({ children }: TypographyProps) {
@@ -57,8 +62,9 @@ export function TypographyH6({ children }: TypographyProps) {
   return <h6 className="text-base font-semibold tracking-tight">{children}</h6>;
 }
 
-export function TypographyP({ children }: TypographyProps) {
-  return <p>{children}</p>;
+export function TypographyP({ children, ...props }: TypographyProps) {
+  const mergedClasses = `text-xl opacity-75 ${props.className || ""}`;
+  return <p className={mergedClasses}>{children}</p>;
 }
 
 export function TypographyBlockquote({ children }: TypographyProps) {

@@ -10,7 +10,7 @@ export const ProjectLineItem = ({
 }: Omit<ProjectType, "id">) => {
   return (
     <div className="border-b border-border group h-24 overflow-hidden">
-      <div className="items-center px-6 h-24 flex flex-row justify-start transition-all text-2xl gap-6 duration-300 group-hover:-translate-y-24">
+      <div className="items-center px-6 h-24 flex flex-row justify-start transition-all text-2xl gap-6 duration-300 group-hover:-translate-y-24 group-hover:delay-500">
         <div>{year}</div>
         <div className="w-2 h-2 rounded-full bg-brand" />
         <div>{client}</div>
@@ -20,7 +20,7 @@ export const ProjectLineItem = ({
           <ArrowRight />
         </div>
       </div>
-      <div className="items-center px-6 h-24 bg-foreground text-background flex flex-row justify-start transition-all text-2xl gap-6 duration-300 translate-y-24 opacity-0 group-hover:-translate-y-24 group-hover:opacity-100 group-hover:">
+      <div className="items-center px-6 h-24 bg-foreground text-background flex flex-row justify-start transition-all text-2xl gap-6 duration-300 group-hover:delay-500 translate-y-24 opacity-0 group-hover:-translate-y-24 group-hover:opacity-100 group-hover:">
         <div className="grow">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem cupiditate, in minima temporibus impedit, similique
