@@ -2,15 +2,13 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useWindowScrollPosition, useWindowSize } from "rooks";
+import { useWindowScrollPosition } from "rooks";
 import { WordCycleAnimation } from "../typography/hello";
 import { Menu } from "./menu";
 import { MobileNavigation } from "./menu-drawer";
 import { ThemeSwitch } from "./theme-switch";
 
 export const MainNavigation = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const window = useWindowSize();
   const position = useWindowScrollPosition();
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,9 +22,6 @@ export const MainNavigation = () => {
     }
   }, [position]);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
   return (
     <div>
       <div className="fixed top-0 right-0 z-[1000] md:hidden grid place-content-center">

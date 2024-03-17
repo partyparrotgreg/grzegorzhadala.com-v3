@@ -1,8 +1,7 @@
 "use client";
 
 import { ProjectType } from "@/types";
-import { ArrowRight, Eye } from "lucide-react";
-import { Badge } from "../ui/badge";
+import { ArrowRight } from "lucide-react";
 
 export const ProjectLineItem = ({
   client,
@@ -10,18 +9,18 @@ export const ProjectLineItem = ({
   role,
 }: Omit<ProjectType, "id">) => {
   return (
-    <div className="border-b border-border group md:h-24 overflow-hidden">
-      <div className="md:items-center p-4 md:px-6 md:h-24 flex flex-col md:flex-row justify-start md:transition-all text-2xl gap-2 md:gap-6 md:duration-500 md:group-hover:-translate-y-24 md:group-hover:delay-1000">
+    <div className="border-b border-border group lg:h-24 overflow-hidden relative">
+      <div className="lg:items-center p-4 lg:px-6 lg:h-24 flex flex-col lg:flex-row justify-start md:transition-all text-2xl gap-2 lg:gap-6 lg:duration-500 lg:group-hover:-translate-y-24 lg:group-hover:delay-1000">
         <div className="text-brand">{year}</div>
         <RedDot />
         <div>{client}</div>
         <RedDot />
         <div className="flex flex-grow text-muted-foreground">{role}</div>
-        <div className="absolute top-2 right-2 z-50 md:static">
+        <div className="absolute top-4 right-4 z-50 lg:static">
           <ArrowRight />
         </div>
       </div>
-      <div className="hidden items-center px-6 h-24 bg-foreground text-background md:flex flex-row justify-start transition-all text-2xl gap-6 duration-500 md:group-hover:delay-1000 translate-y-24 opacity-0 md:group-hover:-translate-y-24 group-hover:opacity-100">
+      <div className="hidden items-center px-6 h-24 bg-foreground text-background lg:flex flex-row justify-start transition-all text-2xl gap-6 duration-500 lg:group-hover:delay-1000 translate-y-24 opacity-0 lg:group-hover:-translate-y-24 group-hover:opacity-100">
         <div className="grow line-clamp-2">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem cupiditate, in minima temporibus impedit, similique
@@ -37,6 +36,6 @@ export const ProjectLineItem = ({
 
 const RedDot = () => {
   return (
-    <div className="hidden md:inline-block w-2 h-2 rounded-full bg-brand" />
+    <div className="hidden lg:inline-block w-2 h-2 rounded-full bg-brand" />
   );
 };

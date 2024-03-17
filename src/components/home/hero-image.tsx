@@ -1,10 +1,8 @@
 "use client";
 
-import { SplineEvent } from "@splinetool/react-spline";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useWindowScrollPosition, useWindowSize } from "rooks";
 import { SplineThingy } from "./spline";
-import { AnimatePresence, motion } from "framer-motion";
 
 export const HeroImage = () => {
   const [isMounted, setIsMounted] = useState(true);

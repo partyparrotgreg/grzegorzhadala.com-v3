@@ -13,13 +13,18 @@ export const nav = [
     target: undefined,
   },
   {
-    label: "Work",
+    label: "Clients",
+    href: "/clients",
+    target: undefined,
+  },
+  {
+    label: "Projects",
     href: "/projects",
     target: undefined,
   },
   {
-    label: "Challenges",
-    href: "/challenges",
+    label: "Blog",
+    href: "/blog",
     target: undefined,
   },
   {

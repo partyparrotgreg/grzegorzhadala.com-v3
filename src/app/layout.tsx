@@ -1,11 +1,10 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "@/components/providers/theme-provider";
-import { safiro } from "@/constants/fonts";
-import { MainNavigation } from "@/components/shared/main-navigation";
-import { GetInTouch } from "@/components/contact/get-in-touch";
 import { BlogCards } from "@/components/blog/blog-cards";
+import { GetInTouch } from "@/components/contact/get-in-touch";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { MainNavigation } from "@/components/shared/main-navigation";
+import { safiro } from "@/constants/fonts";
+import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",

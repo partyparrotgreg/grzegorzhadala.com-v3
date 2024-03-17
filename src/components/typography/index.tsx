@@ -24,6 +24,7 @@ export function TypographyHero({ children, ...props }: TypographyProps) {
     <p
       className={cn(
         "text-6xl",
+        "mt-4",
         "font-bold",
         "tracking-tight",
         "lg:text-8xl",

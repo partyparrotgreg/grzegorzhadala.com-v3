@@ -12,7 +12,7 @@ export default function Project({ params }: { params: { slug: string } }) {
                 key={index}
               >
                 <div className="text-primary opacity-60 text-xs font-normal">
-                  INDUSTRY
+                  INDUSTRY {params.slug.toUpperCase()}
                 </div>
                 <div className="text-primary text-xs font-normal">WEB3</div>
                 <div className="text-primary text-xs font-normal">WEB3</div>

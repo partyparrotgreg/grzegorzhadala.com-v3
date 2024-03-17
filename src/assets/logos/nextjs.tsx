@@ -1,7 +1,5 @@
 "use client";
 
-import { useTheme } from "next-themes";
-
 export const LogoNextjs = (
   props: React.SVGProps<SVGSVGElement>
 ): JSX.Element => {
