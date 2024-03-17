@@ -18,7 +18,7 @@ export const GetInTouch = () => {
             <ArrowUp />
           </Button>
         </div>
-        <div>
+        <div className="col-span-2 col-start-1">
           <TypographyP className="text-sm">
             Copyright © {currentYear} Grzegorz Hadala. All assets, artworks, and
             screenshots are copyright of their respective owners.

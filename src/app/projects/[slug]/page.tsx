@@ -1,5 +1,10 @@
 import { TypographyH3, TypographyP } from "@/components/typography";
 import Image from "next/image";
+
+// TODO: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
+// TODO: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image
+
+
 export default function Project({ params }: { params: { slug: string } }) {
   return (
     <div>
