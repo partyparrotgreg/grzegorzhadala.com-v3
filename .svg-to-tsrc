@@ -1,0 +1,17 @@
+{
+  "compileSources": true,
+  "fileName": "client-logo.model",
+  "interfaceName": "ClientLogo",
+  "outputDirectory": "./src/assets/logos/clients-generated",
+  "prefix": "clientLogo",
+  "srcFiles": [
+    "./src/assets/logos/**/*.svg"
+  ],
+  "svgoConfig": {
+    "plugins": [
+      "cleanupAttrs"
+    ]
+  },
+  "tsx": true,
+  "typeName": "clientLogo"
+}

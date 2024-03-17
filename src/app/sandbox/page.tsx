@@ -1,4 +1,5 @@
 import { LogoNextjs } from "@/assets/logos/nextjs";
+import { Clients } from "@/components/home/clients";
 import { UICard } from "@/components/shared/card";
 import { TypographyDemo } from "@/components/typography";
 import { SectionTitle } from "@/components/typography/section-title";
@@ -22,6 +23,7 @@ export default function Page() {
       <UICard title="NextJS by Vercel" description="Framework">
         asdad
       </UICard>
+      <Clients />
     </div>
   );
 }
