@@ -15,7 +15,7 @@ import {
   ClientLogoLogoRoyaleson,
 } from "@/assets/logos/clients-generated";
 
-export const clientsLogos = [
+export const clientsLogos: React.ComponentType[] = [
   ClientLogoLogoAdyen,
   ClientLogoLogoAllegro,
   ClientLogoLogoCambridgeSatchel,
@@ -30,4 +30,4 @@ export const clientsLogos = [
   ClientLogoLogoProdigi,
   ClientLogoLogoRolla,
   ClientLogoLogoRoyaleson,
-];
+] as const;
