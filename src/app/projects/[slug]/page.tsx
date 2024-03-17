@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function Project({ params }: { params: { slug: string } }) {
   return (
     <div>
-      <div className="bg-blue-500 sticky inset-0 content-padding pt-24 pl-24 pr-24">
+      <div className="sticky inset-0 content-padding pt-36">
         <div className="flex-col justify-start items-start inline-flex">
           <div className="flex flex-row gap-16">
             {Array.from({ length: 3 }).map((_, index) => (
