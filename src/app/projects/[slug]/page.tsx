@@ -138,7 +138,7 @@ export default function Project({ params }: { params: { slug: string } }) {
           <div
             className={cn(
               "col-span-2 row-span-2",
-              "bg-muted/50 object-contain flex items-center justify-center w-full  transition-all duration-300 overflow-hidden aspect-square h-auto"
+              "bg-muted object-contain flex items-center justify-center w-full  transition-all duration-300 overflow-hidden aspect-square h-auto"
             )}
           >
             <Image
@@ -149,13 +149,9 @@ export default function Project({ params }: { params: { slug: string } }) {
               className="block object-contain w-full h-full"
             />
           </div>
-          <div
-            className={cn(
-              "bg-muted/50 object-contain flex items-center justify-center w-full  transition-all duration-300 overflow-hidden aspect-square h-auto"
-            )}
-          >
+          <div className="bg-muted object-contain flex items-center justify-center w-full  transition-all duration-300 overflow-hidden aspect-square h-auto">
             <Image
-              src={FreeBirdMockup}
+              src={FreeBirdWatch}
               width={800}
               height={800}
               alt=""
@@ -164,7 +160,7 @@ export default function Project({ params }: { params: { slug: string } }) {
           </div>
           <div
             className={cn(
-              "bg-muted/50 object-contain flex items-center justify-center w-full  transition-all duration-300 overflow-hidden aspect-square h-auto"
+              "bg-muted object-contain flex items-center justify-center w-full  transition-all duration-300 overflow-hidden aspect-square h-auto"
             )}
           >
             <Image
@@ -189,7 +185,7 @@ export default function Project({ params }: { params: { slug: string } }) {
           {Array.from({ length: 6 }).map((_, index) => (
             <div
               className={cn(
-                "bg-muted/50 object-contain flex items-center justify-center w-full  transition-all duration-300 overflow-hidden aspect-square h-auto",
+                "bg-muted object-contain flex items-center justify-center w-full  transition-all duration-300 overflow-hidden aspect-square h-auto",
                 index % 3 === 0 ? "lg:col-span-2" : "lg:col-span-1"
               )}
               key={index}
