@@ -1,8 +1,12 @@
+import { ClientsGrid } from "@/components/clients/clients-grid";
+import { HomeFeature } from "@/components/home/feature";
+import { clientsLogos } from "@/constants/clients";
+
 export default function ClientsPage() {
   return (
     <div>
-      <h1>Clients</h1>
-      <p>This is the clients page</p>
+      <HomeFeature index={0} p={clientsLogos.length} isOdd={false} />
+      <ClientsGrid />
     </div>
   );
 }

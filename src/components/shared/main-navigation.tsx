@@ -33,7 +33,7 @@ export const MainNavigation = () => {
           isScrolled ? "bg-background" : ""
         }`}
       >
-        <div className="flex-grow font-normal tracking-tight flex uppercase pl-4 md:pl-6">
+        <div className="flex-grow font-normal tracking-tight flex uppercase pl-4 md:pl-4 lg:pl-6">
           <Link href={"/"} className="flex">
             Greg Hadala &mdash;&nbsp;
             <WordCycleAnimation
@@ -53,7 +53,7 @@ export const MainNavigation = () => {
             />
           </Link>
         </div>
-        <div className="hidden md:flex">
+        <div className="hidden md:flex gap-3">
           <Menu />
           <ThemeSwitch />
         </div>

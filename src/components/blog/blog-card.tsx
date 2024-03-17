@@ -36,7 +36,7 @@ export const BlogCard = ({
           ))}
         </div>
       </div>
-      <p className="text-2xl w-full line-clamp-2 font-medium tracking-tight lg:group-hover:px-4 lg:group-hover:-mt-2  transition-all lg:group-hover:text-white">
+      <p className="text-2xl w-full line-clamp-2 font-medium tracking-tight lg:group-hover:px-4 lg:group-hover:-mt-2  transition-all lg:group-hover:text-background">
         {summary}
       </p>
     </Link>

@@ -87,4 +87,7 @@
   .content-padding {
     @apply py-4 px-4 md:py-4 md:px-4 lg:py-6 lg:px-6;
   }
+  .project-hero-padding {
+    @apply py-8 px-4 md:py-8 md:px-4 lg:py-12 lg:px-6;
+  }
 }

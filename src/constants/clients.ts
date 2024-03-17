@@ -1,0 +1,33 @@
+import {
+  ClientLogoLogoAdyen,
+  ClientLogoLogoAllegro,
+  ClientLogoLogoCambridgeSatchel,
+  ClientLogoLogoHomePhilosophy,
+  ClientLogoLogoCanon,
+  ClientLogoLogoFounderLightning,
+  ClientLogoLogoLatetrip,
+  ClientLogoLogoM87,
+  ClientLogoLogoOrsay,
+  ClientLogoLogoPayu,
+  ClientLogoLogoPepsico,
+  ClientLogoLogoProdigi,
+  ClientLogoLogoRolla,
+  ClientLogoLogoRoyaleson,
+} from "@/assets/logos/clients-generated";
+
+export const clientsLogos = [
+  ClientLogoLogoAdyen,
+  ClientLogoLogoAllegro,
+  ClientLogoLogoCambridgeSatchel,
+  ClientLogoLogoHomePhilosophy,
+  ClientLogoLogoCanon,
+  ClientLogoLogoFounderLightning,
+  ClientLogoLogoLatetrip,
+  ClientLogoLogoM87,
+  ClientLogoLogoOrsay,
+  ClientLogoLogoPayu,
+  ClientLogoLogoPepsico,
+  ClientLogoLogoProdigi,
+  ClientLogoLogoRolla,
+  ClientLogoLogoRoyaleson,
+];

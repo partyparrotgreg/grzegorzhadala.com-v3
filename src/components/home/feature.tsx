@@ -1,11 +1,18 @@
 import { TypographyHero, TypographyP } from "../typography";
 
-export const HomeFeature = ({ p, index }: { index: number; p: number }) => {
-  const isOdd = (num: number) => num % 2 === 0;
+export const HomeFeature = ({
+  p,
+  index,
+  isOdd = false,
+}: {
+  index: number;
+  p: number;
+  isOdd: boolean;
+}) => {
   return (
     <div
       className={`h-screen grid place-content-center overflow-hidden p-4 md:p-0 ${
-        isOdd(index) ? "bg-background" : "bg-muted"
+        isOdd ? "bg-background" : "bg-muted"
       }`}
       key={index}
     >

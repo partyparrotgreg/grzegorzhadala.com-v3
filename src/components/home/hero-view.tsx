@@ -23,8 +23,8 @@ export const HeroView = () => {
           <Button variant={"outline"}>Get in touch</Button>
         </div>
       </div>
-      {!isDev && <HeroImage />}
-      <div className="w-full h-full absolute -bottom-6 z-[10] bg-gradient-to-t from-background to-transparent outline-2 outline-gray-300" />
+      {isDev && <HeroImage />}
+      <div className="w-full h-full absolute -bottom-6 z-[10] bg-gradient-to-t from-background to-transparent" />
     </div>
   );
 };

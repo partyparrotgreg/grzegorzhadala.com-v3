@@ -31,7 +31,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <MainNavigation />
-          <main>{children}</main>
+          <main className="">{children}</main>
           <div className="relative z-[100]">
             <BlogCards />
             <GetInTouch />

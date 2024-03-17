@@ -21,7 +21,7 @@ export interface TypographyListProps {
 export function TypographyHero({ children, ...props }: TypographyProps) {
 
   return (
-    <p
+    <h1
       className={cn(
         "text-6xl",
         "mt-4",
@@ -32,7 +32,7 @@ export function TypographyHero({ children, ...props }: TypographyProps) {
       )}
     >
       {children}
-    </p>
+    </h1>
   );
 }
 

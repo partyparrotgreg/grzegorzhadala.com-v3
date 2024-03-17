@@ -10,7 +10,12 @@ export default function Home() {
       <HeroView />
       <div className="relative z-auto bg-background">
         {[17, 100, 400].map((p, index) => (
-          <HomeFeature p={p} index={index} key={index} />
+          <HomeFeature
+            p={p}
+            index={index}
+            key={index}
+            isOdd={index % 2 === 0}
+          />
         ))}
         <FeaturedProject />
         <ProcessOverview />
