@@ -8,15 +8,16 @@ import {
   DrawerFooter,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { nav } from "@/constants/nav";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ButtonLinkedIn } from "../contact/button-linkedin";
 import { ThemeSwitch } from "./theme-switch";
 import { useState } from "react";
+import { useSiteNavigation } from "@/hooks/useSiteNavigation";
 
 export function MobileNavigation() {
+  const { navItems } = useSiteNavigation();
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
@@ -39,7 +40,7 @@ export function MobileNavigation() {
       <DrawerContent>
         <div className="p-6 flex flex-col grow justify-between ">
           <nav className="flex flex-col gap-4 uppercase transition-opacity">
-            {nav.map(({ label, href }, index) => (
+            {navItems.map(({ label, href }, index) => (
               <DrawerClose asChild key={`nav-item-${index}`}>
                 <Link href={href} className={linkClass(href)}>
                   {label}
