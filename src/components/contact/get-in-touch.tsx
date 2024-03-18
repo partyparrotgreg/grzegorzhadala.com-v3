@@ -12,7 +12,7 @@ export const GetInTouch = () => {
     <div className="bg-brand text-black content-padding min-h-96 justify-between">
       <div className="flex flex-col justify-between w-full h-full outline-2">
         <div className="flex flex-row justify-between outline-1 outline-black">
-          <TypographyHero>Get in touch asdas</TypographyHero>
+          <TypographyHero>Get in touch</TypographyHero>
           <div className="flex justify-end">
             <Button size={"icon"} variant={"ghost"} onClick={scrollToTop}>
               <ArrowUp />
