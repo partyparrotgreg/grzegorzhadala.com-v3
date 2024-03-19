@@ -20,7 +20,7 @@ export const ProjectLineItem = ({
           <ArrowRight />
         </div>
       </div>
-      <div className="hidden items-center px-6 h-24 bg-foreground text-background lg:flex flex-row justify-start transition-all text-2xl gap-6 duration-500 lg:group-hover:delay-1000 translate-y-24 opacity-0 lg:group-hover:-translate-y-24 group-hover:opacity-100">
+      <div className="hidden items-center px-6 h-24 bg-brand text-black lg:flex flex-row justify-start transition-all text-2xl gap-6 duration-500 lg:group-hover:delay-1000 translate-y-24 opacity-0 lg:group-hover:-translate-y-24 group-hover:opacity-100">
         <div className="grow line-clamp-2">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem cupiditate, in minima temporibus impedit, similique
