@@ -5,12 +5,14 @@ import { InfiniteMovingCardsDemo } from "@/components/shared/marquee-logos";
 import { TypographyDemo } from "@/components/typography";
 import { SectionTitle } from "@/components/typography/section-title";
 import { Button } from "@/components/ui/button";
+import { InfiniteMovingCards } from "@/components/ui/infinite-marquee";
 import { UISwiper } from "@/components/ui/swiper";
 import { clientsLogos } from "@/constants/clients";
 import { ArrowRightIcon } from "lucide-react";
 import { SwiperOptions } from "swiper/types";
 
 export default function Page() {
+  const words = ["DESIGN", "DEVELOP", "DEPLOY", "TEST", "LAUNCH"];
   const swiperOptions: SwiperOptions = {
     breakpoints: {
       // when window width is >= 320px
@@ -44,6 +46,18 @@ export default function Page() {
         asdad
       </UICard>
       <InfiniteMovingCardsDemo />
+      <div className="h-[10rem] flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+        <InfiniteMovingCards
+          items={words.map((word, index) => (
+            <div key={index} className="flex items-center">
+              <div className="text-9xl">{word}</div>
+              <div className="w-4 h-4 bg-brand ml-20 rounded-full" />
+            </div>
+          ))}
+          direction="left"
+          speed="slow"
+        />
+      </div>
       <ClientsGrid />
       <SectionTitle>Clients</SectionTitle>
       <div className="flex flex-row relative">

@@ -1,7 +1,6 @@
-import FreeBirdWatch from "@/assets/FreeBird-Watch.png";
-import FreeBirdMockup from "@/assets/freebird_square.png";
 import { HomeFeature } from "@/components/home/feature";
-import { ProjectImagesGrid } from "@/components/project/project-images-grid";
+import { FlowGrid } from "@/components/project/flow-grid";
+
 import { SectionContainer } from "@/components/project/section-container";
 import {
   TypographyH3,
@@ -11,7 +10,6 @@ import {
 import { SectionTitle } from "@/components/typography/section-title";
 import { Button } from "@/components/ui/button";
 import { clientsLogos } from "@/constants/clients";
-import { cn } from "@/lib/utils";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -121,7 +119,7 @@ export default function Project({ params }: { params: { slug: string } }) {
           <div>
             {content.process.map(({ title, description }, index) => (
               <div
-                className="grid grid-cols-2 gap-24 py-8 border-b"
+                className="flex flex-col sm:grid sm:grid-cols-2 gap-4 sm:gap-24 py-8 border-b"
                 key={index}
               >
                 <TypographyH3>{title}</TypographyH3>
@@ -130,76 +128,8 @@ export default function Project({ params }: { params: { slug: string } }) {
             ))}
           </div>
         </SectionContainer>
-        <SectionContainer>
-          <ProjectImagesGrid />
-        </SectionContainer>
 
-        <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4 gap-1 content-padding grid-rows-2">
-          <div
-            className={cn(
-              "col-span-2 row-span-2",
-              "bg-muted object-contain flex items-center justify-center w-full  transition-all duration-300 overflow-hidden aspect-square h-auto"
-            )}
-          >
-            <Image
-              src={FreeBirdMockup}
-              width={800}
-              height={800}
-              alt=""
-              className="block object-contain w-full h-full"
-            />
-          </div>
-          <div className="bg-muted object-contain flex items-center justify-center w-full  transition-all duration-300 overflow-hidden aspect-square h-auto">
-            <Image
-              src={FreeBirdWatch}
-              width={800}
-              height={800}
-              alt=""
-              className="block object-contain w-full h-full"
-            />
-          </div>
-          <div
-            className={cn(
-              "bg-muted object-contain flex items-center justify-center w-full  transition-all duration-300 overflow-hidden aspect-square h-auto"
-            )}
-          >
-            <Image
-              src={FreeBirdMockup}
-              width={800}
-              height={800}
-              alt=""
-              className="block object-contain w-full h-full"
-            />
-          </div>
-          <div className="col-span-2 row-span-1 content-padding grid place-content-center">
-            <p className="line-clamp-4 max-w-[60ch]">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatem ea, modi deleniti incidunt maxime labore deserunt eos
-              quaerat adipisci, commodi iste eaque recusandae. Fugiat in quasi
-              praesentium unde necessitatibus esse?
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 content-padding">
-          {Array.from({ length: 6 }).map((_, index) => (
-            <div
-              className={cn(
-                "bg-muted object-contain flex items-center justify-center w-full  transition-all duration-300 overflow-hidden aspect-square h-auto",
-                index % 3 === 0 ? "lg:col-span-2" : "lg:col-span-1"
-              )}
-              key={index}
-            >
-              <Image
-                src={index % 2 === 0 ? FreeBirdMockup : FreeBirdWatch}
-                width={800}
-                height={800}
-                alt=""
-                className="block object-contain w-full h-full"
-              />
-            </div>
-          ))}
-        </div>
+        <FlowGrid />
       </div>
     </div>
   );

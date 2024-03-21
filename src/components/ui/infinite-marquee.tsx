@@ -10,7 +10,7 @@ export const InfiniteMovingCards = ({
   pauseOnHover = true,
   className,
 }: {
-  items: React.ComponentType[];
+  items: React.ComponentType[] | React.ReactNode[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
@@ -69,14 +69,14 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20  w-full overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller relative z-20  w-full overflow-hidden",
         className
       )}
     >
       <ul
         ref={scrollerRef}
         className={cn(
-          " flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
+          "flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
           start && "animate-scroll ",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
@@ -84,7 +84,7 @@ export const InfiniteMovingCards = ({
         {items.map((Item, index) => {
           return (
             <li className="relative flex-shrink-0 px-8 py-6" key={index}>
-              <Item />
+              {typeof Item === "function" ? <Item /> : Item}
             </li>
           );
         })}

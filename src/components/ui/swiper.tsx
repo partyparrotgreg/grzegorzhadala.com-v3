@@ -4,16 +4,10 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeftRight } from "lucide-react";
-import React, {
-  CSSProperties,
-  MouseEvent,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import React, { CSSProperties, MouseEvent, useEffect, useState } from "react";
 import "swiper/css";
 import { Swiper, SwiperProps, SwiperSlide } from "swiper/react";
-import { SwiperEvents, SwiperOptions } from "swiper/types";
+import { SwiperOptions } from "swiper/types";
 
 export const UISwiper = ({
   items,
@@ -34,6 +28,7 @@ export const UISwiper = ({
       y: e.clientY,
     });
   };
+  // update mouse position on mouse move when mouse down (drag)
 
   const mergedClassName = cn("w-full", className);
 
@@ -46,25 +41,22 @@ export const UISwiper = ({
   }, [isHovering]);
 
   return items ? (
-    <>
+    <div
+      className="min-w-full"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      onMouseMove={isHovering ? handleMouseMove : undefined}
+      onMouseDown={() => setIsHovering(true)}
+    >
       <AnimatePresence>
         {isHovering && <CustomCursor x={cursorPos.x} y={cursorPos.y} />}
       </AnimatePresence>
       <Swiper className={mergedClassName} {...props} {...options}>
         {items.map((item, index) => (
-          <SwiperSlide
-            key={index}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-            // onMouseEnter={() => setIsHovering(true)}
-            // onMouseLeave={() => setIsHovering(false)}
-            onMouseMove={isHovering ? handleMouseMove : undefined}
-          >
-            {item}
-          </SwiperSlide>
+          <SwiperSlide key={index}>{item}</SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   ) : (
     <div>No items</div>
   );
