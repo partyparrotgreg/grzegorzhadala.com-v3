@@ -5,13 +5,13 @@ import Link from "next/link";
 import query from "./page.graphql";
 import DatoImage from "@/components/shared/dato-image";
 
-const getHomepageContent = async () => await request(query);
+const getProjectsContent = async () => await request(query);
 
 export default async function Projects() {
   const {
     projects,
     meta: { count },
-  } = await getHomepageContent();
+  } = await getProjectsContent();
   return (
     <div className="content-padding mt-16">
       <TypographyH1>Projects {count}</TypographyH1>
@@ -22,7 +22,7 @@ export default async function Projects() {
               <DatoImage
                 pictureClassName="xl:w-auto xl:h-screen"
                 layout="responsive"
-                fragment={project.cover.responsiveImage}
+                fragment={project.cover.responsiveImage!}
               />
               <div>
                 {project.projectName} / {project.client?.company}

@@ -1,23 +1,20 @@
-import { HomeFeature } from "@/components/home/feature";
 import { HeroView } from "@/components/home/hero-view";
 import { ProcessOverview } from "@/components/process/process-overview";
-import { FeaturedProject } from "@/components/project/featured-project";
 import { ProjectListLines } from "@/components/project/project-list-lines";
+import { InfiniteMovingCardsDemo } from "@/components/shared/marquee-logos";
 
-export default function Home() {
+// const getHomepageContent = async () => await request(query);
+
+export default async function Home() {
+  // const {
+  //   clients,
+  //   clientsMeta: { count },
+  // } = await getHomepageContent();
   return (
     <div>
       <HeroView />
       <div className="relative z-auto bg-background">
-        {[17, 100, 400].map((p, index) => (
-          <HomeFeature
-            p={p}
-            index={index}
-            key={index}
-            isOdd={index % 2 === 0}
-          />
-        ))}
-        <FeaturedProject />
+        <InfiniteMovingCardsDemo />
         <ProcessOverview />
         <ProjectListLines />
       </div>
