@@ -14,7 +14,7 @@ export default async function Projects() {
   return (
     <div className="content-padding mt-16">
       <TypographyH1>Projects {count}</TypographyH1>
-      <div>
+      <div className="flex flex-col gap-4">
         {projects.map((project) => (
           <Link key={project.id} href={`/projects/${project.slug}`} passHref>
             {project.projectName}
