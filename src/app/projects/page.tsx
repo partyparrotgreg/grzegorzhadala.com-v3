@@ -1,14 +1,25 @@
 import { TypographyH1 } from "@/components/typography";
+import { request } from "@/lib/dato";
 import Link from "next/link";
 
-export default function Projects() {
+import query from "./page.graphql";
+
+const getHomepageContent = async () => await request(query);
+
+export default async function Projects() {
+  const {
+    projects,
+    meta: { count },
+  } = await getHomepageContent();
   return (
     <div className="content-padding mt-16">
-      <TypographyH1>Projects</TypographyH1>
+      <TypographyH1>Projects {count}</TypographyH1>
       <div>
-        <Link href="/projects/1" passHref>
-          project 1
-        </Link>
+        {projects.map((project) => (
+          <Link key={project.id} href={`/projects/${project.slug}`} passHref>
+            {project.projectName}
+          </Link>
+        ))}
       </div>
     </div>
   );
