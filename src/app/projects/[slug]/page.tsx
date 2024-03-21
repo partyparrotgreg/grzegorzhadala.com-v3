@@ -1,67 +1,45 @@
-import { HomeFeature } from "@/components/home/feature";
-import { FlowGrid } from "@/components/project/flow-grid";
-
-import { SectionContainer } from "@/components/project/section-container";
 import {
-  TypographyH3,
+  TypographyH2,
   TypographyHero,
   TypographyP,
 } from "@/components/typography";
 import { SectionTitle } from "@/components/typography/section-title";
 import { Button } from "@/components/ui/button";
-import { clientsLogos } from "@/constants/clients";
+import { request } from "@/lib/dato";
+import { isHeading, isParagraph } from "datocms-structured-text-utils";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 // TODO: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 // TODO: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image
 
-const content = {
-  process: [
-    {
-      title: "Discovery",
-      description:
-        "We start by understanding your business, your customers, and your goals. We then define the project scope, timeline, and resources required.",
-    },
-    {
-      title: "Design",
-      description:
-        "We create a visual representation of your product, including wireframes and mockups. This stage helps us understand the user experience and the user interface.",
-    },
-    {
-      title: "Development",
-      description:
-        "We bring the designs to life. Our team of developers and engineers work together to build the product and ensure it meets your business needs.",
-    },
-    {
-      title: "Testing",
-      description:
-        "We test the product to ensure it meets the requirements and is free of bugs. We also test the product with real users to gather feedback.",
-    },
-    {
-      title: "Launch",
-      description:
-        "We deploy the product to production and ensure it is ready for your customers. We also provide support and maintenance after the launch.",
-    },
-  ],
-};
+import { FlowGrid } from "@/components/project/flow-grid";
+import DatoImage from "@/components/shared/dato-image";
+import { UISwiper } from "@/components/ui/swiper";
+import { cn } from "@/lib/utils";
+import {
+  StructuredText,
+  StructuredTextDocument,
+  renderNodeRule,
+} from "react-datocms/structured-text";
+import { SwiperOptions } from "swiper/types";
+import query from "./page.graphql";
 
-export default function Project({ params }: { params: { slug: string } }) {
-  console.log(params);
-  return (
+const getProjectData = async (slug: string) => await request(query, { slug });
+
+export default async function Project({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { project } = await getProjectData(params.slug);
+
+  return !project ? (
+    <div>Loading...</div>
+  ) : (
     <div>
-      <div className="z-0 w-full aspect-video fixed top-0 left-0 right-0 h-1/2">
-        <Image
-          src="/images/head3.png"
-          width={1603}
-          height={506}
-          alt=""
-          className="relative object-cover w-full h-full transition-all duration-300"
-        />
-      </div>
       <SectionTitle
         action={
-          <Link href={"https://rolla.fi"} target="_blank">
+          <Link href={project.client?.website} target="_blank">
             <Button size={"sm"} variant={"outline"}>
               Website <ArrowUpRight size={16} className="ml-2" />
             </Button>
@@ -73,19 +51,18 @@ export default function Project({ params }: { params: { slug: string } }) {
             <ArrowLeft />
           </Button>
         </Link>{" "}
-        Rolla
+        {project.client?.company}
       </SectionTitle>
 
       <div className="relative z-50 bg-background">
         <div className="content-padding space-y-12">
-          <TypographyHero>Options Trading Platform</TypographyHero>
+          <TypographyHero>{project?.projectName}</TypographyHero>
           <div className="grid sm:grid-cols-4 gap-8">
             <div className="flex-col justify-start items-start gap-2 flex">
               <div className="text-brand font-normal uppercase">Expertise</div>
-              <TypographyP>Product Design</TypographyP>
-              <TypographyP>Brand Design</TypographyP>
-              <TypographyP>Frontend Development</TypographyP>
-              <TypographyP>React Native</TypographyP>
+              {project.skills.map(({ name, id }) => (
+                <TypographyP key={id}>{name}</TypographyP>
+              ))}
             </div>
             <div className="flex-col justify-start items-start gap-2 flex">
               <div className="text-brand font-normal uppercase">Industry</div>
@@ -94,42 +71,115 @@ export default function Project({ params }: { params: { slug: string } }) {
             </div>
             <div className="flex-col justify-start items-start gap-2 flex col-span-2">
               <div className="text-brand font-normal uppercase">About</div>
-              <TypographyP className="">
-                My role was to create branding, design system, web & mobile app
-                designs and also help with marketing: landing page and social
-                media. After setting up foundations (tokens, design system,
-                patterns) my design work was reduced to minimum and I started to
-                help with implementing the UI in ReactJS/Native apps.
-              </TypographyP>
+              <TypographyP>{project.summary}</TypographyP>
             </div>
           </div>
         </div>
-        <div className="z-0 w-full aspect-square lg:aspect-video h-full">
-          <Image
-            src="/images/head3.png"
-            width={1603}
-            height={506}
-            alt=""
-            className="relative object-cover w-full h-full transition-all duration-300"
+        <div
+          className={cn(
+            "bg-muted",
+            "z-0 w-full aspect-square lg:aspect-video h-full p-24"
+          )}
+          style={{
+            backgroundColor: project.color?.hex,
+          }}
+        >
+          <DatoImage
+            pictureClassName="relative object-cover w-full h-full"
+            layout="responsive"
+            fragment={project.cover.responsiveImage}
           />
         </div>
-        <HomeFeature index={0} p={clientsLogos.length} isOdd={false} />
+        {/* <HomeFeature index={0} p={clientsLogos.length} isOdd={false} /> */}
 
-        <SectionContainer>
-          <div>
-            {content.process.map(({ title, description }, index) => (
-              <div
-                className="flex flex-col sm:grid sm:grid-cols-2 gap-4 sm:gap-24 py-8 border-b"
-                key={index}
-              >
-                <TypographyH3>{title}</TypographyH3>
-                <TypographyP>{description}</TypographyP>
-              </div>
-            ))}
-          </div>
-        </SectionContainer>
+        {/* <FlowGrid /> */}
+        <div className="structured-text-container">
+          <StructuredText
+            customNodeRules={[
+              renderNodeRule(isHeading, ({ adapter: {}, children, key }) => {
+                return <TypographyH2 key={key}>{children}</TypographyH2>;
+              }),
+              renderNodeRule(
+                isParagraph,
+                ({ adapter: {}, children, key, ancestors }) => {
+                  return <TypographyP key={key}>{children}</TypographyP>;
+                }
+              ),
+            ]}
+            // customMarkRules={[
+            //   // convert "strong" marks into <b> tags
+            //   renderMarkRule("strong", ({ mark, children, key }) => {
+            //     return <strong key={key}>{children}</strong>;
+            //   }),
+            // ]}
+            data={project?.body as StructuredTextDocument}
+            renderBlock={({ record }) => {
+              if (record.__typename === "FlowBlockRecord") {
+                return (
+                  <div className="full-width">
+                    <FlowGrid
+                      images={record.images}
+                      title={record.title}
+                      description={record.description}
+                    />
+                  </div>
+                );
+              }
+              if (record.__typename === "MobileStackRecord") {
+                const swiperOptions: SwiperOptions = {
+                  breakpoints: {
+                    // when window width is >= 320px
+                    320: {
+                      slidesPerView: 1.2,
+                    },
+                    // when window width is >= 480px
+                    480: {
+                      slidesPerView: 2.2,
+                    },
+                    // when window width is >= 640px
+                    640: {
+                      slidesPerView: 3.2,
+                    },
+                    1000: {
+                      slidesPerView: 4.2,
+                    },
+                  },
+                };
+                return (
+                  <div
+                    className="flex flex-col relative border-border"
+                    style={{
+                      borderBlockStartWidth: "1px",
+                      borderBlockEndWidth: "1px",
+                    }}
+                  >
+                    <div className="grow flex w-full relative col-span-6   user-select-none">
+                      <UISwiper
+                        pagination={true}
+                        spaceBetween={0}
+                        {...swiperOptions}
+                        items={record.images.map(({ responsiveImage }) => (
+                          <div key={responsiveImage.src} className="m-6">
+                            <DatoImage
+                              pictureClassName="rounded-3xl pointer-events-none user-select-none"
+                              key={responsiveImage.src}
+                              layout="responsive"
+                              fragment={responsiveImage}
+                            />
+                          </div>
+                        ))}
+                      />
+                    </div>
+                  </div>
+                );
+              }
 
-        <FlowGrid />
+              return (
+                <div className="bg-brand">{JSON.stringify(record)} asasd</div>
+              );
+            }}
+          />
+        </div>
       </div>
     </div>
   );

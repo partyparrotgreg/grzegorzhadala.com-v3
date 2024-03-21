@@ -5,9 +5,24 @@ export default graphql(/* GraphQL */ `
     projects: allProjects {
       id
       projectName
-      slug
       _status
       _firstPublishedAt
+      client {
+        company
+      }
+      summary
+      slug
+      cover {
+        responsiveImage {
+          src
+          srcSet
+          base64
+          width
+          height
+          alt
+          title
+        }
+      }
     }
 
     meta: _allProjectsMeta {
