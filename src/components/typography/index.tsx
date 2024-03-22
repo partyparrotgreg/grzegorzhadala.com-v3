@@ -23,12 +23,12 @@ export function TypographyHero({ children, ...props }: TypographyProps) {
   return (
     <h1
       className={cn(
+        props.className,
         "text-6xl",
         "mt-4",
         "font-bold",
         "tracking-tight",
-        "lg:text-8xl",
-        props.className
+        "lg:text-8xl"
       )}
     >
       {children}

@@ -23,13 +23,13 @@ export const MainNavigation = () => {
   }, [position]);
 
   return (
-    <div>
+    <>
       <div className="fixed top-0 right-0 z-[1000] md:hidden grid place-content-center">
         <MobileNavigation />
       </div>
 
       <div
-        className={`overflow-hidden transition-all flex flex-row h-12 md:h-12 justify-between gap-4 fixed top-0 left-0 right-0 items-center z-[900] ${
+        className={`overflow-hidden transition-all flex flex-row h-12 md:h-12 justify-between gap-4 sticky top-0 left-0 right-0 items-center z-[900] ${
           isScrolled ? "bg-background" : ""
         }`}
       >
@@ -58,6 +58,6 @@ export const MainNavigation = () => {
           <ThemeSwitch />
         </div>
       </div>
-    </div>
+    </>
   );
 };

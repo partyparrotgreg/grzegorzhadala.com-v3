@@ -35,7 +35,7 @@
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
  
-    --radius: 0rem;
+    --radius: 0.5rem;
   }
  
   .dark {
@@ -43,7 +43,7 @@
 
     --brand: 9 100% 58%;
     /* --background: 0 0% 3.9%; */
-    --background: 35 10% 12%;
+    --background: 35 10% 5%;
     --foreground: 0 0% 90%;
  
     --card: 0 0% 3.9%;
@@ -87,7 +87,7 @@
 
 @layer components {
   .content-padding {
-    @apply py-4 px-4 md:py-4 md:px-4 lg:py-6 lg:px-6;
+    @apply py-4 px-0 md:py-4 md:px-0 lg:py-6 lg:px-0;
   }
   .project-hero-padding {
     @apply py-8 px-4 md:py-8 md:px-4 lg:py-12 lg:px-6;

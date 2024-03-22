@@ -1,31 +1,14 @@
 import { TypographyHero, TypographyP } from "../typography";
 
-export const HomeFeature = ({
-  p,
-  index,
-  isOdd = false,
-}: {
-  index: number;
-  p: number;
-  isOdd: boolean;
-}) => {
+export const HomeFeature = ({}: {}) => {
   return (
     <div
-      className={`h-screen grid place-content-center overflow-hidden p-4 md:p-0 ${
-        isOdd ? "bg-background" : "bg-muted"
-      }`}
-      key={index}
+      className={`min-h-[50dvh] flex flex-wrap flex-col overflow-hidden justify-end mb-20`}
     >
       <TypographyHero className="uppercase">
-        <span className="text-9xl md:text-[24rem] text-brand -translate-x-16 relative">
-          {p}
-        </span>
-        <span className="text-4xl md:text-9xl relative z-auto md:-translate-x-16 inline-block">
-          years
-        </span>
-      </TypographyHero>
-      <TypographyHero className="uppercase text-4xl md:-mt-12">
-        of experience
+        <span className="text-brand relative text-4xl md:text-9xl">2200</span>
+        <span className="relative z-auto">years</span>
+        <span className="relative z-auto">years</span>
       </TypographyHero>
       <TypographyP className="md:max-w-[36rem]">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam tempore
