@@ -6,7 +6,7 @@
   :root {
     /* --brand: 238 93% 44%; green */
     --brand: 9 100% 58%;
-    --background: 35 25% 95%;
+    --background: 35 25% 100%;
     /* --background: 0 0% 100%; hsla(35, 27%, 91%, 1) */
     --foreground: 0 0% 3.9%;
 
@@ -35,7 +35,7 @@
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
  
-    --radius: 0.5rem;
+    --radius: 0rem;
   }
  
   .dark {

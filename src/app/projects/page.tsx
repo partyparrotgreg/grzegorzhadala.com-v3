@@ -8,13 +8,9 @@ import DatoImage from "@/components/shared/dato-image";
 const getProjectsContent = async () => await request(query);
 
 export default async function Projects() {
-  const {
-    projects,
-    meta: { count },
-  } = await getProjectsContent();
+  const { projects } = await getProjectsContent();
   return (
-    <div className="content-padding mt-16">
-      <TypographyH1>Projects {count}</TypographyH1>
+    <div data-scroll-section>
       <div className="flex flex-col gap-4">
         {projects.map((project) => (
           <Link key={project.id} href={`/projects/${project.slug}`} passHref>

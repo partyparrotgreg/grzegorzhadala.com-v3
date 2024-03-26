@@ -8,7 +8,7 @@ export const SectionTitle = ({
   action,
   ...props
 }: TypographyProps & {
-  action?: React.ReactNode;
+  action?: React.ReactNode | undefined;
 }) => {
   return (
     <div

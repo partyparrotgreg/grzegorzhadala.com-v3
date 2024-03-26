@@ -1,16 +1,6 @@
 import { graphql } from "@/gql";
 
 export default graphql(/* GraphQL */ `
-  fragment DatoImage_ResponsiveImageFragment on ResponsiveImage {
-    src
-    srcSet
-    base64
-    width
-    height
-    alt
-    title
-  }
-
   query Projects {
     projects: allProjects {
       id
@@ -24,7 +14,13 @@ export default graphql(/* GraphQL */ `
       slug
       cover {
         responsiveImage {
-          ...DatoImage_ResponsiveImageFragment
+          src
+          srcSet
+          base64
+          width
+          height
+          alt
+          title
         }
       }
     }

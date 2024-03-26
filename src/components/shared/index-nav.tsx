@@ -2,10 +2,8 @@
 
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { MobileNavigation } from "./menu-drawer";
-import { ProjectListLines } from "../project/project-list-lines";
 import { ArrowRight, MenuIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 import { RedDot } from "./red-dot";
 
 export const IndexNav = () => {

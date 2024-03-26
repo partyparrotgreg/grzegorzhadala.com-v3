@@ -28,7 +28,8 @@ export function TypographyHero({ children, ...props }: TypographyProps) {
         "mt-4",
         "font-bold",
         "tracking-tight",
-        "lg:text-8xl"
+        "lg:text-8xl",
+        "text-background"
       )}
     >
       {children}

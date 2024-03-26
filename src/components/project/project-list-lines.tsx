@@ -1,40 +1,30 @@
 "use client";
 
-import { projectsMock } from "@/mocks/projects";
+import { ExperienceRecord } from "@/gql/graphql";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { SectionTitle } from "../typography/section-title";
 import { ProjectLineItem } from "./project-line-item";
-import { AnimatePresence, motion } from "framer-motion";
-import { ExperienceRecord } from "@/gql/graphql";
 
 export const ProjectListLines = ({
-  isSecondary,
   experiences,
 }: {
-  isSecondary?: boolean;
   experiences?: ExperienceRecord[];
 }) => {
   return (
     <div className="flex flex-col">
-      {!isSecondary && <SectionTitle>Experience</SectionTitle>}
+      <SectionTitle>Experience</SectionTitle>
       <motion.div transition={{ staggerChildren: 0.2 }}>
         <AnimatePresence>
-          {experiences.map((experience, index) => {
+          {experiences?.map((experience) => {
             return (
-              <MotionLink
+              <Link
                 href={`/projects/${experience.id}`}
                 key={experience.id}
                 passHref
-                className="flex"
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
               >
-                <ProjectLineItem
-                  client={experience.client.company}
-                  role={experience.role}
-                  year={experience.start}
-                />
-              </MotionLink>
+                <ProjectLineItem experience={experience} />
+              </Link>
             );
           })}
         </AnimatePresence>
@@ -43,4 +33,3 @@ export const ProjectListLines = ({
   );
 };
 
-const MotionLink = motion(Link);

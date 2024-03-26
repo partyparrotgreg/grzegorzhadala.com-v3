@@ -1,5 +1,6 @@
 import { LogoNextjs } from "@/assets/logos/nextjs";
 import { UICard } from "@/components/shared/card";
+import { GsapTest } from "@/components/shared/gsap-test";
 import { InfiniteMovingCardsDemo } from "@/components/shared/marquee-logos";
 import { TypographyDemo } from "@/components/typography";
 import { SectionTitle } from "@/components/typography/section-title";
@@ -26,6 +27,7 @@ export default function Page() {
       <UICard title="NextJS by Vercel" description="Framework">
         asdad
       </UICard>
+      <GsapTest />
       <InfiniteMovingCardsDemo />
       <div className="h-[10rem] flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
         <InfiniteMovingCards

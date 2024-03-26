@@ -17,11 +17,6 @@ export const useSiteNavigation = () => {
       href: "/about",
       target: undefined,
     },
-    {
-      label: "Sandbox",
-      href: "/sandbox",
-      target: undefined,
-    },
   ];
 
   const parsedNavigation = nav.filter((item) => {

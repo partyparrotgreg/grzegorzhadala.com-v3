@@ -1,9 +1,6 @@
 "use client";
 
-import { scrollToTop } from "@/lib/utils";
-import { ArrowUp } from "lucide-react";
 import { TypographyHero, TypographyP } from "../typography";
-import { Button } from "../ui/button";
 import { ButtonLinkedIn } from "./button-linkedin";
 
 export const GetInTouch = () => {
@@ -11,13 +8,8 @@ export const GetInTouch = () => {
   return (
     <div className="p-6 md:p-16 bg-brand text-black content-padding min-h-96 justify-between">
       <div className="flex flex-col justify-between w-full h-full outline-2">
-        <div className="flex flex-row justify-between outline-1 outline-black">
+        <div className="flex flex-row justify-between">
           <TypographyHero>Get in touch</TypographyHero>
-          <div className="flex justify-end">
-            <Button size={"icon"} variant={"ghost"} onClick={scrollToTop}>
-              <ArrowUp />
-            </Button>
-          </div>
         </div>
         <ButtonLinkedIn />
 
