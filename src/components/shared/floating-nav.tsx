@@ -2,10 +2,10 @@
 import { useSiteNavigation } from "@/hooks/useSiteNavigation";
 import { List } from "@phosphor-icons/react/dist/ssr";
 import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
 import { useState } from "react";
 import { useOnWindowScroll, useWindowScrollPosition } from "rooks";
 import { ThemeToggle, spring } from "./theme-toggle";
+import { UnderlineLink } from "./underline-link";
 export const FloatingNav = () => {
   const [hover, isHover] = useState(false);
   const position = useWindowScrollPosition();
@@ -39,7 +39,7 @@ export const FloatingNav = () => {
               <AnimatePresence>
                 {hover && (
                   <motion.ul
-                    className="flex flex-row items-center gap-4"
+                    className="flex flex-row items-center"
                     initial={{
                       opacity: 0,
                       width: 0,
@@ -67,12 +67,7 @@ export const FloatingNav = () => {
                           }}
                           transition={spring}
                         >
-                          <Link
-                            href={href}
-                            className="font-normal tracking-tight uppercase transition-opacity opacity-50 hover:opacity-100"
-                          >
-                            {label}
-                          </Link>
+                          <UnderlineLink href={href}>{label}</UnderlineLink>
                         </motion.li>
                       ))}
                     </AnimatePresence>
