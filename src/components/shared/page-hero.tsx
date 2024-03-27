@@ -1,14 +1,11 @@
 "use client";
 
-import HeroImage from "@/assets/heroImage.jpg";
 import { useSiteNavigation } from "@/hooks/useSiteNavigation";
-import Image from "next/image";
-import { SpotifyWidget } from "./spotify-widget";
-import { ThemeToggle } from "./theme-toggle";
-import { UnderlineLink } from "./underline-link";
+import { BigDescription } from "../typography/big-description";
 import { SectionGrid } from "./section-grid";
 import { TextDescription } from "./text-description";
-import { BigDescription } from "../typography/big-description";
+import { ThemeToggle } from "./theme-toggle";
+import { UnderlineLink } from "./underline-link";
 export const PageHero = () => {
   const { navItems } = useSiteNavigation();
   return (
@@ -72,16 +69,13 @@ export const PageHero = () => {
           />
         </SectionGrid>
       </div>
-      <div className="absolute bottom-0 right-0 z-50 section-padding">
-        <SpotifyWidget />
-      </div>
 
-      <Image
+      {/* <Image
         src={HeroImage}
         layout="fill"
         alt=""
         className="inset-0 object-cover z-0 w-full h-full"
-      />
+      /> */}
     </div>
   );
 };

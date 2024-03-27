@@ -1,12 +1,12 @@
-import { request } from "@/lib/dato";
-import query from "./page.graphql";
+import { ProjectImageCard } from "@/components/project/project-image-card";
 import { PageHero } from "@/components/shared/page-hero";
 import { SectionGrid } from "@/components/shared/section-grid";
-import { BigDescription } from "@/components/typography/big-description";
 import { SectionTitle } from "@/components/shared/section-title";
-import { FigmaLogo } from "@phosphor-icons/react/dist/ssr";
-import { ProjectImageCard } from "@/components/project/project-image-card";
+import { BigDescription } from "@/components/typography/big-description";
 import { UISwiper } from "@/components/ui/swiper";
+import { request } from "@/lib/dato";
+import { FigmaLogo } from "@phosphor-icons/react/dist/ssr";
+import query from "./page.graphql";
 
 const getHomepageContent = async () => await request(query);
 
