@@ -78,7 +78,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: #171616;
   }
   :focus-visible {
   @apply outline-1 outline-brand outline-offset-8 opacity-100;
@@ -92,6 +92,14 @@
   .project-hero-padding {
     @apply py-8 px-4 md:py-8 md:px-4 lg:py-12 lg:px-6;
   }
+}
 
- 
+@layer layout {
+  .section-padding {
+    @apply p-6 md:p-8 lg:p-12 xl:p-20 2xl:p-24;
+  }
+  
+  .section-gap {
+    @apply gap-6 md:gap-8 lg:gap-12 xl:gap-20 2xl:gap-24;
+  }
 }

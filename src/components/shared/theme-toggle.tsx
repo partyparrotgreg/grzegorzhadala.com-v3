@@ -30,18 +30,18 @@ export const ThemeToggle = () => {
 
   const containerSize = cn("w-10 h-[22px] rounded-full p-[3px] cursor-pointer");
 
-  const ligtClassContainer = cn(
-    containerSize,
-    "bg-white justify-start items-center gap-2 inline-flex"
-  );
-
   const darkClassContainer = cn(
     containerSize,
-    "border border-white justify-end items-center gap-2 inline-flex"
+    "bg-neutral-700 justify-end items-center gap-2 inline-flex"
+  );
+
+  const lightClassContainer = cn(
+    containerSize,
+    "border border-neutral-700 justify-start items-center gap-2 inline-flex"
   );
 
   const dotContainer = cn(
-    isDark ? "bg-white" : "bg-black",
+    isDark ? "bg-white" : "bg-neutral-700",
     "aspect-square w-4 rounded-full"
   );
 
@@ -53,7 +53,7 @@ export const ThemeToggle = () => {
     >
       <motion.div
         onClick={toggleTheme}
-        className={isDark ? darkClassContainer : ligtClassContainer}
+        className={isDark ? darkClassContainer : lightClassContainer}
         layout
         transition={spring}
         animate={{ width: hover ? 40 : 22 }}

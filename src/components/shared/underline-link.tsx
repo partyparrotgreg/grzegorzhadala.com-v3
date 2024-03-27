@@ -18,12 +18,11 @@ export const UnderlineLink = ({ children, ...props }: UnderlineLinkProps) => {
 
   const linkClass = cn(
     pathname === props.href ? "opacity-100" : "opacity-50 hover:opacity-100",
-    "text-white uppercase transition-colors relative overflow-hidden h-6 inline-flex"
+    "text-stone-700 uppercase transition-colors relative overflow-hidden h-6 inline-flex"
   );
 
   return (
     <MotionLink
-      layout
       onHoverStart={() => setHover(true)}
       onHoverEnd={() => setHover(false)}
       {...props}
@@ -33,8 +32,7 @@ export const UnderlineLink = ({ children, ...props }: UnderlineLinkProps) => {
       <AnimatePresence mode="wait">
         {hover && (
           <motion.div
-            className="absolute h-px bg-white bottom-px"
-            layoutId="underline"
+            className="absolute h-px bg-neutral-700 bottom-px"
             initial={{
               width: 0,
               x: 0,
