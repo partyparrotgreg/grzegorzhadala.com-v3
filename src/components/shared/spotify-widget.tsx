@@ -10,10 +10,10 @@ export const SpotifyWidget = () => {
       <div className="relative z-10 justify-center items-center gap-4 flex">
         <SpotifyLogo className="text-white" size={36} weight="fill" />
         <div className="flex-col justify-center items-start flex gap-1">
-          <div className="text-white text-base font-bold font-['Inter'] leading-none">
-            ENTROPYYY
+          <div className="text-white text-base font-medium leading-none truncate max-w-44">
+            ENTROPYYYa sdas sd asd
           </div>
-          <div className="opacity-70 text-white text-base font-normal font-['Inter'] leading-none">
+          <div className="opacity-70 text-white text-base font-normal leading-none  truncate max-w-44">
             Lorn
           </div>
         </div>

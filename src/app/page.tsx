@@ -1,10 +1,11 @@
 import { request } from "@/lib/dato";
-
 import query from "./page.graphql";
 import { PageHero } from "@/components/shared/page-hero";
 import { SectionGrid } from "@/components/shared/section-grid";
 import { BigDescription } from "@/components/typography/big-description";
 import { SectionTitle } from "@/components/shared/section-title";
+import { FigmaLogo } from "@phosphor-icons/react/dist/ssr";
+
 const getHomepageContent = async () => await request(query);
 
 export default async function Home() {
@@ -33,6 +34,34 @@ export default async function Home() {
                 illum!
               </p>
             </div>
+          </SectionGrid>
+        </div>
+        <div className="section-padding bg-[#877668] dark:bg-stone-900 text-[#EEEBE9] dark:text-stone-400 section-gap flex flex-col">
+          <SectionTitle>Tools & Stack</SectionTitle>
+          <SectionGrid>
+            <div className="col-start-5 col-span-8">
+              <BigDescription>
+                A creative problem solver specializing in visual, motion and
+                interaction design with experience designing for TV, web, mobile
+                and tablet. Currently designing the future of live TV and
+                streaming at Comcast.
+              </BigDescription>
+            </div>
+          </SectionGrid>
+          <SectionGrid>
+            {Array.from({ length: 12 }).map((_, index) => (
+              <div
+                className="col-span-4 flex-col justify-between items-start inline-flex gap-8"
+                key={index}
+              >
+                <FigmaLogo size={48} />
+                <div className="self-stretch">
+                  Design and prototype your web and mobile app interfaces
+                  collaboratively in real-time, streamlining feedback and
+                  iteration processes with team members and stakeholders.
+                </div>
+              </div>
+            ))}
           </SectionGrid>
         </div>
       </div>

@@ -34,7 +34,7 @@ export const FloatingNav = () => {
             onMouseEnter={() => isHover(true)}
             onMouseLeave={() => isHover(false)}
           >
-            <motion.div className="bg-neutral-200 backdrop-blur-lg rounded-full inline-flex h-11 px-3 overflow-hidden items-center">
+            <motion.div className="bg-neutral-200/70 backdrop-blur-lg rounded-full inline-flex h-11 px-3 overflow-hidden items-center">
               <motion.div
                 className="relative overflow-hidden"
                 animate={{
