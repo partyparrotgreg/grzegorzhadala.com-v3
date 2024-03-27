@@ -5,6 +5,8 @@ import { SectionGrid } from "@/components/shared/section-grid";
 import { BigDescription } from "@/components/typography/big-description";
 import { SectionTitle } from "@/components/shared/section-title";
 import { FigmaLogo } from "@phosphor-icons/react/dist/ssr";
+import { ProjectImageCard } from "@/components/project/project-image-card";
+import { UISwiper } from "@/components/ui/swiper";
 
 const getHomepageContent = async () => await request(query);
 
@@ -35,6 +37,21 @@ export default async function Home() {
               </p>
             </div>
           </SectionGrid>
+          <div className="relative negative-padding">
+            <UISwiper
+              options={{
+                centeredSlides: true,
+                slidesPerView: 1.2,
+                spaceBetween: 16,
+              }}
+              items={[
+                <ProjectImageCard key={1} />,
+                <ProjectImageCard key={2} />,
+                <ProjectImageCard key={3} />,
+                <ProjectImageCard key={4} />,
+              ]}
+            />
+          </div>
         </div>
         <div className="section-padding bg-[#877668] dark:bg-stone-900 text-[#EEEBE9] dark:text-stone-400 section-gap flex flex-col">
           <SectionTitle>Tools & Stack</SectionTitle>

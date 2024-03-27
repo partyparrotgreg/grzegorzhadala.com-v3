@@ -28,7 +28,7 @@ export const SectionFooter = () => {
           </p>
         </div>
       </SectionGrid>
-      <div className="h-24 flex items-end flex-row justify-between border-t border-t-[#877668]/30">
+      <div className="h-24 flex items-end flex-col md:flex-row justify-between border-t border-t-[#877668]/30">
         <div className="flex items-center flex-row gap-2">
           <MapPin weight="fill" /> <span>Madeira, PT</span>
         </div>

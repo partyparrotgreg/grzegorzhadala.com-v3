@@ -12,9 +12,9 @@ import { BigDescription } from "../typography/big-description";
 export const PageHero = () => {
   const { navItems } = useSiteNavigation();
   return (
-    <div className="h-screen section-padding flex-col justify-between relative isolate overflow-x-hidden bg-stone-400">
-      <div className="w-1/4 h-auto aspect-square mix-blend-hard-light bg-brand rounded-full absolute z-20 -left-16" />
-      <div className="relative z-20 mix-blend-multiply flex-grow flex flex-col h-full justify-between section-gap">
+    <div className="min-h-screen lg:h-screen section-padding flex flex-col justify-between relative isolate overflow-x-hidden bg-stone-400">
+      {/* <div className="w-1/4 h-auto aspect-square mix-blend-hard-light bg-brand rounded-full absolute z-20 -left-16" /> */}
+      <div className="relative z-20 mix-blend-multiply h-full flex flex-col justify-between section-gap">
         <div className="flex flex-row justify-between">
           <div className="text-neutral-500 text-base font-medium">
             GREG HADALA

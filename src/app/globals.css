@@ -94,12 +94,14 @@
   }
 }
 
-@layer layout {
+@layer {
   .section-padding {
     @apply p-6 md:p-8 lg:p-12 xl:p-20 2xl:p-24;
   }
-  
   .section-gap {
     @apply gap-6 md:gap-8 lg:gap-12 xl:gap-20 2xl:gap-24;
+  }
+  .negative-padding {
+    @apply w-dvw -ml-6 -mr-6 md:-mr-8 md:-ml-8 lg:-mr-12 lg:-ml-12 xl:-mr-20 xl:-ml-20 2xl:-mr-24 2xl:-ml-24;
   }
 }
