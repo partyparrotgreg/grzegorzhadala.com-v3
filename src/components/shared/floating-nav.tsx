@@ -35,7 +35,15 @@ export const FloatingNav = () => {
             onMouseLeave={() => isHover(false)}
           >
             <motion.div className="bg-neutral-700/50 backdrop-blur-lg rounded-full inline-flex h-14 px-3 overflow-hidden items-center">
-              <List className="text-white ml-2" size={22} />
+              <motion.div
+                className="relative overflow-hidden"
+                animate={{
+                  x: hover ? -100 : 0,
+                  width: hover ? 0 : "auto",
+                }}
+              >
+                <List className="text-white ml-2" size={22} />
+              </motion.div>
               <AnimatePresence>
                 {hover && (
                   <motion.ul
