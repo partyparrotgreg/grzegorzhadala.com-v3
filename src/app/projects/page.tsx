@@ -10,23 +10,16 @@ const getProjectsContent = async () => await request(query);
 export default async function Projects() {
   const { projects } = await getProjectsContent();
   return (
-    <div data-scroll-section>
-      <div className="flex flex-col gap-4">
-        {projects.map((project) => (
-          <Link key={project.id} href={`/projects/${project.slug}`} passHref>
+    <div className="flex flex-col gap-4 isolate">
+      {projects.map((project) => (
+        <Link key={project.id} href={`/projects/${project.slug}`} passHref>
+          <div>
             <div>
-              <DatoImage
-                pictureClassName="xl:w-auto xl:h-screen"
-                layout="responsive"
-                fragment={project.cover.responsiveImage!}
-              />
-              <div>
-                {project.projectName} / {project.client?.company}
-              </div>
+              {project.projectName} / {project.client?.company}
             </div>
-          </Link>
-        ))}
-      </div>
+          </div>
+        </Link>
+      ))}
     </div>
   );
 }

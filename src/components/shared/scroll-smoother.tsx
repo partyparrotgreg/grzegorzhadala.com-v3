@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
+import "locomotive-scroll/dist/locomotive-scroll.css";
 
 export const ScrollSmootherLayout = ({
   children,

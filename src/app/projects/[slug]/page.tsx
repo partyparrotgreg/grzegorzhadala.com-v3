@@ -36,10 +36,10 @@ export default async function Project({
   return !project ? (
     <div>Loading...</div>
   ) : (
-    <div data-scroll-section>
+    <div>
       <SectionTitle
         action={
-          project.client ?? <Link href={project.client?.website} target="_blank">
+          <Link href={project.client?.website} target="_blank">
             <Button size={"sm"} variant={"outline"}>
               Website <ArrowUpRight size={16} className="ml-2" />
             </Button>

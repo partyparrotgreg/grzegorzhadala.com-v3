@@ -1,11 +1,9 @@
-import { GetInTouch } from "@/components/contact/get-in-touch";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import { BottomNav } from "@/components/shared/bottom-nav";
-import { ScrollSmootherLayout } from "@/components/shared/scroll-smoother";
+import { Menu } from "@/components/shared/menu";
 import { safiro } from "@/constants/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
-import "locomotive-scroll/dist/locomotive-scroll.css";
+import { FloatingNav } from "@/components/shared/floating-nav";
 
 // TODO: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons
 // TODO: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
@@ -52,11 +50,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <BottomNav />
-          <ScrollSmootherLayout>
-            {children}
-            {/* <main className="">{children}</main> */}
-          </ScrollSmootherLayout>
+          <FloatingNav />
+          <div>
+            <Menu />
+          </div>
+          <div>{children}</div>
         </ThemeProvider>
       </body>
     </html>
