@@ -28,7 +28,6 @@ export const ProjectImageCard = () => {
       <Image
         src={Mockup1}
         alt="Hero image"
-        layout="fill"
         className={cn(
           "inset-0 object-cover z-0 scale-105 transition-all duration-500",
           {

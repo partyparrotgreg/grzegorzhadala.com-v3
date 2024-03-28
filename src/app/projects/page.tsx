@@ -1,9 +1,7 @@
-import { TypographyH1 } from "@/components/typography";
 import { request } from "@/lib/dato";
 import Link from "next/link";
 
 import query from "./page.graphql";
-import DatoImage from "@/components/shared/dato-image";
 
 const getProjectsContent = async () => await request(query);
 

@@ -14,7 +14,7 @@ import { ProcessGrid } from "@/components/process/process-grid";
 export default async function Home() {
   // const { projects, experiences } = await getHomepageContent();
   return (
-    <div>
+    <>
       <PageHero />
       <div className="rounded-b-[4rem] overflow-hidden">
         <div className="section-padding bg-stone-100 dark:bg-stone-950 section-gap flex flex-col">
@@ -113,6 +113,6 @@ export default async function Home() {
         <ProjectCard project={project as ProjectRecord} key={project.id} />
       ))}
       <ProjectListLines experiences={experiences} /> */}
-    </div>
+    </>
   );
 }

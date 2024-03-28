@@ -52,7 +52,7 @@ export default function RootLayout({
         >
           <FloatingNav />
 
-          <div>{children}</div>
+          {children}
           <SectionFooter />
         </ThemeProvider>
       </body>

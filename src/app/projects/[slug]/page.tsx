@@ -99,12 +99,9 @@ export default async function Project({
               renderNodeRule(isHeading, ({ adapter: {}, children, key }) => {
                 return <TypographyH2 key={key}>{children}</TypographyH2>;
               }),
-              renderNodeRule(
-                isParagraph,
-                ({ adapter: {}, children, key, ancestors }) => {
-                  return <TypographyP key={key}>{children}</TypographyP>;
-                }
-              ),
+              renderNodeRule(isParagraph, ({ adapter: {}, children, key }) => {
+                return <TypographyP key={key}>{children}</TypographyP>;
+              }),
             ]}
             // customMarkRules={[
             //   // convert "strong" marks into <b> tags

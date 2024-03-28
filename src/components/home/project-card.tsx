@@ -1,6 +1,5 @@
 import {
   DatoImage_ResponsiveImageFragment,
-  DatoImage_ResponsiveImageFragmentFragment,
   ProjectRecord,
 } from "@/gql/graphql";
 import Link from "next/link";
