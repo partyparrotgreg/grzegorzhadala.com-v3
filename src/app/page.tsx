@@ -4,14 +4,15 @@ import { SectionGrid } from "@/components/shared/section-grid";
 import { SectionTitle } from "@/components/shared/section-title";
 import { BigDescription } from "@/components/typography/big-description";
 import { UISwiper } from "@/components/ui/swiper";
-import { request } from "@/lib/dato";
 import { FigmaLogo } from "@phosphor-icons/react/dist/ssr";
-import query from "./page.graphql";
-
-const getHomepageContent = async () => await request(query);
+import { ProcessGrid } from "@/components/process/process-grid";
+// import { request } from "@/lib/dato";
+// import query from "./page.graphql";
+// import { processItems } from "@/mocks/process";
+// const getHomepageContent = async () => await request(query);
 
 export default async function Home() {
-  const { projects, experiences } = await getHomepageContent();
+  // const { projects, experiences } = await getHomepageContent();
   return (
     <div>
       <PageHero />
@@ -52,6 +53,29 @@ export default async function Home() {
               ]}
             />
           </div>
+        </div>
+        <div className="section-padding bg-stone-100 dark:bg-stone-950 section-gap flex flex-col">
+          <SectionTitle>Process</SectionTitle>
+          <SectionGrid>
+            <div className="col-start-5 col-span-8">
+              <BigDescription>
+                A creative problem solver specializing in visual, motion and
+                interaction design with experience designing for TV, web, mobile
+                and tablet. Currently designing the future of live TV and
+                streaming at Comcast.
+              </BigDescription>
+            </div>
+            <div className="w-full h-auto col-span-8 col-start-5">
+              <p className="columns-2 text-stone-800 dark:text-stone-500">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Deserunt voluptas iusto harum necessitatibus earum aliquam
+                voluptate sapiente vel totam! Dolorem magnam consequatur,
+                officiis reiciendis tenetur sunt libero corporis provident
+                illum!
+              </p>
+            </div>
+          </SectionGrid>
+          <ProcessGrid />
         </div>
         <div className="section-padding bg-[#877668] dark:bg-stone-900 text-[#EEEBE9] dark:text-stone-400 section-gap flex flex-col">
           <SectionTitle>Tools & Stack</SectionTitle>

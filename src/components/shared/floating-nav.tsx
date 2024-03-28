@@ -2,7 +2,7 @@
 import { useSiteNavigation } from "@/hooks/useSiteNavigation";
 import { List } from "@phosphor-icons/react/dist/ssr";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useOnWindowScroll, useWindowScrollPosition } from "rooks";
 import { ThemeToggle, spring } from "./theme-toggle";
 import { UnderlineLink } from "./underline-link";
@@ -18,6 +18,14 @@ export const FloatingNav = () => {
       setIsScrolled(false);
     }
   });
+
+  useEffect(() => {
+    if (position.scrollY > 100) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  }, [position.scrollY]);
   return (
     <>
       <AnimatePresence>
@@ -34,7 +42,7 @@ export const FloatingNav = () => {
             onMouseEnter={() => isHover(true)}
             onMouseLeave={() => isHover(false)}
           >
-            <motion.div className="bg-neutral-200/70 backdrop-blur-lg rounded-full inline-flex h-11 px-3 overflow-hidden items-center">
+            <motion.div className="bg-stone-400/70 backdrop-blur-lg rounded-full inline-flex h-11 px-3 overflow-hidden items-center">
               <motion.div
                 className="relative overflow-hidden"
                 animate={{
@@ -42,7 +50,7 @@ export const FloatingNav = () => {
                   width: hover ? 0 : "auto",
                 }}
               >
-                <List className="text-neutral-700 ml-2" size={22} />
+                <List className="text-stone-700 ml-2" size={22} />
               </motion.div>
               <AnimatePresence>
                 {hover && (
@@ -65,7 +73,7 @@ export const FloatingNav = () => {
                       {navItems.map(({ label, href }, index) => (
                         <motion.li
                           key={`nav-item-${index}`}
-                          className="nav-item mx-3"
+                          className="nav-item mx-3 "
                           layout
                           initial={{
                             y: 0,
@@ -82,7 +90,9 @@ export const FloatingNav = () => {
                   </motion.ul>
                 )}
               </AnimatePresence>
-              <ThemeToggle />
+              <div className="mix-blend-multiply">
+                <ThemeToggle />
+              </div>
             </motion.div>
           </motion.div>
         )}
