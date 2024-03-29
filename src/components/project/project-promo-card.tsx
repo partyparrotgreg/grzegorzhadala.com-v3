@@ -20,7 +20,7 @@ export const ProjectPromoCard = ({ project }: ProjectPromoCardProps) => {
   //   const yearStart = new Date(role?.start).getFullYear();
   const yearEnd = role?.end ? new Date(role.end).getFullYear() : "CURRENTs";
   return (
-    <div className="w-full relative rounded-3xl bg-card dark:bg-black/90 flex-col flex">
+    <div className="w-full relative rounded-3xl bg-white/80 dark:bg-black/80 flex-col flex">
       <div className="section-padding section-gap flex flex-col">
         <div className="relative flex flex-row justify-between items-center">
           <div className="text-foreground flex flex-row gap-4">

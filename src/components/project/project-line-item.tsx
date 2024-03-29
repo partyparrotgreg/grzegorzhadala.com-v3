@@ -1,8 +1,6 @@
 "use client";
 
 import { ExperienceRecord } from "@/gql/graphql";
-import { ArrowRight } from "lucide-react";
-import { RedDot } from "../shared/red-dot";
 
 export const ProjectLineItem = ({ experience }: { experience: ExperienceRecord }) => {
   const { start, client, role } = experience;

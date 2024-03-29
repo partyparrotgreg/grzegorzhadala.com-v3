@@ -8,6 +8,7 @@ import { BigDescription } from "@/components/typography/big-description";
 import { SkillRecord } from "@/gql/graphql";
 import { Image as ReactDatocmsImage, ResponsiveImageType } from "react-datocms";
 
+import { cn } from "@/lib/utils";
 import { ArrowUpRight, X } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
 import query from "./page.graphql";
@@ -94,8 +95,19 @@ export default async function ProjectPage({
           data={cover.responsiveImage as ResponsiveImageType}
           lazyLoad
           layout="responsive"
-          className="scale-110 hover:scale-100 transition-all duration-300 ease-in-out"
         />
+      </div>
+      <div className="grid grid-cols-4 section-gap">
+        {Array.from({ length: 4 }).map((_, index) => (
+          <div key={index} className={cn(index === 0 ? "col-span-2" : "")}>
+            <ReactDatocmsImage
+              data={cover.responsiveImage as ResponsiveImageType}
+              lazyLoad
+              layout="responsive"
+              pictureClassName="rounded-2xl overflow-hidden relative object-cover w-full h-full"
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
