@@ -10,3 +10,9 @@ export type NavProps = {
   href: string;
   target?: string;
 };
+
+export type ThemedImageType = {
+  url: string;
+  width?: number;
+  height?: number;
+}[];

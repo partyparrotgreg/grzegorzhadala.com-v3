@@ -10,15 +10,10 @@ export const ProjectLineItem = ({ experience }: { experience: ExperienceRecord }
     return new Date(date).getFullYear();
   };
   return (
-    <div className="py-4 border-b border-border overflow-hidden relative text-2xl flex flex-col md:flex-row justify-between w-full gap-2 md:gap-6">
+    <div className="py-4 border-b border-border overflow-hidden relative flex flex-col md:flex-row justify-between w-full gap-2 md:gap-6 items-center">
       <div className="text-brand">{parseYear(start)}</div>
-      <RedDot />
-      <div>{client.company}</div>
-      <RedDot />
-      <div className="flex flex-grow text-muted-foreground">{role}</div>
-      <div className="hidden absolute top-4 right-4 z-50 lg:static">
-        <ArrowRight />
-      </div>
+      <div className="flex-grow">{client.company}</div>
+      <div className="flex text-muted-foreground">{role}</div>
     </div>
   );
 };

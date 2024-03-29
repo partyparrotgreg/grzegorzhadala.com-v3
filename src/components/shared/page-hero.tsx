@@ -1,34 +1,18 @@
 "use client";
 
-import { useSiteNavigation } from "@/hooks/useSiteNavigation";
 import { BigDescription } from "../typography/big-description";
+import { HeaderNav } from "./header-nav";
 import { SectionGrid } from "./section-grid";
 import { TextDescription } from "./text-description";
-import { ThemeToggle } from "./theme-toggle";
 import { UnderlineLink } from "./underline-link";
+
 export const PageHero = () => {
-  const { navItems } = useSiteNavigation();
   return (
-    <div className="min-h-screen lg:h-screen section-padding flex flex-col justify-between relative isolate overflow-x-hidden bg-stone-400">
-      {/* <div className="w-1/4 h-auto aspect-square mix-blend-hard-light bg-brand rounded-full absolute z-20 -left-16" /> */}
-      <div className="relative z-20 mix-blend-multiply h-full flex flex-col justify-between section-gap">
-        <div className="flex flex-row justify-between">
-          <div className="text-neutral-500 text-base font-medium">
-            GREG HADALA
-          </div>
-          <div className="justify-start items-center gap-8 flex">
-            <nav className="flex gap-8">
-              {navItems.map((item) => (
-                <UnderlineLink key={item.href} href={item.href}>
-                  {item.label}
-                </UnderlineLink>
-              ))}
-            </nav>
-            <ThemeToggle />
-          </div>
-        </div>
+    <div className="min-h-dvh md:h-screen section-padding flex flex-col justify-between relative isolate  overflow-hidden">
+      <div className="relative z-20 h-full flex flex-col justify-between section-gap grow">
+        <HeaderNav />
         <SectionGrid>
-          <div className="flex-col col-span-12 -space-y-3 text-5xl font-bold text-neutral-700">
+          <div className="flex-col col-span-12 -space-y-2 text-6xl font-bold 2xl:text-6xl 3xl:text-8xl text-foreground">
             <div className="">PRODUCT</div>
             <div className="">DESIGNER</div>
             <div>
@@ -36,7 +20,7 @@ export const PageHero = () => {
               <span className=""> UI ENGINEER</span>
             </div>
           </div>
-          <BigDescription className="col-span-8 col-start-5 text-stone-700">
+          <BigDescription className="col-span-8 col-start-5 ">
             A creative problem solver specializing in visual, motion and
             interaction design with experience designing for TV, web, mobile and
             tablet. Currently designing the future of live TV and streaming at
@@ -50,7 +34,7 @@ export const PageHero = () => {
             items={["Sei Labs, LLC", "Senior Product Designer"]}
           />
           <TextDescription
-            className="col-span-8"
+            className="col-span-4"
             label={"Connect"}
             items={[
               <UnderlineLink
@@ -69,13 +53,6 @@ export const PageHero = () => {
           />
         </SectionGrid>
       </div>
-
-      {/* <Image
-        src={HeroImage}
-        layout="fill"
-        alt=""
-        className="inset-0 object-cover z-0 w-full h-full"
-      /> */}
     </div>
   );
 };

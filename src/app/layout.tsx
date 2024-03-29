@@ -1,9 +1,10 @@
+import { SectionFooter } from "@/components/footer/section-footer";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { FloatingNav } from "@/components/shared/floating-nav";
+import SmoothScrollLayout from "@/components/shared/smooth-scroll";
 import { safiro } from "@/constants/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
-import { SectionFooter } from "@/components/footer/section-footer";
 
 // TODO: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons
 // TODO: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
@@ -51,9 +52,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <FloatingNav />
-
-          {children}
-          <SectionFooter />
+          <SmoothScrollLayout>
+            {children}
+            {/* <SectionFooter /> */}
+            <SectionFooter />
+          </SmoothScrollLayout>
         </ThemeProvider>
       </body>
     </html>

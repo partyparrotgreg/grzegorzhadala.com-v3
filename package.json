@@ -25,6 +25,8 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^1.0.66",
+    "@studio-freight/lenis": "^1.0.42",
+    "@studio-freight/react-lenis": "^0.0.46",
     "beautiful-react-hooks": "^5.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",

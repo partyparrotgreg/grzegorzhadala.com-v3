@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { SectionTitle } from "./section-title";
 import { cn } from "@/lib/utils";
 
 export interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
@@ -19,7 +18,6 @@ export interface TypographyListProps {
 }
 
 export function TypographyHero({ children, ...props }: TypographyProps) {
-
   return (
     <h1
       className={cn(
@@ -115,7 +113,6 @@ export function TypographyTable({ columns, rows }: TableProps) {
 export function TypographyDemo() {
   return (
     <div>
-      <SectionTitle>Typography</SectionTitle>
       <div className="p-16">
         <TypographyHero>Typography Hero</TypographyHero>
         <TypographyH1>Typography H1</TypographyH1>

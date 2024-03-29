@@ -6,23 +6,23 @@
   :root {
     /* --brand: 238 93% 44%; green */
     --brand: 9 100% 58%;
-    --background: 35 25% 100%;
-    /* --background: 0 0% 100%; hsla(35, 27%, 91%, 1) */
-    --foreground: 0 0% 3.9%;
+    --background: 0 9% 90%;
+    --foreground: 0 9% 30%;
+    /* --background: 0 0% 100%; hsla(0, 27%, 91%, 1) */
 
-    --card: 0 0% 100%;
+    --card: 0 9% 93%;
     --card-foreground: 0 0% 3.9%;
  
-    --popover: 0 0% 100%;
+    --popover: 0 9% 95%;
     --popover-foreground: 0 0% 3.9%;
  
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 0 9% 80%;
+    --primary-foreground: 0 9% 20%;
  
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
  
-    --muted: 35 25% 90%;
+    --muted: 0 9% 90%;
     --muted-foreground: 0 0% 45.1%;
  
     --accent: 0 0% 96.1%;
@@ -31,11 +31,11 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
+    --border: 0 9% 80%;
+    --input: 0 9% 80%;
     --ring: 0 0% 3.9%;
  
-    --radius: 0rem;
+    --radius: 0.5rem;
   }
  
   .dark {
@@ -43,8 +43,11 @@
 
     --brand: 9 100% 58%;
     /* --background: 0 0% 3.9%; */
-    --background: 35 10% 5%;
-    --foreground: 0 0% 90%;
+    /* --background: 35 10% 5%;
+    --foreground: 0 0% 90%; */
+
+    --background: 0 2% 9%;
+    --foreground: 0 9% 70%;
  
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -78,11 +81,27 @@
     @apply border-border;
   }
   body {
-    background-color: #171616;
+    @apply bg-background;
   }
   :focus-visible {
   @apply outline-1 outline-brand outline-offset-8 opacity-100;
   }
+  p {
+    @apply text-lg md:text-xl leading-relaxed text-foreground;
+  }
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight;
+  }
+  h2 {
+    @apply text-3xl md:text-3xl lg:text-4xl font-medium tracking-tight;
+  }
+  h3 {
+    @apply text-xl md:text-2xl lg:text-3xl font-medium tracking-tight;
+  }
+  h4 {
+    @apply text-xl md:text-xl lg:text-2xl font-medium tracking-tight;
+  }
+  
 }
 
 @layer components {
@@ -92,16 +111,25 @@
   .project-hero-padding {
     @apply py-8 px-4 md:py-8 md:px-4 lg:py-12 lg:px-6;
   }
+  .pink-gradient {
+    background-color: linear-gradient(180deg, #A7B5FF 0%, #F3ACFF 100%);
+  }
+  .orange-gradient {
+    background-color: linear-gradient(142deg, #FFD9A0 11.36%, #FFF5F1 81.66%);
+  }
+  .blue-gradient {
+    background-color: linear-gradient(157deg, #ACAAFF 8.68%, #C0E8FF 84.91%);
+  }
 }
 
 @layer {
   .section-padding {
-    @apply p-6 md:p-8 lg:p-12 xl:p-20 2xl:p-24;
+    @apply p-8 md:p-10 lg:p-12 xl:p-16 2xl:p-20;
   }
   .section-gap {
-    @apply gap-6 md:gap-8 lg:gap-12 xl:gap-20 2xl:gap-24;
+    @apply gap-12 md:gap-10 lg:gap-12 xl:gap-16 2xl:gap-20;
   }
   .negative-padding {
-    @apply w-dvw -ml-6 -mr-6 md:-mr-8 md:-ml-8 lg:-mr-12 lg:-ml-12 xl:-mr-20 xl:-ml-20 2xl:-mr-24 2xl:-ml-24;
+    @apply w-dvw -ml-6 -mr-6 md:-mr-8 md:-ml-8 lg:-mr-12 lg:-ml-12 xl:-mr-16 xl:-ml-16 2xl:-mr-20 2xl:-ml-20;
   }
 }

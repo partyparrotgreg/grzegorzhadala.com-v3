@@ -70,6 +70,11 @@ export default graphql(/* GraphQL */ `
         id
         website
         company
+        logo {
+          url
+          width
+          height
+        }
       }
       color {
         hex

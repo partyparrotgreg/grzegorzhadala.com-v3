@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 
-export const ThemeToggle = () => {
+export const ThemeToggle = ({ isInverted }: { isInverted?: boolean }) => {
   const { setTheme, resolvedTheme } = useTheme();
   const [hover, setHover] = useState(false);
 
@@ -32,16 +32,18 @@ export const ThemeToggle = () => {
 
   const darkClassContainer = cn(
     containerSize,
-    "bg-neutral-700 justify-end items-center gap-2 inline-flex"
+    isInverted ? "bg-background" : "bg-white",
+    "justify-end items-center gap-2 inline-flex"
   );
 
   const lightClassContainer = cn(
     containerSize,
-    "border border-neutral-700 justify-start items-center gap-2 inline-flex"
+    isInverted ? "border-white" : "border-black",
+    "border justify-start items-center gap-2 inline-flex"
   );
 
   const dotContainer = cn(
-    isDark ? "bg-white" : "bg-neutral-700",
+    isInverted ? "bg-white" : "bg-black",
     "aspect-square w-4 rounded-full"
   );
 
@@ -56,12 +58,14 @@ export const ThemeToggle = () => {
         className={isDark ? darkClassContainer : lightClassContainer}
         layout
         transition={spring}
+        initial={false}
         animate={{ width: hover ? 40 : 22 }}
       >
         <motion.div
           className={dotContainer}
           layout
           transition={spring}
+          initial={false}
           animate={{ scale: hover ? 1 : 0, opacity: hover ? 1 : 0 }}
         />
       </motion.div>

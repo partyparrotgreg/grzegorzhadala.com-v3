@@ -6,8 +6,12 @@ interface BigDescriptionProps extends React.HTMLProps<HTMLDivElement> {
 
 export const BigDescription = ({ children, ...props }: BigDescriptionProps) => {
   const mergedClasses = cn(
-    "justify-center items-start text-2xl md:text-2xl lg:text-3xl 2xl:text-5xl tracking-tighter",
+    "justify-center items-start text-3xl md:text-3xl lg:text-4xl 2xl:text-5xl 3xl:text-7xl tracking-tighter text-foreground",
     props.className
   );
-  return <p className={mergedClasses}>{children}</p>;
+  return (
+    <p className={mergedClasses} style={{ lineHeight: 1.2 }}>
+      {children}
+    </p>
+  );
 };

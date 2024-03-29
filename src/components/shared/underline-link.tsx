@@ -8,17 +8,23 @@ import { useState } from "react";
 
 interface UnderlineLinkProps extends LinkProps {
   children: React.ReactNode;
+  onFloatingNav?: boolean;
 }
 
 const MotionLink = motion(Link);
 
-export const UnderlineLink = ({ children, ...props }: UnderlineLinkProps) => {
+export const UnderlineLink = ({
+  children,
+  onFloatingNav,
+  ...props
+}: UnderlineLinkProps) => {
   const [hover, setHover] = useState(false);
   const pathname = usePathname();
 
   const linkClass = cn(
     pathname === props.href ? "opacity-100" : "opacity-50 hover:opacity-100",
-    "text-stone-700 uppercase transition-colors relative overflow-hidden h-6 inline-flex"
+    onFloatingNav ? "text-white dark:text-black" : "text-foreground",
+    "uppercase transition-colors relative overflow-hidden h-6 inline-flex"
   );
 
   return (
@@ -32,7 +38,10 @@ export const UnderlineLink = ({ children, ...props }: UnderlineLinkProps) => {
       <AnimatePresence mode="wait">
         {hover && (
           <motion.div
-            className="absolute h-px bg-neutral-700 bottom-px"
+            className={cn(
+              "absolute h-px bottom-px",
+              onFloatingNav ? "bg-white dark:bg-black" : "bg-foreground"
+            )}
             initial={{
               width: 0,
               x: 0,

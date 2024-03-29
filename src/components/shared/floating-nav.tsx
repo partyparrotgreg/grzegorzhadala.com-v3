@@ -1,13 +1,13 @@
 "use client";
 import { useSiteNavigation } from "@/hooks/useSiteNavigation";
-import { List } from "@phosphor-icons/react/dist/ssr";
+import { ArrowLeft, List } from "@phosphor-icons/react/dist/ssr";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useOnWindowScroll, useWindowScrollPosition } from "rooks";
 import { ThemeToggle, spring } from "./theme-toggle";
 import { UnderlineLink } from "./underline-link";
 export const FloatingNav = () => {
-  const [hover, isHover] = useState(false);
+  const [hover, setHover] = useState(false);
   const position = useWindowScrollPosition();
   const [isScrolled, setIsScrolled] = useState(false);
   const { navItems } = useSiteNavigation();
@@ -39,18 +39,19 @@ export const FloatingNav = () => {
               duration: 0.2,
             }}
             className="bottom-0 left-0 right-0 p-6 fixed z-[999] items-center justify-center flex"
-            onMouseEnter={() => isHover(true)}
-            onMouseLeave={() => isHover(false)}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
           >
-            <motion.div className="bg-stone-400/70 backdrop-blur-lg rounded-full inline-flex h-11 px-3 overflow-hidden items-center">
+            <motion.div className="bg-black/80 dark:bg-white/80 backdrop-blur-lg rounded-full inline-flex h-11 px-3 overflow-hidden items-center">
               <motion.div
-                className="relative overflow-hidden"
+                onClick={() => setHover(!hover)}
+                className="overflow-hidden grid ml-2 space-y-8"
                 animate={{
-                  x: hover ? -100 : 0,
-                  width: hover ? 0 : "auto",
+                  y: hover ? 28 : -28,
                 }}
               >
-                <List className="text-stone-700 ml-2" size={22} />
+                <ArrowLeft className="w-6 h-6 text-background" />
+                <List className="w-6 h-6 text-background" />
               </motion.div>
               <AnimatePresence>
                 {hover && (
@@ -83,16 +84,16 @@ export const FloatingNav = () => {
                           }}
                           transition={spring}
                         >
-                          <UnderlineLink href={href}>{label}</UnderlineLink>
+                          <UnderlineLink href={href} onFloatingNav>
+                            {label}
+                          </UnderlineLink>
                         </motion.li>
                       ))}
                     </AnimatePresence>
                   </motion.ul>
                 )}
               </AnimatePresence>
-              <div className="mix-blend-multiply">
-                <ThemeToggle />
-              </div>
+              <ThemeToggle isInverted />
             </motion.div>
           </motion.div>
         )}
