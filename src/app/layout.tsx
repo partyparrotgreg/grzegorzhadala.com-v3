@@ -1,9 +1,7 @@
-import { SectionFooter } from "@/components/footer/section-footer";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import { FloatingNav } from "@/components/shared/floating-nav";
-import SmoothScrollLayout from "@/components/shared/smooth-scroll";
-import { safiro } from "@/constants/fonts";
+
 import type { Metadata } from "next";
+import { inter } from "./fonts";
 import "./globals.css";
 
 // TODO: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons
@@ -44,19 +42,14 @@ export default function RootLayout({
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
-      <body className={safiro.className}>
+      <body className={inter.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <FloatingNav />
-          <SmoothScrollLayout>
-            {children}
-            {/* <SectionFooter /> */}
-            <SectionFooter />
-          </SmoothScrollLayout>
+          {children}
         </ThemeProvider>
       </body>
     </html>

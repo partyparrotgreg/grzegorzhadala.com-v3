@@ -13,8 +13,8 @@ export const useSiteNavigation = () => {
       target: undefined,
     },
     {
-      label: "Test",
-      href: "/test",
+      label: "Gallery",
+      href: "/gallery",
       target: undefined,
     },
   ];

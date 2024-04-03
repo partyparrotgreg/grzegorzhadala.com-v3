@@ -1,7 +1,15 @@
+"use client";
+
+import { useEffect } from "react";
+
 export default function ProjectTemplate({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div className="bg-white/80 dark:bg-black/80">{children}</div>;
+  useEffect(() => {
+    // smooth scroll top
+    window.scrollTo(0, 0);
+  }, []);
+  return <div>{children}</div>;
 }

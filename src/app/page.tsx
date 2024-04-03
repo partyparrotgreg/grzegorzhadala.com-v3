@@ -1,59 +1,51 @@
-import { ClientsOverview } from "@/components/shared/clients-overview";
-import { HeaderNav } from "@/components/shared/header-nav";
-import { SectionGrid } from "@/components/shared/section-grid";
-import { BigDescription } from "@/components/typography/big-description";
-
-import { ProjectListLines } from "@/components/project/project-list-lines";
 import { ProjectPromoCard } from "@/components/project/project-promo-card";
+import { ClientsOverview } from "@/components/shared/clients-overview";
 import { SectionTitle } from "@/components/shared/section-title";
-import { ClientRecord, ExperienceRecord, ProjectRecord } from "@/gql/graphql";
+import { Reveal } from "@/components/transitions/reveal";
+import { ClientRecord, ProjectRecord } from "@/gql/graphql";
 import { request } from "@/lib/dato";
 import query from "./page.graphql";
-const getTestContent = async () => await request(query);
+import { HeaderNav } from "@/components/shared/header-nav";
+const getHomeContent = async () => await request(query);
 
 export default async function Home() {
-  const { clients, projects, experiences } = await getTestContent();
+  const { projects, clients } = await getHomeContent();
+
+  const findEarliest = (projects: ProjectRecord[]) => {
+    const endDates = projects.map((project) => project.role?.end);
+    const earliest = endDates.reduce((earliest, current) => {
+      return current < earliest ? current : earliest;
+    });
+    const latest = endDates.reduce((latest, current) => {
+      return current > latest ? current : latest;
+    });
+    return `${new Date(earliest).getFullYear()} - ${new Date(
+      latest
+    ).getFullYear()}`;
+  };
   return (
-    <div className="section-padding flex flex-col justify-between relative isolate overflow-hidden">
-      <div className="relative z-20 h-full flex flex-col justify-between section-gap grow">
-        <HeaderNav />
-        <SectionGrid>
-          <div className="flex-col col-span-12 -space-y-2 text-6xl font-bold 2xl:text-6xl 3xl:text-8xl text-foreground">
-            <div className="">PRODUCT</div>
-            <div className="">DESIGNER</div>
-            <div>
-              <span className="opacity-50 italic font-normal">&</span>
-              <span className=""> UI ENGINEER</span>
-            </div>
-          </div>
-          <BigDescription className="col-span-8 col-start-5 ">
-            A creative problem solver specializing in visual, motion and
-            interaction design with experience designing for TV, web, mobile and
-            tablet. Currently designing the future of live TV and streaming at
-            Comcast.
-          </BigDescription>
-        </SectionGrid>
+    <>
+      <HeaderNav />
+      <Reveal>
+        <div className="lg:w-1/2 text-3xl md:text-5xl tracking-tight my-24 font-medium font-heading">
+          Greg&apos;s work seamlessly blends user-centric design with innovative
+          solutions to meet complex challenges across various industries.
+        </div>
+      </Reveal>
+      <SectionTitle action={`${findEarliest(projects as ProjectRecord[])}`}>
+        Selected work
+      </SectionTitle>
+
+      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-16">
         {projects.map((project) => (
           <ProjectPromoCard
             project={project as ProjectRecord}
             key={project.id}
           />
         ))}
-        <ProjectListLines experiences={experiences as ExperienceRecord[]} />
-        <SectionTitle>Clients</SectionTitle>
-        <SectionGrid>
-          <div className="flex-col col-span-12 -space-y-2 text-6xl font-bold 2xl:text-6xl 3xl:text-8xl text-foreground">
-            <div className="">Worked with {clients.length} clients.</div>
-          </div>
-          <BigDescription className="col-span-8 col-start-5 ">
-            A creative problem solver specializing in visual, motion and
-            interaction design with experience designing for TV, web, mobile and
-            tablet. Currently designing the future of live TV and streaming at
-            Comcast.
-          </BigDescription>
-        </SectionGrid>
-        <ClientsOverview clients={clients as ClientRecord[]} />
       </div>
-    </div>
+      <ClientsOverview clients={clients as ClientRecord[]} />
+      <SectionTitle>Services</SectionTitle>
+    </>
   );
 }

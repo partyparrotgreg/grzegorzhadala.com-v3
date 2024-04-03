@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
 import { useTheme } from "next-themes";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const ThemeToggle = ({ isInverted }: { isInverted?: boolean }) => {
   const { setTheme, resolvedTheme } = useTheme();
@@ -46,6 +46,12 @@ export const ThemeToggle = ({ isInverted }: { isInverted?: boolean }) => {
     isInverted ? "bg-white" : "bg-black",
     "aspect-square w-4 rounded-full"
   );
+
+  useEffect(() => {
+    if (isInverted) {
+      setTheme("dark");
+    }
+  }, [isInverted, setTheme]);
 
   return (
     <motion.div

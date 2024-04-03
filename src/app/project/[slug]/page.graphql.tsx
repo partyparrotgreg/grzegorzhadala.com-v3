@@ -7,6 +7,7 @@ export default graphql(/* GraphQL */ `
       projectName
       body {
         blocks {
+          __typename
           ... on FlowBlockRecord {
             __typename
             id
@@ -19,6 +20,7 @@ export default graphql(/* GraphQL */ `
                 height
                 alt
                 title
+                webpSrcSet
               }
             }
             description
@@ -37,6 +39,56 @@ export default graphql(/* GraphQL */ `
                 height
                 alt
                 title
+                webpSrcSet
+              }
+            }
+          }
+          ... on ProcessBlockRecord {
+            id
+          }
+          ... on BeforeAfterBlockRecord {
+            id
+            title
+            description
+            left {
+              responsiveImage {
+                src
+                srcSet
+                base64
+                width
+                height
+                alt
+                title
+                webpSrcSet
+              }
+            }
+            right {
+              responsiveImage {
+                src
+                srcSet
+                base64
+                width
+                height
+                alt
+                title
+                webpSrcSet
+              }
+            }
+          }
+          ... on FeaturephotoblockRecord {
+            id
+            title
+            description
+            image {
+              responsiveImage {
+                src
+                srcSet
+                base64
+                width
+                height
+                alt
+                title
+                webpSrcSet
               }
             }
           }

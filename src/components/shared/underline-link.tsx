@@ -24,7 +24,7 @@ export const UnderlineLink = ({
   const linkClass = cn(
     pathname === props.href ? "opacity-100" : "opacity-50 hover:opacity-100",
     onFloatingNav ? "text-white dark:text-black" : "text-foreground",
-    "uppercase transition-colors relative overflow-hidden h-6 inline-flex"
+    "transition-colors relative overflow-hidden"
   );
 
   return (

@@ -17,11 +17,9 @@ export const TextDescription = ({
   );
   return (
     <div className={mergedClasses}>
-      <div className="opacity-70 text-base font-normal uppercase">{label}</div>
+      <div className="opacity-70">{label}</div>
       {items.map((item, index) => (
-        <div className="text-base  uppercase" key={index}>
-          {item}
-        </div>
+        <div key={index}>{item}</div>
       ))}
     </div>
   );

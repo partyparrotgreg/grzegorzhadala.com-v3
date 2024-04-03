@@ -38,11 +38,11 @@ export const FloatingNav = () => {
             transition={{
               duration: 0.2,
             }}
-            className="bottom-0 left-0 right-0 p-6 fixed z-[999] items-center justify-center flex"
+            className="bottom-0 left-0 right-0 p-6 fixed z-[999] items-center justify-end flex"
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
           >
-            <motion.div className="bg-black/80 dark:bg-white/80 backdrop-blur-lg rounded-full inline-flex h-11 px-3 overflow-hidden items-center">
+            <motion.div className="bg-black/80 dark:bg-white/80 backdrop-blur-lg inline-flex h-11 px-3 overflow-hidden items-center">
               <motion.div
                 onClick={() => setHover(!hover)}
                 className="overflow-hidden grid ml-2 space-y-8"

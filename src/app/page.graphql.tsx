@@ -1,7 +1,7 @@
 import { graphql } from "@/gql";
 
 export default graphql(/* GraphQL */ `
-  query TestPageQuery {
+  query HomePageQuery {
     projects: allProjects {
       id
       projectName
@@ -53,13 +53,7 @@ export default graphql(/* GraphQL */ `
         height
       }
     }
-    experiences: allExperiences {
-      role
-      start
-      client {
-        company
-      }
-    }
+
     clientsMeta: _allClientsMeta {
       count
     }

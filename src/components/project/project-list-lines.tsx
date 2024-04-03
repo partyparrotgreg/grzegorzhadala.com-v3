@@ -11,8 +11,13 @@ export const ProjectListLines = ({
   return (
     <div className="flex flex-col gap-0">
       <SectionTitle>Experience</SectionTitle>
-      {experiences?.map((experience) => {
-        return <ProjectLineItem experience={experience} key={experience.id} />;
+      {experiences?.map((experience, index) => {
+        return (
+          <ProjectLineItem
+            experience={experience}
+            key={experience.id + "_" + index}
+          />
+        );
       })}
     </div>
   );
