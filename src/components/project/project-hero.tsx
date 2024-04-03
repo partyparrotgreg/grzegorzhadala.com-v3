@@ -53,7 +53,7 @@ export const ProjectHero = ({ project }: { project: ProjectRecord }) => {
           </Link>
         </div>
       </motion.div>
-      <div className="flex lg:grid lg:grid-cols-3 ">
+      <div className="flex lg:grid lg:grid-cols-3">
         <div className="col-start-2 col-span-2 flex flex-col gap-6 relative">
           <Reveal order={1}>
             <motion.h1 className="project-title">{projectName}</motion.h1>

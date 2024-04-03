@@ -53,9 +53,5 @@ export default graphql(/* GraphQL */ `
         height
       }
     }
-
-    clientsMeta: _allClientsMeta {
-      count
-    }
   }
 `);

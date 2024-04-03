@@ -1,16 +1,10 @@
 "use client";
+import { useIsDark } from "@/hooks/useIsDark";
 import { ThemedImageType } from "@/types";
-import { useTheme } from "next-themes";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 export const ThemedImage = ({ images }: { images: ThemedImageType }) => {
-  const [isDark, setIsDark] = useState(false);
-  const { resolvedTheme, theme } = useTheme();
-
-  useEffect(() => {
-    setIsDark(resolvedTheme === "dark" || theme === "dark");
-  }, [resolvedTheme, theme]);
+  const isDark = useIsDark();
 
   return (
     <Image

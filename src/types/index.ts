@@ -1,5 +1,3 @@
-import { StructuredText } from "datocms-structured-text-utils/dist/types/types";
-
 export type ProjectType = {
   id: number;
   client: string;
@@ -18,10 +16,3 @@ export type ThemedImageType = {
   width?: number;
   height?: number;
 }[];
-
-export type STextDocumentType =
-  | Document
-  | Node
-  | StructuredText<Record, Record>
-  | null
-  | undefined;

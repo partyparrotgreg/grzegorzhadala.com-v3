@@ -1,6 +1,6 @@
 export default function GalleryPage() {
   return (
-    <div className="p-4 h-screen">
+    <div className="flex flex-col gap-12 overflow-hidden">
       <div>bleble</div>
     </div>
   );

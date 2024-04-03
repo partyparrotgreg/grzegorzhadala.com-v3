@@ -92,8 +92,30 @@ export default graphql(/* GraphQL */ `
               }
             }
           }
+          ... on SectionBlockRecord {
+            id
+            subtitle
+            sectionTitle
+          }
+          ... on SliderShowcaseBlockRecord {
+            id
+            blocks {
+              description
+              id
+              images {
+                responsiveImage {
+                  webpSrcSet
+                  width
+                  title
+                  srcSet
+                  src
+                  height
+                  base64
+                }
+              }
+            }
+          }
         }
-        links
         value
       }
       cover {

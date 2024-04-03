@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import type { Metadata } from "next";
 import { inter } from "./fonts";
 import "./globals.css";
+import { FloatingNav } from "@/components/shared/floating-nav";
 
 // TODO: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons
 // TODO: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
@@ -49,6 +50,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <FloatingNav />
           {children}
         </ThemeProvider>
       </body>
