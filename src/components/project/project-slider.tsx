@@ -40,15 +40,6 @@ export const ProjectSlider = ({
         />
       ))}
     />
-    // <div className="flex flex-col lg:grid lg:grid-cols-4 gap-2">
-    //   <div className="col-span-2">
-    //     Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nulla
-    //     commodi architecto dolorum? Ratione quia dolor aliquid pariatur vitae
-    //     architecto. Ducimus officiis aliquam sequi. Minima mollitia ullam modi
-    //     iusto neque.
-    //   </div>
-
-    // </div>
   );
 };
 
@@ -77,7 +68,7 @@ export const ThemedDatoImage = ({ images }: { images: any[] }) => {
   const lightImage = images[0].responsiveImage;
   const darkImage = images[1].responsiveImage;
   return (
-    <div className="overflow-hidden rounded-2xl h-full w-full relative border">
+    <div className="overflow-hidden rounded-2xl h-full w-full relative">
       <ReactDatocmsImage
         data={isDark ? darkImage : lightImage}
         lazyLoad
