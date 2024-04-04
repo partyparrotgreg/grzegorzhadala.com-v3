@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 
 export const useIsDark = () => {
   const [isDark, setIsDark] = useState(false);
-  const { resolvedTheme, theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
-    setIsDark(resolvedTheme === "dark" || theme === "dark");
-  }, [resolvedTheme, theme]);
+    setIsDark(resolvedTheme === "dark");
+  }, [resolvedTheme]);
 
   return isDark;
 };

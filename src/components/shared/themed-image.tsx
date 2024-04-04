@@ -3,7 +3,13 @@ import { useIsDark } from "@/hooks/useIsDark";
 import { ThemedImageType } from "@/types";
 import Image from "next/image";
 
-export const ThemedImage = ({ images }: { images: ThemedImageType }) => {
+export const ThemedImage = ({
+  images,
+  className,
+}: {
+  images: ThemedImageType[];
+  className?: string;
+}) => {
   const isDark = useIsDark();
 
   return (
@@ -12,6 +18,7 @@ export const ThemedImage = ({ images }: { images: ThemedImageType }) => {
       alt=""
       width={images[0].width}
       height={images[0].height}
+      className={className}
     />
   );
 };

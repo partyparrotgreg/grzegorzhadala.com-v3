@@ -31,7 +31,7 @@ export const ProjectSlider = ({
     <UISwiper
       autoplay={{ delay: 3000 }}
       grabCursor
-      spaceBetween={8}
+      spaceBetween={0}
       {...swiperOptions}
       items={blocks.map((block) => (
         <ImageDescriptionBlock
@@ -51,12 +51,12 @@ export const ImageDescriptionBlock = ({
   return (
     <div
       key={block.id}
-      className="bg-neutral-50 dark:bg-neutral-900 flex flex-col"
+      className="bg-neutral-50 dark:bg-neutral-900 flex flex-col overflow-hidden"
     >
-      <div className="p-8">
+      <div className="pl-4 pt-4 pr-4 pb-0">
         <ThemedDatoImage images={block.images} />
       </div>
-      <div className="px-8 pb-8 pt-0 text-foreground/50">
+      <div className="p-4 text-foreground/50 flex justify-center">
         {block.description}
       </div>
     </div>

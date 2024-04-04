@@ -81,14 +81,12 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-base tracking-tight;
+    @apply bg-background text-base;
   }
   :focus-visible {
     @apply outline-1 outline-brand outline-offset-8 opacity-100;
   }
-  h1, h2, h3, h4 {
-    
-  }
+
 }
 
 @layer component {

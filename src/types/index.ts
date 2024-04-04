@@ -15,4 +15,4 @@ export type ThemedImageType = {
   url: string;
   width?: number;
   height?: number;
-}[];
+};

@@ -1,10 +1,9 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 
 interface UnderlineLinkProps extends LinkProps {
   children: React.ReactNode;
@@ -18,7 +17,6 @@ export const UnderlineLink = ({
   onFloatingNav,
   ...props
 }: UnderlineLinkProps) => {
-  const [hover, setHover] = useState(false);
   const pathname = usePathname();
 
   const linkClass = cn(
@@ -28,38 +26,8 @@ export const UnderlineLink = ({
   );
 
   return (
-    <MotionLink
-      onHoverStart={() => setHover(true)}
-      onHoverEnd={() => setHover(false)}
-      {...props}
-      className={linkClass}
-    >
+    <MotionLink {...props} className={linkClass}>
       {children}
-      <AnimatePresence mode="wait">
-        {hover && (
-          <motion.div
-            className={cn(
-              "absolute h-px bottom-px",
-              onFloatingNav ? "bg-white dark:bg-black" : "bg-foreground"
-            )}
-            initial={{
-              width: 0,
-              x: 0,
-              left: 0,
-            }}
-            animate={{
-              width: "100%",
-              x: 0,
-              left: 0,
-            }}
-            exit={{
-              width: "100%",
-              x: "100%",
-              right: 0,
-            }}
-          />
-        )}
-      </AnimatePresence>
     </MotionLink>
   );
 };
