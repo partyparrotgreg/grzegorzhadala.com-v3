@@ -6,8 +6,8 @@
   :root {
     /* --brand: 238 93% 44%; green */
     --brand: 9 100% 58%;
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    --background: 0 9% 95%;
+    --foreground: 0 9% 5%;
     /* --background: 0 0% 100%; hsla(0, 27%, 91%, 1) */
 
     --card: 0 0% 97%;
@@ -81,7 +81,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-base;
+    @apply bg-background text-base text-foreground;
   }
   :focus-visible {
     @apply outline-1 outline-brand outline-offset-8 opacity-100;
@@ -91,7 +91,7 @@
 
 @layer component {
   .project-summary-text {
-    @apply text-3xl lg:text-5xl tracking-tighter font-medium leading-snug block -ml-2;
+    @apply text-3xl lg:text-5xl tracking-tighter font-medium leading-tight block -ml-2;
   }
   .project-title {
     @apply text-4xl lg:text-6xl tracking-tighter font-bold leading-snug block -ml-2;

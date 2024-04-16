@@ -1,11 +1,11 @@
+import { BlockSectionTitle } from "@/components/blocks/block-section-title";
+import { Hero } from "@/components/home/hero";
 import { ProjectPromoCard } from "@/components/project/project-promo-card";
 import { ClientsOverview } from "@/components/shared/clients-overview";
-import { SectionTitle } from "@/components/shared/section-title";
-import { Reveal } from "@/components/transitions/reveal";
+import { HeaderNav } from "@/components/shared/header-nav";
 import { ClientRecord, ProjectRecord } from "@/gql/graphql";
 import { request } from "@/lib/dato";
 import query from "./page.graphql";
-import { HeaderNav } from "@/components/shared/header-nav";
 const getHomeContent = async () => await request(query);
 
 export default async function Home() {
@@ -26,17 +26,14 @@ export default async function Home() {
   return (
     <>
       <HeaderNav />
-      <Reveal>
-        <div className="lg:w-1/2 text-3xl md:text-5xl tracking-tight my-24 font-medium font-heading">
-          Greg&apos;s work seamlessly blends user-centric design with innovative
-          solutions to meet complex challenges across various industries.
-        </div>
-      </Reveal>
-      <SectionTitle action={`${findEarliest(projects as ProjectRecord[])}`}>
+      <Hero />
+      <BlockSectionTitle
+        action={`${findEarliest(projects as ProjectRecord[])}`}
+      >
         Selected work
-      </SectionTitle>
+      </BlockSectionTitle>
 
-      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-16">
+      <div className="flex flex-col xl:grid xl:grid-cols-2 gap-24">
         {projects.map((project) => (
           <ProjectPromoCard
             project={project as ProjectRecord}
@@ -45,7 +42,7 @@ export default async function Home() {
         ))}
       </div>
       <ClientsOverview clients={clients as ClientRecord[]} />
-      <SectionTitle>Services</SectionTitle>
+      <BlockSectionTitle>Services</BlockSectionTitle>
     </>
   );
 }

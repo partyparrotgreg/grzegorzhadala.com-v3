@@ -43,9 +43,6 @@ export default graphql(/* GraphQL */ `
               }
             }
           }
-          ... on ProcessBlockRecord {
-            id
-          }
           ... on BeforeAfterBlockRecord {
             id
             title
@@ -112,6 +109,29 @@ export default graphql(/* GraphQL */ `
                   height
                   base64
                 }
+              }
+            }
+          }
+          ... on ProcessListBlockRecord {
+            id
+            blocks {
+              id
+              icon
+              processDescription
+              title
+            }
+          }
+          ... on ProjectOverviewBlockRecord {
+            id
+            projectDescription
+            client {
+              id
+              website
+              company
+              logo {
+                url
+                width
+                height
               }
             }
           }

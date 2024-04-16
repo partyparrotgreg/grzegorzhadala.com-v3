@@ -1,6 +1,6 @@
 import { ProcessGrid } from "@/components/process/process-grid";
 import { ProjectListLines } from "@/components/project/project-list-lines";
-import { SectionTitle } from "@/components/shared/section-title";
+import { BlockSectionTitle } from "@/components/blocks/block-section-title";
 import { Reveal } from "@/components/transitions/reveal";
 import { ExperienceRecord } from "@/gql/graphql";
 import { request } from "@/lib/dato";
@@ -20,11 +20,11 @@ export default async function AboutPage() {
           solutions to meet complex challenges across various industries.
         </div>
       </Reveal>
-      <SectionTitle>Process</SectionTitle>
+      <BlockSectionTitle>Process</BlockSectionTitle>
       <ProcessGrid />
       <div className="grid grid-cols-2 gap-24">
         <div className="gap-4 flex flex-col">
-          <SectionTitle>Process</SectionTitle>
+          <BlockSectionTitle>Process</BlockSectionTitle>
           <div>
             Greg&apos;s work seamlessly blends user-centric design with
             innovative solutions to meet complex challenges across various

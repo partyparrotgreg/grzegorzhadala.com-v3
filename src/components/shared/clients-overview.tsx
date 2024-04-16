@@ -3,7 +3,7 @@
 import { ClientRecord } from "@/gql/graphql";
 import { motion } from "framer-motion";
 import { ThemedImage } from "./themed-image";
-import { SectionTitle } from "./section-title";
+import { BlockSectionTitle } from "../blocks/block-section-title";
 
 interface ClientsProps {
   clients: ClientRecord[];
@@ -12,7 +12,7 @@ interface ClientsProps {
 export const ClientsOverview = ({ clients }: ClientsProps) => {
   return (
     <div>
-      <SectionTitle>Clients</SectionTitle>
+      <BlockSectionTitle>Clients</BlockSectionTitle>
       <div className="flex flex-col md:grid md:grid-cols-6 flex-nowrap overflow-hidden items-start justify-start">
         {clients.map((client, index) => (
           <motion.div

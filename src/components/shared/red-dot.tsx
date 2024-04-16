@@ -10,7 +10,6 @@ export const RedDot = () => {
     once: false,
   });
   const mainControls = useAnimation();
-  // const slideControls = useAnimation();
   useEffect(() => {
     if (isInView) {
       mainControls.start("visible");
@@ -21,7 +20,7 @@ export const RedDot = () => {
   }, [isInView]);
   return (
     <motion.div
-      className="w-4 h-4 bg-foreground"
+      className="w-4 h-4 bg-foreground rounded-full"
       ref={ref}
       variants={{
         hidden: {

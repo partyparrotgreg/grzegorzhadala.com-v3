@@ -1,5 +1,6 @@
 "use client";
 import { ProjectRecord } from "@/gql/graphql";
+import { cn } from "@/lib/utils";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -8,39 +9,30 @@ import { Image as ReactDatocmsImage } from "react-datocms";
 import { UnderlineLink } from "../shared/underline-link";
 import { Button } from "../ui/button";
 
-interface ProjectPromoCardProps {
+interface ProjectPromoCardProps extends React.HTMLAttributes<HTMLDivElement> {
   project: ProjectRecord | undefined;
 }
 
-export const ProjectPromoCard = ({ project }: ProjectPromoCardProps) => {
-  // const router = useRouter();
+export const ProjectPromoCard = ({
+  project,
+  ...props
+}: ProjectPromoCardProps) => {
+  const mergedClasses = cn(
+    "w-full relative flex-col flex group",
+    props.className
+  );
   const ref = useRef<HTMLDivElement>(null);
 
-  // const animation = useAnimation();
-
-  // const handleAnimation = () => {
-  //   animation
-  //     .start({
-  //       opacity: 1,
-  //       width: "100%",
-  //       transition: {
-  //         duration: 0.5,
-  //       },
-  //     })
-  //     .then(() => {
-  //       router.push(`/project/${project?.slug}`);
-  //     });
-  // };
-
   return (
-    <motion.div ref={ref} className="w-full relative flex-col flex gap-4">
+    <motion.div ref={ref} className={mergedClasses}>
       {project?.cover.responsiveImage && (
-        <motion.div className="overflow-hidden relative">
-          <Link href={`/project/${project?.slug}`} scroll>
+        <motion.div className="overflow-hidden relative w-full">
+          <Link href={`/project/${project?.slug}`} scroll className="w-full">
             <ReactDatocmsImage
               data={project.cover.responsiveImage}
               lazyLoad
-              className="scale-105"
+              pictureClassName="w-full h-auto object-cover"
+              className="w-full h-auto object-cover"
             />
           </Link>
         </motion.div>

@@ -1,12 +1,12 @@
 import { FigmaLogo } from "@phosphor-icons/react/dist/ssr";
 import { SectionGrid } from "../shared/section-grid";
-import { SectionTitle } from "../shared/section-title";
+import { BlockSectionTitle } from "../blocks/block-section-title";
 import { BigDescription } from "../typography/big-description";
 
 export const ToolsOverview = () => {
   return (
     <div className="section-padding section-gap flex flex-col ">
-      <SectionTitle>Tools & Stack</SectionTitle>
+      <BlockSectionTitle>Tools & Stack</BlockSectionTitle>
       <SectionGrid>
         <div className="col-start-5 col-span-8">
           <BigDescription>

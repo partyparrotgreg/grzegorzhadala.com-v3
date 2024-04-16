@@ -1,7 +1,7 @@
 "use client";
 import { ExperienceRecord } from "@/gql/graphql";
 import { ProjectLineItem } from "./project-line-item";
-import { SectionTitle } from "../shared/section-title";
+import { BlockSectionTitle } from "../blocks/block-section-title";
 
 export const ProjectListLines = ({
   experiences,
@@ -10,7 +10,7 @@ export const ProjectListLines = ({
 }) => {
   return (
     <div className="flex flex-col gap-0">
-      <SectionTitle>Experience</SectionTitle>
+      <BlockSectionTitle>Experience</BlockSectionTitle>
       {experiences?.map((experience, index) => {
         return (
           <ProjectLineItem

@@ -3,6 +3,8 @@ import { StructuredText as StructuredTextType } from "datocms-structured-text-ut
 import {
   BeforeAfterBlockRecord,
   FlowBlockRecord,
+  ProcessListBlockRecord,
+  ProjectOverviewBlockRecord,
   SectionBlockRecord,
   SliderShowcaseBlockRecord,
 } from "@/gql/graphql";
@@ -14,11 +16,13 @@ import {
   StructuredText,
   renderNodeRule,
 } from "react-datocms";
-import { CompareImages } from "../shared/compare-images";
+import { BlockBeforeAfter } from "../blocks/block-before-after";
 import { SyntaxHighlighter } from "../shared/syntax-highlighter";
 import { createElement } from "react";
-import { SectionTitle } from "../shared/section-title";
-import { ProjectSlider } from "./project-slider";
+import { BlockSectionTitle } from "../blocks/block-section-title";
+import { BlockProjectSlider } from "../blocks/block-project-slider";
+import { BlockProcessList } from "../blocks/block-process-list";
+import { BlockProjectOverview } from "../blocks/block-project-overview";
 
 export const ProjectTextFormatter = ({
   body,
@@ -80,18 +84,26 @@ export const ProjectTextFormatter = ({
         ]}
         renderBlock={({ record }) => {
           switch (record.__typename) {
+            case "ProjectOverviewBlockRecord":
+              const projectOverview = record as ProjectOverviewBlockRecord;
+              return <BlockProjectOverview block={projectOverview} />
+            case "ProcessListBlockRecord":
+              const processList = record as ProcessListBlockRecord;
+              return <BlockProcessList block={processList} />;
             case "SliderShowcaseBlockRecord":
               const slider = record as SliderShowcaseBlockRecord;
-              return <ProjectSlider blocks={slider.blocks} />;
+              return <BlockProjectSlider blocks={slider.blocks} />;
             case "SectionBlockRecord":
               const entry = record as SectionBlockRecord;
               return (
-                <SectionTitle action={entry.subtitle}>
+                <BlockSectionTitle action={entry.subtitle}>
                   {entry.sectionTitle}
-                </SectionTitle>
+                </BlockSectionTitle>
               );
             case "BeforeAfterBlockRecord":
-              return <CompareImages block={record as BeforeAfterBlockRecord} />;
+              return (
+                <BlockBeforeAfter block={record as BeforeAfterBlockRecord} />
+              );
             case "FlowBlockRecord":
               const description =
                 record.description as FlowBlockRecord["description"];
