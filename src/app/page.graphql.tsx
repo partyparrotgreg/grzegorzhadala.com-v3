@@ -2,6 +2,9 @@ import { graphql } from "@/gql";
 
 export default graphql(/* GraphQL */ `
   query HomePageQuery {
+    home {
+      introduction
+    }
     projects: allProjects {
       id
       projectName

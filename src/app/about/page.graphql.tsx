@@ -2,6 +2,9 @@ import { graphql } from "@/gql";
 
 export default graphql(/* GraphQL */ `
   query AboutPageQuery {
+    about {
+      introduction
+    }
     clients: allClients {
       id
       description
@@ -12,7 +15,7 @@ export default graphql(/* GraphQL */ `
         height
       }
     }
-    experiences: allExperiences(orderBy: end_DESC) {
+    experiences: allExperiences(orderBy: start_DESC) {
       role
       start
       client {

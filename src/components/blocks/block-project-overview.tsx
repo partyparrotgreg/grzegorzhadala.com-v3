@@ -8,15 +8,18 @@ export const BlockProjectOverview = ({
 }: {
   block: ProjectOverviewBlockRecord;
 }) => {
+  const doesImageExist = block.client?.logo?.length;
   return (
     <div className="flex flex-col gap-6 lg:grid lg:grid-cols-3 relative">
       <div className="relative">
-        <Reveal>
-          <ThemedImage
-            images={block.client?.logo as ThemedImageType[]}
-            className="h-16 w-auto mt-9 origin-top-left"
-          />
-        </Reveal>
+        {doesImageExist && (
+          <Reveal>
+            <ThemedImage
+              images={block.client?.logo as ThemedImageType[]}
+              className="h-16 w-auto mt-9 origin-top-left"
+            />
+          </Reveal>
+        )}
       </div>
       <div className="col-span-2 space-y-8 pt-24 pb-24 col-start-2">
         <Reveal>

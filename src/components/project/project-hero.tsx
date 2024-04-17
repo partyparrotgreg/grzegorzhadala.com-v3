@@ -2,12 +2,11 @@
 
 import { ProjectRecord, SkillRecord } from "@/gql/graphql";
 import { ArrowUpRight, X } from "@phosphor-icons/react/dist/ssr";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { SkillsRender } from "../shared/skills-render";
-import { TextDescription } from "../shared/text-description";
-import { Button } from "../ui/button";
-import { motion } from "framer-motion";
 import { Reveal } from "../transitions/reveal";
+import { Button } from "../ui/button";
 
 export const ProjectHero = ({ project }: { project: ProjectRecord }) => {
   const { role, projectName, summary, client, skills } = project;
@@ -25,18 +24,17 @@ export const ProjectHero = ({ project }: { project: ProjectRecord }) => {
         initial="hidden"
         animate="show"
       >
-        <TextDescription
-          className="col-span-4"
-          label={new Date(role?.end).getFullYear()}
-          items={[
-            <div className="uppercase opacity-70" key="company">
-              {client?.company}
-            </div>,
-            <div className="uppercase opacity-70" key="role">
-              {role?.role}
-            </div>,
-          ]}
-        />
+        <div className="flex flex-col gap-1">
+          <div className="uppercase text-brand font-medium" key="year">
+            {new Date(role?.end).getFullYear()}
+          </div>
+          <div className="uppercase" key="company">
+            {client?.company}
+          </div>
+          <div className="uppercase" key="role">
+            {role?.role}
+          </div>
+        </div>
 
         <div className="flex flex-row gap-2">
           {project.client?.website && (

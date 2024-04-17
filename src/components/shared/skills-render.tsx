@@ -5,9 +5,7 @@ export const SkillsRender = ({ skills }: { skills: SkillRecord[] }) => {
   return (
     <div className="justify-start items-start gap-2 flex flex-wrap">
       {skills.map(({ id, name }) => (
-        <Badge variant={"outline"} key={id}>
-          {name}
-        </Badge>
+        <Badge key={id}>{name}</Badge>
       ))}
     </div>
   );

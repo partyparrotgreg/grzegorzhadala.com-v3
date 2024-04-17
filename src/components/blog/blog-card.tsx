@@ -17,28 +17,28 @@ export const BlogCard = ({
     <Link
       href={href}
       passHref={passHref}
-      className="transition-all flex-col justify-start items-start gap-4 inline-flex w-full lg:hover:bg-foreground group"
+      className="transition-all flex-col justify-start items-start gap-4 inline-flex w-full group overflow-hidden"
     >
-      <Image
-        className="relative object-cover rounded-lg xl:aspect-square aspect-square sm:aspect-video"
-        width={800}
-        height={800}
-        src={cover}
-        alt="Challenge Image"
-      />
-      <div className="self-stretch justify-between items-start inline-flex lg:group-hover:px-4  transition-all">
-        <div className="text-muted-foreground text-sm font-medium leading-tight">
+      <div className="aspect-square relative overflow-hidden">
+        <Image
+          className="object-cover scale-105 group-hover:scale-100 w-full h-full transition-all"
+          width={800}
+          height={800}
+          src={cover}
+          alt="Challenge Image"
+        />
+      </div>
+      <div className="self-stretch justify-between items-start inline-flex">
+        <div className="text-muted-foreground text-sm  leading-tight">
           2 days ago
         </div>
-        <div className="text-muted-foreground text-sm font-medium leading-tight">
+        <div className="text-muted-foreground text-sm  leading-tight">
           {categories.map((category, index) => (
             <span key={index}>{category}</span>
           ))}
         </div>
       </div>
-      <p className="text-2xl w-full line-clamp-2 font-medium tracking-tight lg:group-hover:px-4 lg:group-hover:-mt-2  transition-all lg:group-hover:text-background">
-        {summary}
-      </p>
+      <p className="text-xl w-full line-clamp-2  tracking-tight">{summary}</p>
     </Link>
   );
 };

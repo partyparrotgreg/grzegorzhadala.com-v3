@@ -9,7 +9,7 @@ import query from "./page.graphql";
 const getHomeContent = async () => await request(query);
 
 export default async function Home() {
-  const { projects, clients } = await getHomeContent();
+  const { projects, clients, home } = await getHomeContent();
 
   const findEarliest = (projects: ProjectRecord[]) => {
     const endDates = projects.map((project) => project.role?.end);
@@ -26,7 +26,7 @@ export default async function Home() {
   return (
     <>
       <HeaderNav />
-      <Hero text="Somethingggg" />
+      <Hero text={home?.introduction} />
       <BlockSectionTitle
         action={`${findEarliest(projects as ProjectRecord[])}`}
       >

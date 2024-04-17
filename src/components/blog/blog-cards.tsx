@@ -1,3 +1,4 @@
+import { BlockSectionTitle } from "../blocks/block-section-title";
 import { BlogCard } from "./blog-card";
 
 export const BlogCards = () => {
@@ -32,12 +33,13 @@ export const BlogCards = () => {
     },
   ];
   return (
-    <div>
+    <>
+      <BlockSectionTitle>Latest blog posts</BlockSectionTitle>
       <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-8 content-padding bg-background pb-8">
         {blogPosts.map((post, index) => (
           <BlogCard {...post} key={index} />
         ))}
       </div>
-    </div>
+    </>
   );
 };

@@ -2,7 +2,11 @@
 
 import { ExperienceRecord } from "@/gql/graphql";
 
-export const ProjectLineItem = ({ experience }: { experience: ExperienceRecord }) => {
+export const ExperienceItem = ({
+  experience,
+}: {
+  experience: ExperienceRecord;
+}) => {
   const { start, client, role } = experience;
   const parseYear = (date: string) => {
     return new Date(date).getFullYear();
