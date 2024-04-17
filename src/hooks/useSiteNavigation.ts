@@ -3,7 +3,7 @@ import { isDev } from "@/lib/utils";
 export const useSiteNavigation = () => {
   const nav = [
     {
-      label: "Start",
+      label: "Work",
       href: "/",
       target: undefined,
     },
@@ -13,7 +13,7 @@ export const useSiteNavigation = () => {
       target: undefined,
     },
     {
-      label: "Gallery",
+      label: "Fun",
       href: "/gallery",
       target: undefined,
     },

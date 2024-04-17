@@ -121,6 +121,23 @@ export default graphql(/* GraphQL */ `
               title
             }
           }
+          ... on FeaturephotoblockRecord {
+            id
+            image {
+              responsiveImage {
+                src
+                srcSet
+                base64
+                width
+                height
+                alt
+                title
+                webpSrcSet
+              }
+            }
+            title
+            description
+          }
           ... on ProjectOverviewBlockRecord {
             id
             projectDescription

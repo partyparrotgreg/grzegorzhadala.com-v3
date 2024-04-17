@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
 interface TextDescriptionProps extends Partial<HTMLDivElement> {
-  label: ReactNode;
+  label?: ReactNode;
   items: ReactNode[];
 }
 

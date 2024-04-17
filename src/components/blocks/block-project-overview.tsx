@@ -10,11 +10,11 @@ export const BlockProjectOverview = ({
 }) => {
   return (
     <div className="flex flex-col gap-6 lg:grid lg:grid-cols-3 relative">
-      <div>
+      <div className="relative">
         <Reveal>
           <ThemedImage
             images={block.client?.logo as ThemedImageType[]}
-            className="h-16 w-auto"
+            className="h-16 w-auto mt-9 origin-top-left"
           />
         </Reveal>
       </div>

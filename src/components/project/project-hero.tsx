@@ -56,10 +56,10 @@ export const ProjectHero = ({ project }: { project: ProjectRecord }) => {
       <div className="flex lg:grid lg:grid-cols-3">
         <div className="col-start-2 col-span-2 flex flex-col gap-6 relative">
           <Reveal order={1}>
-            <motion.h1 className="project-title">{projectName}</motion.h1>
+            <motion.h1 className="block">{projectName}</motion.h1>
           </Reveal>
           <Reveal order={2}>
-            <motion.p className="project-summary-text -ml-px max-w-[30ch] relative">
+            <motion.p className="text-3xl lg:text-5xl tracking-tighter font-medium block -ml-px max-w-[30ch] relative">
               {summary}
             </motion.p>
           </Reveal>

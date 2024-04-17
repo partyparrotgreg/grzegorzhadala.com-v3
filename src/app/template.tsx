@@ -12,7 +12,7 @@ export default function HomeTemplate({
     window.scroll({ top: 0, left: 0, behavior: "smooth" });
   }, []);
   return (
-    <div className="p-6 flex flex-col gap-12 max-w-[120rem] mx-auto">
+    <div className="p-6 flex flex-col gap-8 max-w-[120rem] mx-auto">
       {children}
       <SectionFooter />
     </div>

@@ -2,14 +2,16 @@ import { StructuredText as StructuredTextType } from "datocms-structured-text-ut
 
 import {
   BeforeAfterBlockRecord,
+  FeaturephotoblockRecord,
   FlowBlockRecord,
   ProcessListBlockRecord,
   ProjectOverviewBlockRecord,
   SectionBlockRecord,
   SliderShowcaseBlockRecord,
 } from "@/gql/graphql";
-import { cn, isDev } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { isCode, isHeading, isParagraph } from "datocms-structured-text-utils";
+import { createElement } from "react";
 import {
   Image as ReactDatocmsImage,
   ResponsiveImageType,
@@ -17,12 +19,12 @@ import {
   renderNodeRule,
 } from "react-datocms";
 import { BlockBeforeAfter } from "../blocks/block-before-after";
-import { SyntaxHighlighter } from "../shared/syntax-highlighter";
-import { createElement } from "react";
-import { BlockSectionTitle } from "../blocks/block-section-title";
-import { BlockProjectSlider } from "../blocks/block-project-slider";
+import { BlockFeaturePhoto } from "../blocks/block-feature-photo";
 import { BlockProcessList } from "../blocks/block-process-list";
 import { BlockProjectOverview } from "../blocks/block-project-overview";
+import { BlockProjectSlider } from "../blocks/block-project-slider";
+import { BlockSectionTitle } from "../blocks/block-section-title";
+import { SyntaxHighlighter } from "../shared/syntax-highlighter";
 
 export const ProjectTextFormatter = ({
   body,
@@ -84,9 +86,12 @@ export const ProjectTextFormatter = ({
         ]}
         renderBlock={({ record }) => {
           switch (record.__typename) {
+            case "FeaturephotoblockRecord":
+              const featuredPhoto = record as FeaturephotoblockRecord;
+              return <BlockFeaturePhoto block={featuredPhoto} />;
             case "ProjectOverviewBlockRecord":
               const projectOverview = record as ProjectOverviewBlockRecord;
-              return <BlockProjectOverview block={projectOverview} />
+              return <BlockProjectOverview block={projectOverview} />;
             case "ProcessListBlockRecord":
               const processList = record as ProcessListBlockRecord;
               return <BlockProcessList block={processList} />;
@@ -132,16 +137,7 @@ export const ProjectTextFormatter = ({
           }
         }}
       />
-      {isDev && (
-        <SyntaxHighlighter
-          code={JSON.stringify(body, null, 2)}
-          language="json"
-        />
-      )}
     </div>
   );
 };
 
-// FlowBlockRecord
-// returns id, images[], description
-// MobileStackRecord

@@ -8,8 +8,8 @@ export const ProjectLineItem = ({ experience }: { experience: ExperienceRecord }
     return new Date(date).getFullYear();
   };
   return (
-    <div className="py-4 border-b border-border overflow-hidden relative flex flex-col md:flex-row justify-between w-full gap-2 md:gap-6 items-center">
-      <div className="w-6 opacity-50">{parseYear(start)}</div>
+    <div className="py-4 border-b border-border overflow-hidden relative flex flex-row justify-between w-full items-center">
+      <div className="w-14 text-brand font-medium">{parseYear(start)}</div>
       <div className="flex-grow">{client.company}</div>
       <div className="flex text-muted-foreground">{role}</div>
     </div>

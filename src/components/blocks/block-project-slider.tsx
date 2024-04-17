@@ -24,7 +24,7 @@ export const BlockProjectSlider = ({
       },
       // when window width is >= 640px
       640: {
-        slidesPerView: 4.2,
+        slidesPerView: 3.2,
       },
     },
   };
@@ -32,7 +32,7 @@ export const BlockProjectSlider = ({
     <UISwiper
       autoplay={{ delay: 3000 }}
       grabCursor
-      spaceBetween={32}
+      spaceBetween={8}
       {...swiperOptions}
       items={blocks.map((block) => (
         <ImageDescriptionBlock
@@ -50,7 +50,10 @@ export const ImageDescriptionBlock = ({
   block: ThemedImageBlockRecord;
 }) => {
   return (
-    <div key={block.id} className="flex flex-col overflow-hidden">
+    <div
+      key={block.id}
+      className="flex flex-col overflow-hidden lg:bg-foreground/10 lg:px-16 lg:pt-16 lg:pb-4"
+    >
       <div>
         <ThemedDatoImage images={block.images} />
       </div>
@@ -66,7 +69,7 @@ export const ThemedDatoImage = ({ images }: { images: any[] }) => {
   const lightImage = images[0].responsiveImage;
   const darkImage = images[1].responsiveImage;
   return (
-    <div className="overflow-hidden rounded-2xl h-full w-full relative border group">
+    <div className="overflow-hidden rounded-2xl h-full w-full relative group">
       <div className="group-hover:opacity-100 opacity-0 -translate-y-20 group-hover:translate-y-0 absolute z-10 right-2 top-2 rounded-full transition-all bg-foreground/70 backdrop-blur-lg p-1">
         <ThemeToggle isInverted />
       </div>

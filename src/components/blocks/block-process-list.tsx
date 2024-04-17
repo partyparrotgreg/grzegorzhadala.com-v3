@@ -7,6 +7,7 @@ import {
   NotionLogo,
   UserFocus,
 } from "@phosphor-icons/react/dist/ssr";
+import { TitleDescription } from "../shared/title-description";
 import { Reveal } from "../transitions/reveal";
 
 export const BlockProcessList = ({
@@ -33,25 +34,23 @@ export const BlockProcessList = ({
   };
   return (
     <div className="flex flex-col gap-8">
-      {items.map(({ id, icon, title, processDescription }, index) => {
+      {items.map(({ id, icon, title, processDescription }) => {
         const Icon = parseIcon(icon);
-        const isLastItem = index === items.length - 1;
         return (
           <Reveal key={id}>
             <div
               className={cn(
-                isLastItem ? "" : "border-b",
                 "flex flex-col gap-6 lg:grid lg:grid-cols-3 pb-8 relative"
               )}
             >
-              <div className="absolute top-0 right-0 lg:static">
+              <div className="absolute top-0 right-0 lg:static lg:flex lg:justify-end">
                 <Icon size={32} weight="light" />
               </div>
-              <div>
-                <h2 className="text-2xl font-semibold">{title}</h2>
-              </div>
-              <div>
-                <p className="leading-7">{processDescription}</p>
+              <div className="col-span-2 space-y-4 xl:col-span-1 xl:space-y-0">
+                <TitleDescription
+                  title={title}
+                  description={processDescription}
+                />
               </div>
             </div>
           </Reveal>

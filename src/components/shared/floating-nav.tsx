@@ -38,7 +38,7 @@ export const FloatingNav = () => {
             transition={{
               duration: 0.2,
             }}
-            className="bottom-0 left-0 right-0 p-0 lg:p-6 fixed z-[999] items-center justify-end flex"
+            className="bottom-0 left-auto right-0 p-0 lg:p-6 fixed z-[999] items-center justify-end flex"
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
           >

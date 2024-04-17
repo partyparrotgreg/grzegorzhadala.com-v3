@@ -43,15 +43,13 @@ export default async function ProjectPage({
   const { cover } = project;
 
   return (
-    <div className="flex flex-col gap-12 overflow-hidden">
+    <div className="flex flex-col gap-12">
       <ProjectHero project={project as ProjectRecord} />
-      <div className="overflow-hidden">
-        <ReactDatocmsImage
-          data={cover.responsiveImage as ResponsiveImageType}
-          lazyLoad
-          layout="responsive"
-        />
-      </div>
+      <ReactDatocmsImage
+        data={cover.responsiveImage as ResponsiveImageType}
+        lazyLoad
+        layout="responsive"
+      />
 
       <ProjectTextFormatter body={project.body as StructuredTextType} />
     </div>

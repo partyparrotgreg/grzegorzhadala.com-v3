@@ -91,10 +91,10 @@
 
 @layer component {
   .project-summary-text {
-    @apply text-3xl lg:text-5xl tracking-tighter font-medium leading-tight block -ml-2;
+    @apply text-3xl lg:text-5xl tracking-tighter font-medium block -ml-2;
   }
   .project-title {
-    @apply text-4xl lg:text-6xl tracking-tighter font-bold leading-snug block -ml-2;
+    @apply text-4xl lg:text-6xl tracking-tighter font-bold block -ml-2;
   }
 }
 

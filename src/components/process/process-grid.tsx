@@ -1,28 +1,37 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { processItems } from "@/mocks/process";
-import { Badge } from "../ui/badge";
+import { BlockSectionTitle } from "../blocks/block-section-title";
+import { TitleDescription } from "../shared/title-description";
 
 export const ProcessGrid = () => {
   return (
-    <div className="gap-2 grid grid-cols-3">
-      {processItems.map((process) => {
+    <>
+      <BlockSectionTitle>Process</BlockSectionTitle>
+      {processItems.map((process, index) => {
         const SVGIcon = process.icon;
+        const isLastItem = index === processItems.length - 1;
         return (
           <div
-            className="bg-card p-8 flex flex-col gap-8 items-start min-w-[360px]"
+            className={cn(
+              isLastItem ? "" : "border-b",
+              "flex flex-col gap-6 lg:grid lg:grid-cols-3 pb-8 relative"
+            )}
             key={process.step}
           >
-            <Badge variant={"outline"}>{process.step}</Badge>
+            <div className="bg-foreground p-4 text-xl text-background">
+              {process.step}
+            </div>
             <SVGIcon />
-            <h4 className="text-2xl font-medium tracking-tight">
-              {process.title}
-            </h4>
-            <p>{process.description}</p>
+            <TitleDescription
+              title={process.title}
+              description={process.description}
+            />
           </div>
         );
       })}
-    </div>
+    </>
   );
 };
 

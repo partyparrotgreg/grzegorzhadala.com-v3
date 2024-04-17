@@ -26,7 +26,7 @@ export default async function Home() {
   return (
     <>
       <HeaderNav />
-      <Hero />
+      <Hero text="Somethingggg" />
       <BlockSectionTitle
         action={`${findEarliest(projects as ProjectRecord[])}`}
       >
@@ -42,7 +42,6 @@ export default async function Home() {
         ))}
       </div>
       <ClientsOverview clients={clients as ClientRecord[]} />
-      <BlockSectionTitle>Services</BlockSectionTitle>
     </>
   );
 }
