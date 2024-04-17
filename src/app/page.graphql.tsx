@@ -3,7 +3,7 @@ import { graphql } from "@/gql";
 export default graphql(/* GraphQL */ `
   query HomePageQuery {
     home {
-      introduction
+      pageIntro
     }
     projects: allProjects {
       id

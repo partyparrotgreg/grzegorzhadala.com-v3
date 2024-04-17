@@ -22,7 +22,7 @@ export const UnderlineLink = ({
   const linkClass = cn(
     pathname === props.href ? "opacity-100" : "opacity-50 hover:opacity-100",
     onFloatingNav ? "text-white dark:text-black" : "text-foreground",
-    "transition-colors relative inline-flex items-center gap-1"
+    "transition-all relative inline-flex items-center gap-1"
   );
 
   return (

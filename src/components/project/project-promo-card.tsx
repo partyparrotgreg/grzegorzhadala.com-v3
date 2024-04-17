@@ -38,7 +38,7 @@ export const ProjectPromoCard = ({
         </motion.div>
       )}
       <div className="relative flex flex-row justify-between items-center">
-        <div className="flex flex-row items-center gap-4">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-4">
           <div className="opacity-70">{project?.client?.company}</div>
           <UnderlineLink href={`/project/${project?.slug}`} scroll>
             {project?.projectName}

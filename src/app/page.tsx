@@ -26,7 +26,7 @@ export default async function Home() {
   return (
     <>
       <HeaderNav />
-      <Hero text={home?.introduction} />
+      <Hero text={home?.pageIntro} />
       <BlockSectionTitle
         action={`${findEarliest(projects as ProjectRecord[])}`}
       >

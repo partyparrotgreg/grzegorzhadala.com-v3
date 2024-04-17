@@ -9,21 +9,18 @@ export const ProcessGrid = () => {
   return (
     <>
       <BlockSectionTitle>Process</BlockSectionTitle>
-      {processItems.map((process, index) => {
+      {processItems.map((process) => {
         const SVGIcon = process.icon;
-        const isLastItem = index === processItems.length - 1;
         return (
           <div
             className={cn(
-              isLastItem ? "" : "border-b",
               "flex flex-col gap-6 lg:grid lg:grid-cols-3 pb-8 relative"
             )}
             key={process.step}
           >
-            <div className="bg-foreground p-4 text-xl text-background">
-              {process.step}
+            <div className="flex justify-end">
+              <SVGIcon />
             </div>
-            <SVGIcon />
             <TitleDescription
               title={process.title}
               description={process.description}

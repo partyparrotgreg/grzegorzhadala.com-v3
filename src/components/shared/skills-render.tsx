@@ -3,7 +3,7 @@ import { Badge } from "../ui/badge";
 
 export const SkillsRender = ({ skills }: { skills: SkillRecord[] }) => {
   return (
-    <div className="justify-start items-start gap-2 flex flex-wrap">
+    <div className="justify-start items-start gap-px flex flex-wrap">
       {skills.map(({ id, name }) => (
         <Badge key={id}>{name}</Badge>
       ))}

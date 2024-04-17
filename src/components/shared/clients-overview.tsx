@@ -13,19 +13,17 @@ export const ClientsOverview = ({ clients }: ClientsProps) => {
   return (
     <>
       <BlockSectionTitle>Clients</BlockSectionTitle>
-      <div className="bg-foreground text-background">
-        <div className="flex flex-col md:grid md:grid-cols-5 flex-nowrap overflow-hidden items-start justify-start">
-          {clients.map((client, index) => (
-            <motion.div
-              key={client.id + "reverse" + index}
-              className="h-32 flex items-center justify-center w-full"
-            >
-              <div>
-                <ThemedImage images={client.logo} inverted />
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      <div className="grid grid-cols-2 md:grid-cols-5 items-start">
+        {clients.map((client, index) => (
+          <motion.div
+            key={client.id + "reverse" + index}
+            className="aspect-square flex w-full border-b items-center justify-center lg:last-of-type:border-r lg:first-of-type:col-start-2 lg:first-of-type:border-l"
+          >
+            <div>
+              <ThemedImage images={client.logo} />
+            </div>
+          </motion.div>
+        ))}
       </div>
     </>
   );
