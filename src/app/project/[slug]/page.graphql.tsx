@@ -137,6 +137,7 @@ export default graphql(/* GraphQL */ `
             }
             title
             description
+            span
           }
           ... on ProjectOverviewBlockRecord {
             id

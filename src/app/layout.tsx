@@ -11,7 +11,7 @@ import "./globals.css";
 // TODO: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image
 
 export const metadata: Metadata = {
-  title: "The Greg - Product Designer & Frontend Developer",
+  title: "Greg Hadala - Product Designer & Frontend Developer",
   description:
     "I am a product designer and frontend developer with a passion for creating beautiful and functional user interfaces.",
 };

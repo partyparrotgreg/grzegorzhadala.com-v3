@@ -36,7 +36,7 @@ export const SectionFooter = () => {
           <UnderlineLink href="https://www.linkedin.com/in/greghadala/">
             LinkedIn <ArrowUpRight size={NAV_ICON_SIZE} />
           </UnderlineLink>
-          <UnderlineLink href="https://www.linkedin.com/in/greghadala/">
+          <UnderlineLink href="https://figma.com/@greghadala">
             Figma <ArrowUpRight size={NAV_ICON_SIZE} />
           </UnderlineLink>
         </div>

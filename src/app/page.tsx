@@ -11,6 +11,10 @@ const getHomeContent = async () => await request(query);
 export default async function Home() {
   const { projects, clients, home } = await getHomeContent();
 
+  const sortedProjects = projects.sort((a, b) => {
+    return new Date(b.role?.end).getTime() - new Date(a.role?.end).getTime();
+  });
+
   const findEarliest = (projects: ProjectRecord[]) => {
     const endDates = projects.map((project) => project.role?.end);
     const earliest = endDates.reduce((earliest, current) => {
@@ -34,7 +38,7 @@ export default async function Home() {
       </BlockSectionTitle>
 
       <div className="flex flex-col xl:grid xl:grid-cols-2 gap-24">
-        {projects.map((project) => (
+        {sortedProjects.map((project) => (
           <ProjectPromoCard
             project={project as ProjectRecord}
             key={project.id}

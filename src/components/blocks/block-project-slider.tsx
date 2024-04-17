@@ -66,6 +66,16 @@ export const ImageDescriptionBlock = ({
 
 export const ThemedDatoImage = ({ images }: { images: any[] }) => {
   const isDark = useIsDark();
+  if (images.length === 0) return null;
+  if (images.length === 1) {
+    return (
+      <ReactDatocmsImage
+        data={images[0].responsiveImage}
+        lazyLoad
+        layout="responsive"
+      />
+    );
+  }
   const lightImage = images[0].responsiveImage;
   const darkImage = images[1].responsiveImage;
   return (

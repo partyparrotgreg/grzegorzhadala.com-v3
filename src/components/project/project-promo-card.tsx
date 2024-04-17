@@ -26,7 +26,7 @@ export const ProjectPromoCard = ({
   return (
     <motion.div ref={ref} className={mergedClasses}>
       {project?.cover.responsiveImage && (
-        <motion.div className="overflow-hidden relative w-full">
+        <motion.div className="overflow-hidden relative w-full bg-foreground/10">
           <Link href={`/project/${project?.slug}`} scroll className="w-full">
             <ReactDatocmsImage
               data={project.cover.responsiveImage}
