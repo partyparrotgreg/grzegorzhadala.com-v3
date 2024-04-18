@@ -23,10 +23,17 @@ export const ProjectPromoCard = ({
   );
   const ref = useRef<HTMLDivElement>(null);
 
+  const backgroundClass = project?.color?.hex;
+
   return (
     <motion.div ref={ref} className={mergedClasses}>
       {project?.cover.responsiveImage && (
-        <motion.div className="overflow-hidden relative w-full bg-foreground/10">
+        <motion.div
+          className={cn("overflow-hidden relative w-full", "bg-foreground/10")}
+          style={{
+            backgroundColor: backgroundClass,
+          }}
+        >
           <Link href={`/project/${project?.slug}`} scroll className="w-full">
             <ReactDatocmsImage
               data={project.cover.responsiveImage}

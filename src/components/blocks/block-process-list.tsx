@@ -43,7 +43,7 @@ export const BlockProcessList = ({
                 "flex flex-col gap-6 lg:grid lg:grid-cols-3 pb-8 relative"
               )}
             >
-              <div className="absolute top-0 right-0 lg:static lg:flex lg:justify-end">
+              <div className="absolute -top-2 right-0 lg:static lg:flex lg:justify-end">
                 <Icon size={32} weight="light" color="#FE390C" />
               </div>
               <div className="col-span-2 space-y-4 xl:col-span-1 xl:space-y-0">

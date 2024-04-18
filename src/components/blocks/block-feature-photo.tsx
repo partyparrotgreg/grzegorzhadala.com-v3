@@ -11,8 +11,8 @@ export const BlockFeaturePhoto = ({
   if (!block) return null;
   const { title, description, image, span } = block;
   return (
-    <div className="gap-8 grid lg:grid-cols-3">
-      <div className="flex flex-col lg:gap-2">
+    <div className="gap-6 grid lg:grid-cols-3">
+      <div className="col-span-2 lg:col-span-1">
         <TitleDescription title={title} description={description} />
       </div>
       <div className={cn("bg-foreground/10", span)}>

@@ -25,6 +25,9 @@ export default graphql(/* GraphQL */ `
         end
         description
       }
+      color {
+        hex
+      }
       summary
       slug
       cover {
