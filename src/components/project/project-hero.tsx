@@ -1,6 +1,6 @@
 "use client";
 
-import { ProjectRecord, SkillRecord } from "@/gql/graphql";
+import { SkillRecord } from "@/gql/graphql";
 import { ArrowUpRight, X } from "@phosphor-icons/react/dist/ssr";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -8,7 +8,7 @@ import { SkillsRender } from "../shared/skills-render";
 import { Reveal } from "../transitions/reveal";
 import { Button } from "../ui/button";
 
-export const ProjectHero = ({ project }: { project: ProjectRecord }) => {
+export const ProjectHero = ({ project }: { project: any }) => {
   const { role, projectName, summary, client, skills } = project;
   return project ? (
     <motion.div className="flex flex-col gap-24 relative">

@@ -1,4 +1,3 @@
-import { ProjectRecord } from "@/gql/graphql";
 import { request } from "@/lib/dato";
 import { StructuredText as StructuredTextType } from "datocms-structured-text-utils/dist/types/types";
 import { Image as ReactDatocmsImage, ResponsiveImageType } from "react-datocms";
@@ -19,9 +18,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${response.project?.client?.company}: ${response.project?.projectName} - by Grzegorz Hadala`,
     description: response.project?.summary,
-
     openGraph: {
-      images: [response.project?.cover.responsiveImage?.src as string],
+      images: [
+        {
+          url: response.project?.seo?.image?.url || "",
+          width: "1200",
+          height: "630",
+        },
+      ],
     },
   };
 }
@@ -44,7 +48,7 @@ export default async function ProjectPage({
 
   return (
     <div className="flex flex-col gap-12">
-      <ProjectHero project={project as ProjectRecord} />
+      <ProjectHero project={project} />
       <ReactDatocmsImage
         data={cover.responsiveImage as ResponsiveImageType}
         lazyLoad
@@ -55,4 +59,3 @@ export default async function ProjectPage({
     </div>
   );
 }
-

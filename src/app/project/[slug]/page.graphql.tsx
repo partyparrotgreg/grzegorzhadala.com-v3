@@ -5,6 +5,44 @@ export default graphql(/* GraphQL */ `
     project(filter: { slug: { eq: $slug } }) {
       id
       projectName
+      cover {
+        responsiveImage {
+          src
+          srcSet
+          base64
+          width
+          height
+          alt
+          title
+          webpSrcSet
+        }
+        url
+      }
+      slug
+      summary
+      role {
+        role
+        start
+        end
+      }
+      skills {
+        name
+        id
+      }
+      client {
+        id
+        website
+        company
+        logo {
+          url
+          width
+          height
+        }
+      }
+      color {
+        hex
+        cssRgb
+      }
       body {
         blocks {
           __typename
@@ -101,13 +139,14 @@ export default graphql(/* GraphQL */ `
               id
               images {
                 responsiveImage {
-                  webpSrcSet
-                  width
-                  title
-                  srcSet
                   src
-                  height
+                  srcSet
                   base64
+                  width
+                  height
+                  alt
+                  title
+                  webpSrcSet
                 }
               }
             }
@@ -156,41 +195,19 @@ export default graphql(/* GraphQL */ `
         }
         value
       }
-      cover {
-        responsiveImage {
-          src
-          srcSet
-          base64
-          width
-          height
-          alt
-          title
+      meta: _seoMetaTags(locale: en) {
+        attributes
+        content
+        tag
+      }
+      seo {
+        title
+        noIndex
+        description
+        image {
+          url(imgixParams: { crop: top, h: "630", w: "1200" })
         }
-      }
-      slug
-      summary
-      role {
-        role
-        start
-        end
-      }
-      skills {
-        name
-        id
-      }
-      client {
-        id
-        website
-        company
-        logo {
-          url
-          width
-          height
-        }
-      }
-      color {
-        hex
-        cssRgb
+        twitterCard
       }
     }
   }

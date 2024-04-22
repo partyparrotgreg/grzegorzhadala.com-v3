@@ -32,16 +32,17 @@ export default graphql(/* GraphQL */ `
       slug
       cover {
         responsiveImage {
-          srcSet
-          webpSrcSet
-          sizes
           src
+          srcSet
+          base64
           width
           height
-          aspectRatio
           alt
           title
-          base64
+          webpSrcSet
+          sizes
+          aspectRatio
+          bgColor
         }
       }
     }
