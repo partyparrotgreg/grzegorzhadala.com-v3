@@ -1,89 +1,94 @@
 import { graphql } from "@/gql";
 
 export default graphql(/* GraphQL */ `
-  query HomeQuery {
-    home {
+  query AboutQuery {
+    about {
+      meta: _seoMetaTags {
+        attributes
+        content
+        tag
+      }
       body {
         __typename
-        ... on ClientsBlockRecord {
-          clients {
-            ...ClientBlockFragment
+        ... on ProjectOverviewBlockRecord {
+          id
+          projectDescription
+          client {
+            id
+            website
+            company
+            logo {
+              url
+              width
+              height
+            }
           }
         }
-        ... on ProjectListBlockRecord {
+        ... on ProcessListBlockRecord {
           id
-          projects {
-            ...ProjectFragment
+          blocks {
+            id
+            icon
+            processDescription
+            title
           }
+        }
+        ... on FeaturephotoblockRecord {
+          id
+          image {
+            responsiveImage {
+              src
+              srcSet
+              base64
+              width
+              height
+              alt
+              title
+              webpSrcSet
+            }
+          }
+          title
+          description
+          span
         }
         ... on ExperienceListBlockRecord {
           id
           experiences {
             id
+            client {
+              company
+            }
+            role
+            start
+            end
+          }
+        }
+        ... on SectionBlockRecord {
+          id
+          subtitle
+          sectionTitle
+        }
+        ... on ClientsBlockRecord {
+          id
+          clients {
+            id
+            company
+            logo {
+              url
+              width
+              height
+            }
           }
         }
       }
-      _seoMetaTags(locale: en) {
-        content
-        attributes
-        tag
-      }
-    }
-  }
-  fragment AboutImage on ResponsiveImage {
-    src
-    srcSet
-    base64
-    width
-    height
-    alt
-    title
-    webpSrcSet
-    sizes
-    aspectRatio
-    bgColor
-  }
-
-  fragment ClientBlockFragment on ClientRecord {
-    id
-    website
-    logo {
-      url
-      width
-      height
-    }
-    company
-    description
-  }
-
-  fragment ProjectFragment on ProjectRecord {
-    id
-    projectName
-    _status
-    _firstPublishedAt
-    client {
-      company
-      id
-    }
-    skills {
-      id
-      name
-    }
-    role {
-      role
-      id
-      start
-      end
-      description
-    }
-    color {
-      hex
-    }
-    summary
-    slug
-    cover {
-      responsiveImage {
-        ...AboutImage
+      introduction
+      seo {
+        description
+        image {
+          url(imgixParams: { crop: top, h: "630", w: "1200" })
+        }
+        title
+        twitterCard
       }
     }
   }

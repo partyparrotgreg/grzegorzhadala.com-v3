@@ -1,15 +1,14 @@
 import { BlockSectionTitle } from "@/components/blocks/block-section-title";
 import { Hero } from "@/components/home/hero";
 import { ProjectPromoCard } from "@/components/project/project-promo-card";
-import { ClientsOverview } from "@/components/shared/clients-overview";
 import { HeaderNav } from "@/components/shared/header-nav";
-import { ClientRecord, ProjectRecord } from "@/gql/graphql";
+import { ProjectRecord } from "@/gql/graphql";
 import { request } from "@/lib/dato";
 import query from "./page.graphql";
 const getHomeContent = async () => await request(query);
 
 export default async function Home() {
-  const { projects, clients, home } = await getHomeContent();
+  const { projects, home } = await getHomeContent();
 
   const sortedProjects = projects.sort((a, b) => {
     return new Date(b.role?.end).getTime() - new Date(a.role?.end).getTime();
@@ -45,7 +44,6 @@ export default async function Home() {
           />
         ))}
       </div>
-      <ClientsOverview clients={clients as ClientRecord[]} />
     </>
   );
 }
