@@ -31,6 +31,11 @@ export default graphql(/* GraphQL */ `
             icon
             processDescription
             title
+            customIcon {
+              url
+              width
+              height
+            }
           }
         }
         ... on FeaturephotoblockRecord {

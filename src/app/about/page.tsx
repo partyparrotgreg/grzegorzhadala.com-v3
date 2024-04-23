@@ -22,8 +22,7 @@ export default async function AboutPage() {
       {/* <ProjectTextFormatter body={about?.body as StructuredTextType} /> */}
       {/* <SectionAbout />
       <ExperienceList experiences={about?.body as ExperienceRecord[]} />
-      <ProcessGrid />
-      <ClientsOverview clients={clients as ClientRecord[]} /> */}
+    <ClientsOverview clients={clients as ClientRecord[]} /> */}
     </>
   );
 }

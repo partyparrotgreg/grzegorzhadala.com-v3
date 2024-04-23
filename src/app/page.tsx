@@ -36,7 +36,7 @@ export default async function Home() {
         Selected work
       </BlockSectionTitle>
 
-      <div className="flex flex-col xl:grid xl:grid-cols-2 gap-24">
+      <div className="flex flex-col xl:grid xl:grid-cols-2 gap-16 lg:gap-12">
         {sortedProjects.map((project) => (
           <ProjectPromoCard
             project={project as ProjectRecord}
