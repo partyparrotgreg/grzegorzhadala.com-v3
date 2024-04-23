@@ -7,30 +7,33 @@ import { ProjectTextFormatter } from "@/components/project/project-text-formatte
 import type { Metadata } from "next";
 import query from "./page.graphql";
 
-type Props = {
+export type ProjectPageProps = {
   params: { slug: string };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: ProjectPageProps): Promise<Metadata> {
   const slug = params.slug;
   const response = await request(query, { slug });
 
   return {
     title: `${response.project?.client?.company}: ${response.project?.projectName} - by Grzegorz Hadala`,
     description: response.project?.summary,
-    openGraph: {
-      images: [
-        {
-          url: response.project?.seo?.image?.url || "",
-          width: "1200",
-          height: "630",
-        },
-      ],
-    },
+    // openGraph: {
+    //   images: [
+    //     {
+    //       url: response.project?.seo?.image?.url || "",
+    //       width: "1200",
+    //       height: "630",
+    //     },
+    //   ],
+    // },
   };
 }
 
-const getProjectData = async (slug: string) => await request(query, { slug });
+export const getProjectData = async (slug: string) =>
+  await request(query, { slug });
 
 // TODO: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 // TODO: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image

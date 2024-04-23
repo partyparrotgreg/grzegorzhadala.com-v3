@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "scripts/template.js", "scripts/generate-svgs.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "scripts/template.js", "scripts/generate-svgs.js", "src/app/project/[slug]/opengraph-image.tsx_"],
   "exclude": ["node_modules"]
 }
