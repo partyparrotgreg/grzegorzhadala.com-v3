@@ -3,7 +3,6 @@
 import { cn } from "@/lib/utils";
 import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
-import posthog from "posthog-js";
 
 interface UnderlineLinkProps extends LinkProps {
   children: React.ReactNode;
@@ -24,16 +23,7 @@ export const UnderlineLink = ({
   );
 
   return (
-    <Link
-      {...props}
-      className={linkClass}
-      onClickCapture={() => {
-        const parsedPath = String(props.href).split("/")[1];
-        posthog.capture("navigation", {
-          property: parsedPath === "" ? "home" : parsedPath,
-        });
-      }}
-    >
+    <Link {...props} className={linkClass}>
       {children}
     </Link>
   );
