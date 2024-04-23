@@ -23,7 +23,7 @@ export const ClientsGrid = () => {
             </motion.div>
           ))}
           <motion.div
-            className="text-foreground flex items-center justify-center w-full h-48 hover:bg-brand transition-all duration-300"
+            className="flex items-center justify-center w-full h-48 hover:bg-brand transition-all duration-300"
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -100 }}

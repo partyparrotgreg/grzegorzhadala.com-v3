@@ -1,26 +1,49 @@
-import { HomeFeature } from "@/components/home/feature";
-import { HeroView } from "@/components/home/hero-view";
-import { ProcessOverview } from "@/components/process/process-overview";
-import { FeaturedProject } from "@/components/project/featured-project";
-import { ProjectListLines } from "@/components/project/project-list-lines";
+import { BlockSectionTitle } from "@/components/blocks/block-section-title";
+import { Hero } from "@/components/home/hero";
+import { ProjectPromoCard } from "@/components/project/project-promo-card";
+import { HeaderNav } from "@/components/shared/header-nav";
+import { ProjectRecord } from "@/gql/graphql";
+import { request } from "@/lib/dato";
+import query from "./page.graphql";
+const getHomeContent = async () => await request(query);
 
-export default function Home() {
+export default async function Home() {
+  const { projects, home } = await getHomeContent();
+
+  const sortedProjects = projects.sort((a, b) => {
+    return new Date(b.role?.end).getTime() - new Date(a.role?.end).getTime();
+  });
+
+  const findEarliest = (projects: ProjectRecord[]) => {
+    const endDates = projects.map((project) => project.role?.end);
+    const earliest = endDates.reduce((earliest, current) => {
+      return current < earliest ? current : earliest;
+    });
+    const latest = endDates.reduce((latest, current) => {
+      return current > latest ? current : latest;
+    });
+    return `${new Date(earliest).getFullYear()} - ${new Date(
+      latest
+    ).getFullYear()}`;
+  };
   return (
-    <div>
-      <HeroView />
-      <div className="relative z-auto bg-background">
-        {[17, 100, 400].map((p, index) => (
-          <HomeFeature
-            p={p}
-            index={index}
-            key={index}
-            isOdd={index % 2 === 0}
+    <>
+      <HeaderNav />
+      <Hero text={home?.pageIntro} />
+      <BlockSectionTitle
+        action={`${findEarliest(projects as ProjectRecord[])}`}
+      >
+        Selected work
+      </BlockSectionTitle>
+
+      <div className="flex flex-col xl:grid xl:grid-cols-2 gap-16 lg:gap-12">
+        {sortedProjects.map((project) => (
+          <ProjectPromoCard
+            project={project as ProjectRecord}
+            key={project.id}
           />
         ))}
-        <FeaturedProject />
-        <ProcessOverview />
-        <ProjectListLines />
       </div>
-    </div>
+    </>
   );
 }

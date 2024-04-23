@@ -2,9 +2,7 @@
 
 // Import Swiper React components
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeftRight } from "lucide-react";
-import React, { CSSProperties, MouseEvent, useEffect, useState } from "react";
+import React from "react";
 import "swiper/css";
 import { Swiper, SwiperProps, SwiperSlide } from "swiper/react";
 import { SwiperOptions } from "swiper/types";
@@ -19,38 +17,10 @@ export const UISwiper = ({
   className?: string;
   options?: SwiperOptions;
 } & SwiperProps) => {
-  const [isHovering, setIsHovering] = useState(false);
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: MouseEvent) => {
-    setCursorPos({
-      x: e.clientX,
-      y: e.clientY,
-    });
-  };
-  // update mouse position on mouse move when mouse down (drag)
-
   const mergedClassName = cn("w-full", className);
 
-  useEffect(() => {
-    if (isHovering) {
-      document.body.style.cursor = "none";
-    } else {
-      document.body.style.cursor = "auto";
-    }
-  }, [isHovering]);
-
   return items ? (
-    <div
-      className="min-w-full"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-      onMouseMove={isHovering ? handleMouseMove : undefined}
-      onMouseDown={() => setIsHovering(true)}
-    >
-      <AnimatePresence>
-        {isHovering && <CustomCursor x={cursorPos.x} y={cursorPos.y} />}
-      </AnimatePresence>
+    <div className="min-w-full">
       <Swiper className={mergedClassName} {...props} {...options}>
         {items.map((item, index) => (
           <SwiperSlide key={index}>{item}</SwiperSlide>
@@ -62,21 +32,3 @@ export const UISwiper = ({
   );
 };
 
-const CustomCursor = ({ x, y }: { x: number; y: number }) => {
-  const cursorStyle: CSSProperties = {
-    top: `${y}px`,
-    left: `${x}px`,
-  };
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.5 }}
-      style={cursorStyle}
-      className="custom-cursor bg-brand w-12 h-12 fixed z-[999] rounded-full grid place-content-center"
-    >
-      <ArrowLeftRight size={16} />
-    </motion.div>
-  );
-};

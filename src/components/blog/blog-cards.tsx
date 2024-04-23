@@ -1,6 +1,4 @@
-import Link from "next/link";
-import { SectionTitle } from "../typography/section-title";
-import { Button } from "../ui/button";
+import { BlockSectionTitle } from "../blocks/block-section-title";
 import { BlogCard } from "./blog-card";
 
 export const BlogCards = () => {
@@ -35,21 +33,13 @@ export const BlogCards = () => {
     },
   ];
   return (
-    <div>
-      <SectionTitle
-        action={
-          <Link href={"/blog"}>
-            <Button variant={"link"}>Read all</Button>
-          </Link>
-        }
-      >
-        Challenges
-      </SectionTitle>
+    <>
+      <BlockSectionTitle>Latest blog posts</BlockSectionTitle>
       <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-8 content-padding bg-background pb-8">
         {blogPosts.map((post, index) => (
           <BlogCard {...post} key={index} />
         ))}
       </div>
-    </div>
+    </>
   );
 };
