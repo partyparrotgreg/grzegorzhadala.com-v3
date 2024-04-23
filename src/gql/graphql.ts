@@ -2404,6 +2404,7 @@ export type ProjectModelFilter = {
   _status?: InputMaybe<StatusFilter>;
   _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
   _updatedAt?: InputMaybe<UpdatedAtFilter>;
+  active?: InputMaybe<BooleanFilter>;
   body?: InputMaybe<StructuredTextFilter>;
   client?: InputMaybe<LinkFilter>;
   color?: InputMaybe<ColorFilter>;
@@ -2434,6 +2435,8 @@ export enum ProjectModelOrderBy {
   UnpublishingScheduledAtDesc = '_unpublishingScheduledAt_DESC',
   UpdatedAtAsc = '_updatedAt_ASC',
   UpdatedAtDesc = '_updatedAt_DESC',
+  ActiveAsc = 'active_ASC',
+  ActiveDesc = 'active_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
   ProjectNameAsc = 'projectName_ASC',
@@ -2489,6 +2492,7 @@ export type ProjectRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
   _updatedAt: Scalars['DateTime']['output'];
+  active?: Maybe<Scalars['BooleanType']['output']>;
   body?: Maybe<ProjectModelBodyField>;
   client?: Maybe<ClientRecord>;
   color?: Maybe<ColorField>;

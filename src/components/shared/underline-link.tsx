@@ -1,16 +1,14 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
+import posthog from "posthog-js";
 
 interface UnderlineLinkProps extends LinkProps {
   children: React.ReactNode;
   onFloatingNav?: boolean;
 }
-
-const MotionLink = motion(Link);
 
 export const UnderlineLink = ({
   children,
@@ -26,8 +24,17 @@ export const UnderlineLink = ({
   );
 
   return (
-    <MotionLink {...props} className={linkClass}>
+    <Link
+      {...props}
+      className={linkClass}
+      onClickCapture={() => {
+        const parsedPath = String(props.href).split("/")[1];
+        posthog.capture("navigation", {
+          property: parsedPath === "" ? "home" : parsedPath,
+        });
+      }}
+    >
       {children}
-    </MotionLink>
+    </Link>
   );
 };

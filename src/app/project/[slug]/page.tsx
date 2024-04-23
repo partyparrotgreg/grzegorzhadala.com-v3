@@ -7,9 +7,9 @@ import { ProjectTextFormatter } from "@/components/project/project-text-formatte
 import type { Metadata } from "next";
 import query from "./page.graphql";
 
-export type ProjectPageProps = {
-  params: { slug: string };
-};
+ type ProjectPageProps = {
+   params: { slug: string };
+ };
 
 export async function generateMetadata({
   params,
@@ -32,8 +32,7 @@ export async function generateMetadata({
   };
 }
 
-export const getProjectData = async (slug: string) =>
-  await request(query, { slug });
+const getProjectData = async (slug: string) => await request(query, { slug });
 
 // TODO: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 // TODO: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image
