@@ -6,6 +6,7 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-marquee";
 import type { Metadata } from "next";
 import "./globals.css";
 import { CSPostHogProvider } from "./providers";
+import { safiro } from "./fonts";
 
 // TODO: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons
 // TODO: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
@@ -46,7 +47,7 @@ export default function RootLayout({
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
-        <body>
+        <body className={safiro.className}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

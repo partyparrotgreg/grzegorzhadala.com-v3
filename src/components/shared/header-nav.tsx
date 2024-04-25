@@ -11,7 +11,7 @@ export const HeaderNav = () => {
     <div className="flex flex-row justify-between z-50 relative">
       <Link href="/" className="flex flex-row gap-2">
         Greg Hadala{" "}
-        <span className="hidden lg:inline text-muted-foreground">
+        <span className="hidden lg:inline text-foreground/75">
           &mdash; Product Designer & UI Engineer
         </span>
       </Link>

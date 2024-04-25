@@ -1,5 +1,4 @@
 import { ProcessListBlockRecord } from "@/gql/graphql";
-import { cn } from "@/lib/utils";
 import {
   Code,
   Compass,
@@ -7,9 +6,9 @@ import {
   NotionLogo,
   UserFocus,
 } from "@phosphor-icons/react/dist/ssr";
+import Image from "next/image";
 import { TitleDescription } from "../shared/title-description";
 import { Reveal } from "../transitions/reveal";
-import Image from "next/image";
 
 export const BlockProcessList = ({
   block,
@@ -34,37 +33,43 @@ export const BlockProcessList = ({
     }
   };
   return (
-    <div className="relative">
+    <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-24">
       {items.map(({ id, icon, title, processDescription, customIcon }) => {
         const Icon = parseIcon(icon);
         return (
-          <Reveal key={id}>
-            <div
-              className={cn(
-                "flex flex-row gap-6 p-8 relative bg-foreground/5 w-full h-full"
-              )}
-            >
-              <div className="absolute -top-2 right-0 lg:static lg:flex ">
-                {customIcon ? (
-                  <Image
-                    src={customIcon?.url}
-                    width={48}
-                    height={48}
-                    alt={title}
-                    className="w-8 h-8 lg:w-16 lg:h-16"
+          <div key={id} className="lg:my-24">
+            <Reveal>
+              <div className="flex flex-row gap-6">
+                <div className="absolute -top-4 right-0 lg:static lg:flex">
+                  {customIcon ? (
+                    <Image
+                      src={customIcon?.url}
+                      width={48}
+                      height={48}
+                      alt={title}
+                      className="w-8 h-8 lg:w-16 lg:h-16"
+                    />
+                  ) : (
+                    <>
+                      <Icon size={32} weight="light" color="#FE390C" />
+                      <Icon
+                        size={32}
+                        weight="fill"
+                        color="#FE390C"
+                        className="filter blur-xl absolute"
+                      />
+                    </>
+                  )}
+                </div>
+                <div className="">
+                  <TitleDescription
+                    title={title}
+                    description={processDescription}
                   />
-                ) : (
-                  <Icon size={32} weight="light" color="#FE390C" />
-                )}
+                </div>
               </div>
-              <div className="col-span-2 space-y-4 xl:col-span-1 xl:space-y-0">
-                <TitleDescription
-                  title={title}
-                  description={processDescription}
-                />
-              </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         );
       })}
     </div>

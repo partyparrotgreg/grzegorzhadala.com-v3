@@ -11,7 +11,7 @@ export const BlockFeaturePhoto = ({
   if (!block) return null;
   const { title, description, image, span, images } = block;
   return (
-    <div className="gap-6 grid lg:grid-cols-3 lg:gap-12">
+    <div className="grid lg:grid-cols-3">
       <div className="col-span-2 lg:col-span-1">
         <TitleDescription title={title} description={description} />
       </div>
