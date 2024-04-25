@@ -23,23 +23,17 @@ export const ProjectPromoCard = ({
   );
   const ref = useRef<HTMLDivElement>(null);
 
-  const backgroundClass = project?.color?.hex;
 
   return (
     <motion.div ref={ref} className={mergedClasses}>
       {project?.cover.responsiveImage && (
-        <motion.div
-          className={cn("overflow-hidden relative w-full", "bg-foreground/10")}
-          style={{
-            backgroundColor: backgroundClass,
-          }}
-        >
+        <motion.div className={cn("relative w-full")}>
           <Link href={`/project/${project?.slug}`} scroll className="w-full">
             <ReactDatocmsImage
               data={project.cover.responsiveImage}
               lazyLoad
               pictureClassName="w-full h-auto object-cover"
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-cover filter grayscale hover:grayscale-0 transition-all duration-300 ease-in-out "
             />
           </Link>
         </motion.div>

@@ -34,17 +34,17 @@ export const BlockProcessList = ({
     }
   };
   return (
-    <div className="flex flex-col gap-8">
+    <div className="relative">
       {items.map(({ id, icon, title, processDescription, customIcon }) => {
         const Icon = parseIcon(icon);
         return (
           <Reveal key={id}>
             <div
               className={cn(
-                "flex flex-col gap-6 lg:grid lg:grid-cols-3 pb-8 relative"
+                "flex flex-row gap-6 p-8 relative bg-foreground/5 w-full h-full"
               )}
             >
-              <div className="absolute -top-2 right-0 lg:static lg:flex lg:justify-end lg:items-start">
+              <div className="absolute -top-2 right-0 lg:static lg:flex ">
                 {customIcon ? (
                   <Image
                     src={customIcon?.url}

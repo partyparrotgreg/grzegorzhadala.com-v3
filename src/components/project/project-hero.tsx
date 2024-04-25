@@ -11,7 +11,7 @@ import { Button } from "../ui/button";
 export const ProjectHero = ({ project }: { project: any }) => {
   const { role, projectName, summary, client, skills } = project;
   return project ? (
-    <motion.div className="flex flex-col gap-24 relative">
+    <motion.div className="flex flex-col gap-24 relative w-full">
       <motion.div
         className="hidden lg:block absolute w-px left-[30%] bottom-0 -top-[20rem] bg-foreground/50 z-[10] pointer-events-none"
         initial={{ bottom: 500 }}
@@ -57,7 +57,7 @@ export const ProjectHero = ({ project }: { project: any }) => {
             <motion.h1 className="block">{projectName}</motion.h1>
           </Reveal>
           <Reveal order={2}>
-            <motion.p className="text-3xl lg:text-5xl tracking-tighter font-medium block -ml-px max-w-[30ch] relative">
+            <motion.p className="text-3xl lg:text-5xl tracking-tight font-medium block -ml-px max-w-[30ch] relative">
               {summary}
             </motion.p>
           </Reveal>

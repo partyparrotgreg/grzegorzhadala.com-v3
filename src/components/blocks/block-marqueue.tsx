@@ -7,9 +7,5 @@ export function BlockMarqueue({
 }: {
   items: string[] | React.ComponentType[] | React.ReactNode[];
 }) {
-  return (
-    <div className="h-[10rem] flex flex-col antialiased items-center justify-center relative overflow-hidden">
-      <InfiniteMovingCards items={items} direction="left" speed="slow" />
-    </div>
-  );
+  return <InfiniteMovingCards items={items} direction="left" speed="slow" />;
 }

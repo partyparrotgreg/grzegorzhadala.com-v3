@@ -114,7 +114,20 @@ export default graphql(/* GraphQL */ `
             id
             title
             description
+            span
             image {
+              responsiveImage {
+                src
+                srcSet
+                base64
+                width
+                height
+                alt
+                title
+                webpSrcSet
+              }
+            }
+            images {
               responsiveImage {
                 src
                 srcSet

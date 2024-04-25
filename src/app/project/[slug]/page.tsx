@@ -20,15 +20,6 @@ export async function generateMetadata({
   return {
     title: `${response.project?.client?.company}: ${response.project?.projectName} - by Grzegorz Hadala`,
     description: response.project?.summary,
-    // openGraph: {
-    //   images: [
-    //     {
-    //       url: response.project?.seo?.image?.url || "",
-    //       width: "1200",
-    //       height: "630",
-    //     },
-    //   ],
-    // },
   };
 }
 
@@ -55,6 +46,7 @@ export default async function ProjectPage({
         data={cover.responsiveImage as ResponsiveImageType}
         lazyLoad
         layout="responsive"
+        className="filter drop-shadow-2xl"
       />
 
       <ProjectTextFormatter body={project.body as StructuredTextType} />

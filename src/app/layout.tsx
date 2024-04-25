@@ -2,8 +2,8 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 
 import { FloatingNav } from "@/components/shared/floating-nav";
 import SmoothScrollLayout from "@/components/shared/smooth-scroll";
+import { InfiniteMovingCards } from "@/components/ui/infinite-marquee";
 import type { Metadata } from "next";
-import { manrope } from "./fonts";
 import "./globals.css";
 import { CSPostHogProvider } from "./providers";
 
@@ -46,7 +46,7 @@ export default function RootLayout({
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
-        <body className={manrope.className}>
+        <body>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -54,6 +54,22 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <SmoothScrollLayout>
+              <div className="fixed bottom-0 left-0 right-0 text-xs bg-brand z-10 flex items-center justify-center">
+                <InfiniteMovingCards
+                  items={[
+                    "WORK IN PROGRESS",
+                    "•••",
+                    "COME BACK SOON",
+                    "•••",
+                    "WORK IN PROGRESS",
+                    "•••",
+                    "COME BACK SOON",
+                    "•••",
+                  ]}
+                  direction="left"
+                  speed="slow"
+                />
+              </div>
               <FloatingNav />
               {children}
             </SmoothScrollLayout>
