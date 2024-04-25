@@ -13,7 +13,6 @@ export const BlockFeaturePhoto = ({
   return (
     <div className="gap-6 grid lg:grid-cols-3 lg:gap-12">
       <div className="col-span-2 lg:col-span-1">
-        <div>{span}</div>
         <TitleDescription title={title} description={description} />
       </div>
       {image?.responsiveImage && (

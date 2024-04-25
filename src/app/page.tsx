@@ -1,6 +1,6 @@
 import { BlockSectionTitle } from "@/components/blocks/block-section-title";
 import { Hero } from "@/components/home/hero";
-import { ProjectPromoCard } from "@/components/project/project-promo-card";
+import { BlockProjectList } from "@/components/project/block-project-list";
 import { HeaderNav } from "@/components/shared/header-nav";
 import { ProjectRecord } from "@/gql/graphql";
 import { request } from "@/lib/dato";
@@ -36,14 +36,7 @@ export default async function Home() {
         Selected work
       </BlockSectionTitle>
 
-      <div className="flex flex-col xl:grid xl:grid-cols-2 gap-16 lg:gap-12">
-        {sortedProjects.map((project) => (
-          <ProjectPromoCard
-            project={project as ProjectRecord}
-            key={project.id}
-          />
-        ))}
-      </div>
+      <BlockProjectList projects={sortedProjects as ProjectRecord[]} />
     </>
   );
 }
