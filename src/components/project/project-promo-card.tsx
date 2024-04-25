@@ -29,13 +29,17 @@ export const ProjectPromoCard = ({ project }: ProjectPromoCardProps) => {
         {project?.skills && <SkillsRender skills={project?.skills} />}
       </div>
       {project?.cover.responsiveImage && (
-        <motion.div className={cn("relative w-full col-span-2")}>
+        <motion.div
+          className={cn(
+            "relative w-full col-span-2 mix-blend-color-dodge dark:mix-blend-overlay"
+          )}
+        >
           <ReactDatocmsImage
             data={project.cover.responsiveImage}
             lazyLoad
             pictureClassName="w-full h-auto object-cover"
             className={cn(
-              "w-full h-auto object-cover filter grayscale  transition-all duration-300 ease-in-out",
+              "w-full h-auto object-cover filter grayscale transition-all duration-300 ease-in-out ",
               isDark ? "invert" : "invert-0"
             )}
           />
