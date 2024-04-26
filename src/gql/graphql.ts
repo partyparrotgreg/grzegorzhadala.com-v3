@@ -2476,7 +2476,7 @@ export type ProjectListBlockRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
-export type ProjectModelBodyBlocksField = BeforeAfterBlockRecord | FeaturephotoblockRecord | FlowBlockRecord | MobileStackRecord | ProcessListBlockRecord | ProjectOverviewBlockRecord | SectionBlockRecord | SliderShowcaseBlockRecord | ThemedImageBlockRecord | VideoBlockRecord;
+export type ProjectModelBodyBlocksField = BeforeAfterBlockRecord | FeaturephotoblockRecord | FlowBlockRecord | MobileStackRecord | ProcessListBlockRecord | ProjectOverviewBlockRecord | SectionBlockRecord | SliderShowcaseBlockRecord | StatListRecord | ThemedImageBlockRecord | VideoBlockRecord;
 
 export type ProjectModelBodyField = {
   __typename?: 'ProjectModelBodyField';
@@ -3187,6 +3187,57 @@ export type SlugFilter = {
   neq?: InputMaybe<Scalars['String']['input']>;
   /** Filter records that do have one of the specified slugs */
   notIn?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+/** Block of type Stat List (stat_list) */
+export type StatListRecord = RecordInterface & {
+  __typename?: 'StatListRecord';
+  _createdAt: Scalars['DateTime']['output'];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>;
+  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
+  _isValid: Scalars['BooleanType']['output'];
+  _modelApiKey: Scalars['String']['output'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _updatedAt: Scalars['DateTime']['output'];
+  blocks: Array<StatRecord>;
+  id: Scalars['ItemId']['output'];
+};
+
+
+/** Block of type Stat List (stat_list) */
+export type StatListRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+/** Block of type Stat (stat) */
+export type StatRecord = RecordInterface & {
+  __typename?: 'StatRecord';
+  _createdAt: Scalars['DateTime']['output'];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>;
+  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
+  _isValid: Scalars['BooleanType']['output'];
+  _modelApiKey: Scalars['String']['output'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _updatedAt: Scalars['DateTime']['output'];
+  id: Scalars['ItemId']['output'];
+};
+
+
+/** Block of type Stat (stat) */
+export type StatRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
 };
 
 /** Specifies how to filter by status */
@@ -3916,7 +3967,7 @@ export type ProjectQueryQueryVariables = Exact<{
 }>;
 
 
-export type ProjectQueryQuery = { __typename?: 'Query', project?: { __typename?: 'ProjectRecord', id: any, projectName: string, slug: string, summary: string, cover: { __typename?: 'FileField', url: string, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null }, role?: { __typename?: 'ExperienceRecord', role?: string | null, start: any, end?: any | null } | null, skills: Array<{ __typename?: 'SkillRecord', name?: string | null, id: any }>, client?: { __typename?: 'ClientRecord', id: any, website?: string | null, company?: string | null, logo: Array<{ __typename?: 'FileField', url: string, width?: any | null, height?: any | null }> } | null, color?: { __typename?: 'ColorField', hex: string, cssRgb: string } | null, body?: { __typename?: 'ProjectModelBodyField', value: any, blocks: Array<{ __typename: 'BeforeAfterBlockRecord', id: any, title?: string | null, description?: string | null, left: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null }, right: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null } } | { __typename: 'FeaturephotoblockRecord', id: any, title?: string | null, description?: string | null, span?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null } | null, images: Array<{ __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null }> } | { __typename: 'FlowBlockRecord', id: any, description?: string | null, images: Array<{ __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null }> } | { __typename: 'MobileStackRecord', id: any, title?: string | null, description?: string | null, images: Array<{ __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null }> } | { __typename: 'ProcessListBlockRecord', id: any, blocks: Array<{ __typename?: 'ProcessBlockRecord', id: any, icon: string, processDescription: string, title: string }> } | { __typename: 'ProjectOverviewBlockRecord', id: any, projectDescription?: string | null, client?: { __typename?: 'ClientRecord', id: any, website?: string | null, company?: string | null, logo: Array<{ __typename?: 'FileField', url: string, width?: any | null, height?: any | null }> } | null } | { __typename: 'SectionBlockRecord', id: any, subtitle?: string | null, sectionTitle: string } | { __typename: 'SliderShowcaseBlockRecord', id: any, blocks: Array<{ __typename?: 'ThemedImageBlockRecord', description?: string | null, id: any, images: Array<{ __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null }> }> } | { __typename: 'ThemedImageBlockRecord' } | { __typename: 'VideoBlockRecord' }> } | null, meta: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, seo?: { __typename?: 'SeoField', title?: string | null, noIndex?: any | null, description?: string | null, twitterCard?: string | null, image?: { __typename?: 'FileField', url: string } | null } | null } | null };
+export type ProjectQueryQuery = { __typename?: 'Query', project?: { __typename?: 'ProjectRecord', id: any, projectName: string, slug: string, summary: string, cover: { __typename?: 'FileField', url: string, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null }, role?: { __typename?: 'ExperienceRecord', role?: string | null, start: any, end?: any | null } | null, skills: Array<{ __typename?: 'SkillRecord', name?: string | null, id: any }>, client?: { __typename?: 'ClientRecord', id: any, website?: string | null, company?: string | null, logo: Array<{ __typename?: 'FileField', url: string, width?: any | null, height?: any | null }> } | null, color?: { __typename?: 'ColorField', hex: string, cssRgb: string } | null, body?: { __typename?: 'ProjectModelBodyField', value: any, blocks: Array<{ __typename: 'BeforeAfterBlockRecord', id: any, title?: string | null, description?: string | null, left: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null }, right: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null } } | { __typename: 'FeaturephotoblockRecord', id: any, title?: string | null, description?: string | null, span?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null } | null, images: Array<{ __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null }> } | { __typename: 'FlowBlockRecord', id: any, description?: string | null, images: Array<{ __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null }> } | { __typename: 'MobileStackRecord', id: any, title?: string | null, description?: string | null, images: Array<{ __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null }> } | { __typename: 'ProcessListBlockRecord', id: any, blocks: Array<{ __typename?: 'ProcessBlockRecord', id: any, icon: string, processDescription: string, title: string }> } | { __typename: 'ProjectOverviewBlockRecord', id: any, projectDescription?: string | null, client?: { __typename?: 'ClientRecord', id: any, website?: string | null, company?: string | null, logo: Array<{ __typename?: 'FileField', url: string, width?: any | null, height?: any | null }> } | null } | { __typename: 'SectionBlockRecord', id: any, subtitle?: string | null, sectionTitle: string } | { __typename: 'SliderShowcaseBlockRecord', id: any, blocks: Array<{ __typename?: 'ThemedImageBlockRecord', description?: string | null, id: any, images: Array<{ __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, srcSet: string, base64?: string | null, width: any, height: any, alt?: string | null, title?: string | null, webpSrcSet: string } | null }> }> } | { __typename: 'StatListRecord' } | { __typename: 'ThemedImageBlockRecord' } | { __typename: 'VideoBlockRecord' }> } | null, meta: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, seo?: { __typename?: 'SeoField', title?: string | null, noIndex?: any | null, description?: string | null, twitterCard?: string | null, image?: { __typename?: 'FileField', url: string } | null } | null } | null };
 
 export type DatoImage_ResponsiveImageFragment = { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } & { ' $fragmentName'?: 'DatoImage_ResponsiveImageFragment' };
 
