@@ -3,6 +3,7 @@ import "server-only";
 import { cache } from "react";
 import { TypedDocumentNode } from "@graphql-typed-document-node/core";
 import { print } from "graphql";
+import { isDev } from "./utils";
 
 /*
   POST requests are not automatically deduplicated when using fetch – only GET
@@ -22,6 +23,7 @@ const dedupableRequest = cache(
         Authorization: `Bearer ${process.env.NEXT_DATOCMS_API_TOKEN}`,
         "X-Exclude-Invalid": "true",
         "Content-Type": "application/json",
+        "X-Environment": isDev ? "dev" : "main",
       },
       method: "POST",
       body: payload,

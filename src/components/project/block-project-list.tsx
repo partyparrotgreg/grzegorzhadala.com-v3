@@ -11,7 +11,7 @@ export const BlockProjectList = ({
 }) => {
   return (
     <div className="flex flex-col gap-16">
-      <Fade cascade>
+      <Fade cascade triggerOnce>
         {projects.map((project) => (
           <ProjectPromoCard
             project={project as ProjectRecord}

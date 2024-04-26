@@ -7,9 +7,9 @@ import { ProjectTextFormatter } from "@/components/project/project-text-formatte
 import type { Metadata } from "next";
 import query from "./page.graphql";
 
- type ProjectPageProps = {
-   params: { slug: string };
- };
+type ProjectPageProps = {
+  params: { slug: string };
+};
 
 export async function generateMetadata({
   params,

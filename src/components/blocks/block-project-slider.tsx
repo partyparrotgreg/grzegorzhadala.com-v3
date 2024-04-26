@@ -3,8 +3,6 @@ import { Image as ReactDatocmsImage } from "react-datocms";
 
 import { ThemedImageBlockRecord } from "@/gql/graphql";
 import { useIsDark } from "@/hooks/useIsDark";
-import { UISwiper } from "../ui/swiper";
-import { SwiperOptions } from "swiper/types";
 import { ThemeToggle } from "../shared/theme-toggle";
 
 export const BlockProjectSlider = ({
@@ -12,35 +10,15 @@ export const BlockProjectSlider = ({
 }: {
   blocks: ThemedImageBlockRecord[];
 }) => {
-  const swiperOptions: SwiperOptions = {
-    breakpoints: {
-      // when window width is >= 320px
-      320: {
-        slidesPerView: 1.2,
-      },
-      // when window width is >= 480px
-      480: {
-        slidesPerView: 2.2,
-      },
-      // when window width is >= 640px
-      640: {
-        slidesPerView: 3.2,
-      },
-    },
-  };
   return (
-    <UISwiper
-      autoplay={{ delay: 3000 }}
-      grabCursor
-      spaceBetween={64}
-      {...swiperOptions}
-      items={blocks.map((block) => (
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+      {blocks.map((block) => (
         <ImageDescriptionBlock
           key={block.id}
           block={block as ThemedImageBlockRecord}
         />
       ))}
-    />
+    </div>
   );
 };
 
@@ -50,7 +28,10 @@ export const ImageDescriptionBlock = ({
   block: ThemedImageBlockRecord;
 }) => {
   return (
-    <div key={block.id} className="flex flex-col overflow-hidden">
+    <div
+      key={block.id}
+      className="flex flex-col overflow-hidden p-6 lg:p-24 bg-foreground/5 gap-6"
+    >
       <div>
         <ThemedDatoImage images={block.images} />
       </div>
