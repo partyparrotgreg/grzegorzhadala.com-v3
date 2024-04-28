@@ -6,6 +6,7 @@ import { ProjectHero } from "@/components/project/project-hero";
 import { ProjectTextFormatter } from "@/components/project/project-text-formatter";
 import type { Metadata } from "next";
 import query from "./page.graphql";
+import { BlockFigmaEmbed } from "@/components/blocks/block-figma-embed";
 
 type ProjectPageProps = {
   params: { slug: string };
@@ -48,7 +49,7 @@ export default async function ProjectPage({
         layout="responsive"
         className="filter drop-shadow-2xl"
       />
-
+      <BlockFigmaEmbed />
       <ProjectTextFormatter body={project.body as StructuredTextType} />
     </div>
   );
