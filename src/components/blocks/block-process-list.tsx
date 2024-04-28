@@ -1,3 +1,5 @@
+"use client";
+
 import { ProcessListBlockRecord } from "@/gql/graphql";
 import {
   Code,
@@ -7,8 +9,8 @@ import {
   UserFocus,
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import { Fade } from "react-awesome-reveal";
 import { TitleDescription } from "../shared/title-description";
-import { Reveal } from "../transitions/reveal";
 
 export const BlockProcessList = ({
   block,
@@ -34,11 +36,11 @@ export const BlockProcessList = ({
   };
   return (
     <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-24">
-      {items.map(({ id, icon, title, processDescription, customIcon }) => {
-        const Icon = parseIcon(icon);
-        return (
-          <div key={id} className="lg:my-24">
-            <Reveal>
+      <Fade direction="up" cascade triggerOnce>
+        {items.map(({ id, icon, title, processDescription, customIcon }) => {
+          const Icon = parseIcon(icon);
+          return (
+            <div key={id} className="lg:my-24">
               <div className="flex flex-row gap-6">
                 <div className="absolute -top-4 right-0 lg:static lg:flex">
                   {customIcon ? (
@@ -68,43 +70,10 @@ export const BlockProcessList = ({
                   />
                 </div>
               </div>
-            </Reveal>
-          </div>
-        );
-      })}
+            </div>
+          );
+        })}
+      </Fade>
     </div>
   );
 };
-
-// const requirements = [
-//   {
-//     Icon: Compass,
-//     title: "Discovery",
-//     description:
-//       "In the rapidly evolving world of cryptocurrency, there's a vast audience spectrum ranging from highly experienced traders to novices. While there are platforms catering to the former with intricate tools and interfaces, the latter often finds themselves overwhelmed. The challenge was to create a platform that simplifies the trading experience for those who are less crypto-savvy, without compromising on the depth and authenticity of the trading experience.",
-//   },
-//   {
-//     Icon: NotionLogo,
-//     title: "Requirements",
-//     description:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla necessitatibus cupiditate quidem illo optio. Ex facilis consectetur sit vitae itaque impedit fugiat necessitatibus perspiciatis assumenda error, recusandae nobis enim dolores.",
-//   },
-//   {
-//     Icon: FigmaLogo,
-//     title: "Design & Prototyping",
-//     description:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla necessitatibus cupiditate quidem illo optio. Ex facilis consectetur sit vitae itaque impedit fugiat necessitatibus perspiciatis assumenda error, recusandae nobis enim dolores.",
-//   },
-//   {
-//     Icon: UserFocus,
-//     title: "Testing",
-//     description:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla necessitatibus cupiditate quidem illo optio. Ex facilis consectetur sit vitae itaque impedit fugiat necessitatibus perspiciatis assumenda error, recusandae nobis enim dolores.",
-//   },
-//   {
-//     Icon: Code,
-//     title: "Implementation",
-//     description:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla necessitatibus cupiditate quidem illo optio. Ex facilis consectetur sit vitae itaque impedit fugiat necessitatibus perspiciatis assumenda error, recusandae nobis enim dolores.",
-//   },
-// ];

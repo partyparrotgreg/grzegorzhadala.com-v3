@@ -6,6 +6,7 @@ import {
   FeaturephotoblockRecord,
   FlowBlockRecord,
   ProcessListBlockRecord,
+  ProjectListBlockRecord,
   ProjectOverviewBlockRecord,
   SectionBlockRecord,
   SliderShowcaseBlockRecord,
@@ -21,9 +22,13 @@ import { BlockSectionTitle } from "../blocks/block-section-title";
 import { BlockClients } from "../blocks/block-clients";
 import { ExperienceList } from "../shared/experience-list";
 import { BlockStats } from "../blocks/block-stats";
+import { BlockProjectList } from "./block-project-list";
 
 export const getBlock = (record: any) => {
   switch (record.__typename) {
+    case "ProjectListBlockRecord":
+      const projectList = record as ProjectListBlockRecord;
+      return <BlockProjectList projects={projectList.projects} />;
     case "StatListRecord": {
       const statsBlock = record as StatListRecord;
       return <BlockStats block={statsBlock} />;

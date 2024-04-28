@@ -2,62 +2,82 @@ import { graphql } from "@/gql";
 
 export default graphql(/* GraphQL */ `
   query HomePageQuery {
-    home {
-      pageIntro
+    site: _site {
+      favicon: faviconMetaTags {
+        attributes
+        content
+        tag
+      }
     }
-    projects: allProjects {
-      id
-      projectName
-      _status
-      _firstPublishedAt
-      client {
-        company
-        id
-      }
-      skills {
-        id
-        name
-      }
-      role {
-        role
-        id
-        start
-        end
-        description
-      }
-      color {
-        hex
-      }
-      summary
-      slug
-      cover {
-        responsiveImage {
-          src
-          srcSet
-          base64
-          width
-          height
-          alt
-          title
-          webpSrcSet
-          sizes
-          aspectRatio
-          bgColor
+    home {
+      body {
+        __typename
+        ... on SectionBlockRecord {
+          id
+          subtitle
+          sectionTitle
+        }
+        ... on ClientsBlockRecord {
+          id
+          clients {
+            id
+            description
+            company
+            logo {
+              url
+              width
+              height
+            }
+          }
+        }
+        ... on ProjectListBlockRecord {
+          id
+          projects {
+            id
+            projectName
+            client {
+              company
+              id
+            }
+            skills {
+              id
+              name
+            }
+            role {
+              role
+              id
+              start
+              end
+            }
+            color {
+              hex
+            }
+            summary
+            slug
+            cover {
+              responsiveImage {
+                src
+                srcSet
+                base64
+                width
+                height
+                alt
+                title
+                webpSrcSet
+                sizes
+                aspectRatio
+                bgColor
+              }
+            }
+          }
         }
       }
-    }
-
-    meta: _allProjectsMeta {
-      count
-    }
-    clients: allClients {
-      id
-      description
-      company
-      logo {
-        url
-        width
-        height
+      pageIntro
+      seo {
+        description
+        noIndex
+        title
+        twitterCard
       }
     }
   }
