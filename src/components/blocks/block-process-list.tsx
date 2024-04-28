@@ -53,7 +53,7 @@ export const BlockProcessList = ({
                     />
                   ) : (
                     <>
-                      <Icon size={32} weight="light" color="#FE390C" />
+                      <Icon size={32} weight="light" color="#FF5D17" />
                       <Icon
                         size={32}
                         weight="fill"

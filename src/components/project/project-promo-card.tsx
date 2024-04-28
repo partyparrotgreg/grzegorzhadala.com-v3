@@ -20,25 +20,26 @@ export const ProjectPromoCard = ({ project }: ProjectPromoCardProps) => {
       >
         <div className="flex flex-col gap-6">
           <div>
-            {/* <div
-              style={{ color: project?.color?.hex }}
-              className="text-sm uppercase font-semibold"
-            >
-              {project?.client?.company}
-            </div> */}
             <TitleDescription
               title={project?.projectName}
               description={project?.summary}
             />
           </div>
-          {project?.skills && <SkillsRender skills={project?.skills} />}
+          <div>
+            {project?.skills && <SkillsRender skills={project?.skills} />}
+          </div>
         </div>
         {project?.cover.responsiveImage && (
-          <motion.div className="relative w-full col-span-2">
+          <motion.div
+            className="relative w-full col-span-2"
+            style={{
+              filter: `drop-shadow(0px 20px 20px rgba(255, 75, 20, 0.2))`,
+            }}
+          >
             <ReactDatocmsImage
               data={project.cover.responsiveImage}
               lazyLoad
-              className="w-full h-auto object-cover filter drop transition-all duration-300 ease-in-out relative z-10"
+              className="w-full h-auto object-cover relative z-10"
             />
           </motion.div>
         )}

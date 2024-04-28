@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export const Hero = ({ text }: { text?: ReactNode }) => {
   return (
     <div className="flex flex-col my-32 relative isolate">
-      <div className="absolute right-12 -top-[300px] w-1/2 aspect-square z-10">
+      <div className="absolute right-12 -top-[350px] lg:-top-[300px] lg:w-1/3 aspect-square z-10">
         <svg
           width="100%"
           height="100%"
@@ -49,7 +49,7 @@ export const Hero = ({ text }: { text?: ReactNode }) => {
           </defs>
         </svg>
       </div>
-      <div className="absolute right-12 -top-[300px] w-1/2 aspect-square filter blur-3xl z-0">
+      <div className="absolute right-12 -top-[350px] lg:-top-[300px] lg:w-1/3 aspect-square filter blur-3xl z-0">
         <svg
           width="100%"
           height="100%"

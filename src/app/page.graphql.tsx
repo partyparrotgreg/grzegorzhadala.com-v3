@@ -51,6 +51,10 @@ export default graphql(/* GraphQL */ `
             }
             color {
               hex
+              cssRgb
+              green
+              blue
+              red
             }
             summary
             slug
