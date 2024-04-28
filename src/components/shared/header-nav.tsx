@@ -4,26 +4,30 @@ import { useSiteNavigation } from "@/hooks/useSiteNavigation";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { UnderlineLink } from "./underline-link";
+import { TheDot } from "./the-dot";
 
 export const HeaderNav = () => {
   const { navItems } = useSiteNavigation();
   return (
-    <div className="flex flex-row justify-between z-50 relative my-6">
-      <Link href="/" className="flex flex-row gap-2">
-        Greg Hadala{" "}
-        <span className="hidden lg:inline text-foreground/75">
-          &mdash; Product Designer & UI Engineer
-        </span>
-      </Link>
-      <div className="hidden justify-center items-center gap-8 md:flex">
-        <nav className="flex gap-8">
-          {navItems.map((item) => (
-            <UnderlineLink key={item.href} href={item.href}>
-              {item.label}
-            </UnderlineLink>
-          ))}
-        </nav>
-        <ThemeToggle />
+    <div className="z-50 fixed bottom-0 lg:top-0 lg:bottom-full left-0 right-0 border-t lg:border-none lg:border-b p-2">
+      <div className="flex flex-row justify-between font-medium uppercase text-xs tracking-wider px-6 py-2 max-w-[96rem] mx-auto bg-white/75 dark:bg-black/75 backdrop-blur-2xl rounded-2xl">
+        <Link href="/" className="flex flex-row gap-4 items-center">
+          <TheDot />
+          <span>Greg Hadala</span>
+          <span className="hidden lg:inline text-foreground/75">
+            Product Designer & UI Engineer
+          </span>
+        </Link>
+        <div className="justify-center items-center gap-8 flex flex-row">
+          <nav className="flex gap-8">
+            {navItems.map((item) => (
+              <UnderlineLink key={item.href} href={item.href}>
+                {item.label}
+              </UnderlineLink>
+            ))}
+          </nav>
+          <ThemeToggle />
+        </div>
       </div>
     </div>
   );

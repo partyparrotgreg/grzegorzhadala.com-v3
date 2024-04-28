@@ -1,7 +1,6 @@
 import { BlockSectionTitle } from "@/components/blocks/block-section-title";
 import { Hero } from "@/components/home/hero";
 import { BlockProjectList } from "@/components/project/block-project-list";
-import { HeaderNav } from "@/components/shared/header-nav";
 import { ProjectRecord } from "@/gql/graphql";
 import { request } from "@/lib/dato";
 import query from "./page.graphql";
@@ -28,7 +27,6 @@ export default async function Home() {
   };
   return (
     <>
-      <HeaderNav />
       <Hero text={home?.pageIntro} />
       <BlockSectionTitle
         action={`${findEarliest(projects as ProjectRecord[])}`}

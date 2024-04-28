@@ -11,7 +11,7 @@ import { Button } from "../ui/button";
 export const ProjectHero = ({ project }: { project: any }) => {
   const { role, projectName, summary, client, skills } = project;
   return project ? (
-    <motion.div className="flex flex-col gap-24 relative w-full">
+    <motion.div className="flex flex-col gap-24 relative w-full mt-16">
       <motion.div
         className="hidden lg:block absolute w-px left-[30%] bottom-0 -top-[20rem] bg-foreground/50 z-[10] pointer-events-none"
         initial={{ bottom: 500 }}

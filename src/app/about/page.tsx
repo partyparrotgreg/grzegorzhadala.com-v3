@@ -1,11 +1,10 @@
 import { Hero } from "@/components/home/hero";
-import { HeaderNav } from "@/components/shared/header-nav";
 import { request } from "@/lib/dato";
 import query from "./page.graphql";
 
+import { SectionAbout } from "@/components/about/section-about";
 import { getBlock } from "@/components/project/get-block";
 import { Fragment } from "react";
-import { SectionAbout } from "@/components/about/section-about";
 const getAboutContent = async () => await request(query);
 
 export default async function AboutPage() {
@@ -13,7 +12,6 @@ export default async function AboutPage() {
 
   return (
     <>
-      <HeaderNav />
       <Hero text={about?.introduction} />
       <SectionAbout />
       {about?.body.map((block) => {

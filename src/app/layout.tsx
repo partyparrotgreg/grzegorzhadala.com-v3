@@ -1,12 +1,11 @@
 import { ThemeProvider } from "@/components/providers/theme-provider";
 
-import { FloatingNav } from "@/components/shared/floating-nav";
+import { HeaderNav } from "@/components/shared/header-nav";
 import SmoothScrollLayout from "@/components/shared/smooth-scroll";
-import { InfiniteMovingCards } from "@/components/ui/infinite-marquee";
 import type { Metadata } from "next";
+import { safiro } from "./fonts";
 import "./globals.css";
 import { CSPostHogProvider } from "./providers";
-import { safiro } from "./fonts";
 
 // TODO: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons
 // TODO: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
@@ -55,23 +54,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <SmoothScrollLayout>
-              <div className="fixed bottom-0 left-0 right-0 text-xs bg-brand z-10 flex items-center justify-center">
-                <InfiniteMovingCards
-                  items={[
-                    "WORK IN PROGRESS",
-                    "•••",
-                    "COME BACK SOON",
-                    "•••",
-                    "WORK IN PROGRESS",
-                    "•••",
-                    "COME BACK SOON",
-                    "•••",
-                  ]}
-                  direction="left"
-                  speed="slow"
-                />
-              </div>
-              <FloatingNav />
+              <HeaderNav />
               {children}
             </SmoothScrollLayout>
           </ThemeProvider>

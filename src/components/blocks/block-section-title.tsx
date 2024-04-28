@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { TheDot } from "../shared/the-dot";
 
 export const BlockSectionTitle = ({
   children,
@@ -12,7 +13,7 @@ export const BlockSectionTitle = ({
       <div className="w-4 h-4 bg-foreground absolute right-0 -top-4" />
       <div className="w-8 h-px bg-foreground absolute right-0 -top-4" />
       <div className="flex flex-row gap-4 items-center relative">
-        <div className="w-4 h-4 bg-brand rounded-full" />
+        <TheDot />
         <div className="font-medium uppercase text-xs tracking-wider">
           {children}
         </div>
