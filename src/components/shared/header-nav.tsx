@@ -8,7 +8,7 @@ import { UnderlineLink } from "./underline-link";
 export const HeaderNav = () => {
   const { navItems } = useSiteNavigation();
   return (
-    <div className="flex flex-row justify-between z-50 relative">
+    <div className="flex flex-row justify-between z-50 relative my-6">
       <Link href="/" className="flex flex-row gap-2">
         Greg Hadala{" "}
         <span className="hidden lg:inline text-foreground/75">

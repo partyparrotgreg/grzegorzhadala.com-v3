@@ -26,6 +26,7 @@ export const ProjectHero = ({ project }: { project: any }) => {
       >
         <div className="flex flex-col gap-1">
           <div className="uppercase text-brand font-medium" key="year">
+            {new Date(role?.start).getFullYear()} —{" "}
             {new Date(role?.end).getFullYear()}
           </div>
           <div className="uppercase" key="company">
