@@ -9,7 +9,7 @@ import { TheDot } from "./the-dot";
 export const HeaderNav = () => {
   const { navItems } = useSiteNavigation();
   return (
-    <div className="z-50 fixed bottom-0 lg:top-0 lg:bottom-full left-0 right-0 lg:border-b p-2">
+    <div className="z-50 fixed bottom-0 lg:top-0 lg:bottom-full left-0 right-0 p-2">
       <div className="flex flex-row justify-between font-medium uppercase text-xs tracking-wider px-4 lg:px-6 py-2 max-w-[96rem] mx-auto bg-white/75 dark:bg-black/75 backdrop-blur-2xl rounded-2xl">
         <Link href="/" className="flex flex-row gap-4 items-center">
           <TheDot />
