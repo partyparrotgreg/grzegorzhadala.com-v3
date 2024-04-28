@@ -115,6 +115,7 @@ export default graphql(/* GraphQL */ `
             title
             description
             span
+            padding
             image {
               responsiveImage {
                 src
@@ -190,6 +191,14 @@ export default graphql(/* GraphQL */ `
             title
             description
             span
+          }
+          ... on StatListRecord {
+            id
+            blocks {
+              id
+              label
+              value
+            }
           }
           ... on ProjectOverviewBlockRecord {
             id

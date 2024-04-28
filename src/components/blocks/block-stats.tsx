@@ -1,3 +1,4 @@
+import { StatListRecord } from "@/gql/graphql";
 import React from "react";
 
 const dummyStats = {
@@ -7,13 +8,16 @@ const dummyStats = {
   holders: 100,
 };
 
-export const BlockStats = () => {
+export const BlockStats = ({ block }: { block: StatListRecord }) => {
+  const { blocks: items } = block;
   return (
     <div className="flex flex-col lg:flex-row gap-8 bg-foreground p-6 relative items-stretch justify-stretch">
-      {Object.entries(dummyStats).map(([key, value], index) => (
-        <React.Fragment key={key}>
+      {items.map(({ label, value, id }, index) => (
+        <React.Fragment key={id}>
           <div className="w-full">
-            <div className="text-muted-foreground uppercase text-sm">{key}</div>
+            <div className="text-muted-foreground uppercase text-sm">
+              {label}
+            </div>
             <div className="text-2xl lg:text-5xl xl:text-7xl text-background">
               {value}
             </div>

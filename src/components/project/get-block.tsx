@@ -9,6 +9,7 @@ import {
   ProjectOverviewBlockRecord,
   SectionBlockRecord,
   SliderShowcaseBlockRecord,
+  StatListRecord,
 } from "@/gql/graphql";
 import { Image as ReactDatocmsImage, ResponsiveImageType } from "react-datocms";
 import { BlockBeforeAfter } from "../blocks/block-before-after";
@@ -19,9 +20,14 @@ import { BlockProjectSlider } from "../blocks/block-project-slider";
 import { BlockSectionTitle } from "../blocks/block-section-title";
 import { BlockClients } from "../blocks/block-clients";
 import { ExperienceList } from "../shared/experience-list";
+import { BlockStats } from "../blocks/block-stats";
 
 export const getBlock = (record: any) => {
   switch (record.__typename) {
+    case "StatListRecord": {
+      const statsBlock = record as StatListRecord;
+      return <BlockStats block={statsBlock} />;
+    }
     case "ExperienceListBlockRecord":
       const block = record as ExperienceListBlockRecord;
       return (

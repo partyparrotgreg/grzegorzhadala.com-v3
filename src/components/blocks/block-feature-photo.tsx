@@ -9,7 +9,7 @@ export const BlockFeaturePhoto = ({
   block: FeaturephotoblockRecord;
 }) => {
   if (!block) return null;
-  const { title, description, image, span, images } = block;
+  const { title, description, image, span, images, padding } = block;
   return (
     <div className="grid lg:grid-cols-3">
       <div className="col-span-2 lg:col-span-1">
@@ -25,7 +25,11 @@ export const BlockFeaturePhoto = ({
           {images.map((image, index) => (
             <div
               key={image.id + "_" + index}
-              className="flex flex-col bg-foreground/5"
+              className={cn(
+                "flex flex-col bg-foreground/5",
+                span,
+                padding && "p-4 lg:p-[4%]"
+              )}
             >
               {image.responsiveImage && (
                 <ReactDatocmsImage data={image.responsiveImage} />
