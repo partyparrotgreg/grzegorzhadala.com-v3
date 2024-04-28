@@ -31,9 +31,6 @@ export const SectionFooter = () => {
       <div className="flex flex-col gap-16 lg:grid lg:grid-cols-3 place-items-start">
         <div className="gap-4 flex flex-row">
           <UnderlineLink href="https://www.linkedin.com/in/greghadala/">
-            Email
-          </UnderlineLink>
-          <UnderlineLink href="https://www.linkedin.com/in/greghadala/">
             LinkedIn <ArrowUpRight size={NAV_ICON_SIZE} />
           </UnderlineLink>
           <UnderlineLink href="https://figma.com/@greghadala">
