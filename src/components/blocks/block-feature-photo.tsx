@@ -22,7 +22,9 @@ export const BlockFeaturePhoto = ({
         <div className={cn(span)}>
           <ReactDatocmsImage
             data={image.responsiveImage}
-            className={cn("flex flex-col filter drop-shadow-lg")}
+            className={cn(
+              "flex flex-col filter drop-shadow-lg bg-slate-300 p-6"
+            )}
           />
         </div>
       )}

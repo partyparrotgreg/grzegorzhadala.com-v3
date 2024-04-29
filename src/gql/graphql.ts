@@ -536,6 +536,7 @@ export type FeaturephotoblockRecord = RecordInterface & {
   image?: Maybe<FileField>;
   images: Array<FileField>;
   padding?: Maybe<Scalars['BooleanType']['output']>;
+  pictures: Array<ThemedImageBlockRecord>;
   span?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
 };
@@ -2645,8 +2646,6 @@ export type Query = {
   /** Returns meta information regarding a record collection */
   _allSkillsMeta: CollectionMetadata;
   /** Returns meta information regarding a record collection */
-  _allTestimonialsMeta: CollectionMetadata;
-  /** Returns meta information regarding a record collection */
   _allToolsMeta: CollectionMetadata;
   /** Returns meta information regarding an assets collection */
   _allUploadsMeta: CollectionMetadata;
@@ -2667,8 +2666,6 @@ export type Query = {
   /** Returns a collection of records */
   allSkills: Array<SkillRecord>;
   /** Returns a collection of records */
-  allTestimonials: Array<TestimonialRecord>;
-  /** Returns a collection of records */
   allTools: Array<ToolRecord>;
   /** Returns a collection of assets */
   allUploads: Array<FileField>;
@@ -2686,8 +2683,6 @@ export type Query = {
   project?: Maybe<ProjectRecord>;
   /** Returns a specific record */
   skill?: Maybe<SkillRecord>;
-  /** Returns a specific record */
-  testimonial?: Maybe<TestimonialRecord>;
   /** Returns a specific record */
   tool?: Maybe<ToolRecord>;
   /** Returns a specific asset */
@@ -2741,14 +2736,6 @@ export type Query_AllProjectsMetaArgs = {
 export type Query_AllSkillsMetaArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   filter?: InputMaybe<SkillModelFilter>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** The query root for this schema */
-export type Query_AllTestimonialsMetaArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  filter?: InputMaybe<TestimonialModelFilter>;
   locale?: InputMaybe<SiteLocale>;
 };
 
@@ -2849,17 +2836,6 @@ export type QueryAllSkillsArgs = {
 
 
 /** The query root for this schema */
-export type QueryAllTestimonialsArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  filter?: InputMaybe<TestimonialModelFilter>;
-  first?: InputMaybe<Scalars['IntType']['input']>;
-  locale?: InputMaybe<SiteLocale>;
-  orderBy?: InputMaybe<Array<InputMaybe<TestimonialModelOrderBy>>>;
-  skip?: InputMaybe<Scalars['IntType']['input']>;
-};
-
-
-/** The query root for this schema */
 export type QueryAllToolsArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   filter?: InputMaybe<ToolModelFilter>;
@@ -2939,15 +2915,6 @@ export type QuerySkillArgs = {
   filter?: InputMaybe<SkillModelFilter>;
   locale?: InputMaybe<SiteLocale>;
   orderBy?: InputMaybe<Array<InputMaybe<SkillModelOrderBy>>>;
-};
-
-
-/** The query root for this schema */
-export type QueryTestimonialArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  filter?: InputMaybe<TestimonialModelFilter>;
-  locale?: InputMaybe<SiteLocale>;
-  orderBy?: InputMaybe<Array<InputMaybe<TestimonialModelOrderBy>>>;
 };
 
 
@@ -3313,84 +3280,6 @@ export type Tag = {
   tag: Scalars['String']['output'];
 };
 
-export type TestimonialModelFilter = {
-  AND?: InputMaybe<Array<InputMaybe<TestimonialModelFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<TestimonialModelFilter>>>;
-  _createdAt?: InputMaybe<CreatedAtFilter>;
-  _firstPublishedAt?: InputMaybe<PublishedAtFilter>;
-  _isValid?: InputMaybe<BooleanFilter>;
-  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>;
-  _publishedAt?: InputMaybe<PublishedAtFilter>;
-  _status?: InputMaybe<StatusFilter>;
-  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
-  _updatedAt?: InputMaybe<UpdatedAtFilter>;
-  avatar?: InputMaybe<FileFilter>;
-  company?: InputMaybe<StringFilter>;
-  description?: InputMaybe<TextFilter>;
-  id?: InputMaybe<ItemIdFilter>;
-  title?: InputMaybe<StringFilter>;
-};
-
-export enum TestimonialModelOrderBy {
-  CreatedAtAsc = '_createdAt_ASC',
-  CreatedAtDesc = '_createdAt_DESC',
-  FirstPublishedAtAsc = '_firstPublishedAt_ASC',
-  FirstPublishedAtDesc = '_firstPublishedAt_DESC',
-  IsValidAsc = '_isValid_ASC',
-  IsValidDesc = '_isValid_DESC',
-  PublicationScheduledAtAsc = '_publicationScheduledAt_ASC',
-  PublicationScheduledAtDesc = '_publicationScheduledAt_DESC',
-  PublishedAtAsc = '_publishedAt_ASC',
-  PublishedAtDesc = '_publishedAt_DESC',
-  StatusAsc = '_status_ASC',
-  StatusDesc = '_status_DESC',
-  UnpublishingScheduledAtAsc = '_unpublishingScheduledAt_ASC',
-  UnpublishingScheduledAtDesc = '_unpublishingScheduledAt_DESC',
-  UpdatedAtAsc = '_updatedAt_ASC',
-  UpdatedAtDesc = '_updatedAt_DESC',
-  CompanyAsc = 'company_ASC',
-  CompanyDesc = 'company_DESC',
-  IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC',
-  TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC'
-}
-
-/** Record of type Testimonial (testimonial) */
-export type TestimonialRecord = RecordInterface & {
-  __typename?: 'TestimonialRecord';
-  _createdAt: Scalars['DateTime']['output'];
-  /** Editing URL */
-  _editingUrl?: Maybe<Scalars['String']['output']>;
-  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
-  _isValid: Scalars['BooleanType']['output'];
-  _modelApiKey: Scalars['String']['output'];
-  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
-  _publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  /** Generates SEO and Social card meta tags to be used in your frontend */
-  _seoMetaTags: Array<Tag>;
-  _status: ItemStatus;
-  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
-  _updatedAt: Scalars['DateTime']['output'];
-  avatar?: Maybe<FileField>;
-  company?: Maybe<Scalars['String']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  id: Scalars['ItemId']['output'];
-  title?: Maybe<Scalars['String']['output']>;
-};
-
-
-/** Record of type Testimonial (testimonial) */
-export type TestimonialRecord_SeoMetaTagsArgs = {
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Testimonial (testimonial) */
-export type TestimonialRecordDescriptionArgs = {
-  markdown?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
 /** Block of type Text Block (text_block) */
 export type TextBlockRecord = RecordInterface & {
   __typename?: 'TextBlockRecord';
@@ -3466,6 +3355,34 @@ export type ThemedImageBlockRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
+/** Block of type Tool Block (tool_block) */
+export type ToolBlockRecord = RecordInterface & {
+  __typename?: 'ToolBlockRecord';
+  _createdAt: Scalars['DateTime']['output'];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>;
+  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
+  _isValid: Scalars['BooleanType']['output'];
+  _modelApiKey: Scalars['String']['output'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _updatedAt: Scalars['DateTime']['output'];
+  id: Scalars['ItemId']['output'];
+  toolDescription?: Maybe<Scalars['String']['output']>;
+  toolLogo?: Maybe<ThemedImageBlockRecord>;
+  toolName?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** Block of type Tool Block (tool_block) */
+export type ToolBlockRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
 export type ToolModelFilter = {
   AND?: InputMaybe<Array<InputMaybe<ToolModelFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<ToolModelFilter>>>;
@@ -3479,7 +3396,6 @@ export type ToolModelFilter = {
   _updatedAt?: InputMaybe<UpdatedAtFilter>;
   description?: InputMaybe<TextFilter>;
   id?: InputMaybe<ItemIdFilter>;
-  logo?: InputMaybe<GalleryFilter>;
   name?: InputMaybe<StringFilter>;
 };
 
@@ -3524,7 +3440,7 @@ export type ToolRecord = RecordInterface & {
   _updatedAt: Scalars['DateTime']['output'];
   description?: Maybe<Scalars['String']['output']>;
   id: Scalars['ItemId']['output'];
-  logo: Array<FileField>;
+  logo: ThemedImageBlockRecord;
   name?: Maybe<Scalars['String']['output']>;
 };
 
@@ -3538,6 +3454,32 @@ export type ToolRecord_SeoMetaTagsArgs = {
 /** Record of type Tool (tool) */
 export type ToolRecordDescriptionArgs = {
   markdown?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+/** Block of type Tools List Block (tools_list_block) */
+export type ToolsListBlockRecord = RecordInterface & {
+  __typename?: 'ToolsListBlockRecord';
+  _createdAt: Scalars['DateTime']['output'];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>;
+  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
+  _isValid: Scalars['BooleanType']['output'];
+  _modelApiKey: Scalars['String']['output'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _updatedAt: Scalars['DateTime']['output'];
+  id: Scalars['ItemId']['output'];
+  tools: Array<ToolBlockRecord>;
+};
+
+
+/** Block of type Tools List Block (tools_list_block) */
+export type ToolsListBlockRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
 };
 
 /** Specifies how to filter by upload type */
@@ -3927,6 +3869,8 @@ export type UploadWidthFilter = {
   neq?: InputMaybe<Scalars['IntType']['input']>;
 };
 
+export type UtilModelBlocksField = ClientsBlockRecord | ToolsListBlockRecord;
+
 /** Record of type Util (util) */
 export type UtilRecord = RecordInterface & {
   __typename?: 'UtilRecord';
@@ -3943,6 +3887,7 @@ export type UtilRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
   _updatedAt: Scalars['DateTime']['output'];
+  blocks?: Maybe<UtilModelBlocksField>;
   id: Scalars['ItemId']['output'];
   noise?: Maybe<FileField>;
   noiseGradient?: Maybe<FileField>;
