@@ -1,3 +1,5 @@
+"use client";
+
 import { FeaturephotoblockRecord } from "@/gql/graphql";
 import { Image as ReactDatocmsImage } from "react-datocms";
 import { TitleDescription } from "../shared/title-description";

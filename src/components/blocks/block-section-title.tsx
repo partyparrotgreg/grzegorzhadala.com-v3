@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode } from "react";
 import { TheDot } from "../shared/the-dot";
 import posthog from "posthog-js";

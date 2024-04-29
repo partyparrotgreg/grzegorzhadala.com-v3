@@ -17,10 +17,6 @@ export default async function AboutPage() {
       {about?.body.map((block) => {
         return <Fragment key={block.id}>{getBlock(block)}</Fragment>;
       })}
-      {/* <ProjectTextFormatter body={about?.body as StructuredTextType} /> */}
-      {/* <SectionAbout />
-      <ExperienceList experiences={about?.body as ExperienceRecord[]} />
-    <ClientsOverview clients={clients as ClientRecord[]} /> */}
     </>
   );
 }
