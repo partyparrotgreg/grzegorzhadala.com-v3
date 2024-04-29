@@ -1,6 +1,6 @@
 import { graphql } from "@/gql";
 
-export default graphql(/* GraphQL */ `
+export default graphql(`
   query HomePageQuery {
     site: _site {
       favicon: faviconMetaTags {
@@ -10,6 +10,11 @@ export default graphql(/* GraphQL */ `
       }
     }
     home {
+      seo: _seoMetaTags {
+        attributes
+        content
+        tag
+      }
       body {
         __typename
         ... on SectionBlockRecord {
@@ -77,12 +82,6 @@ export default graphql(/* GraphQL */ `
         }
       }
       pageIntro
-      seo {
-        description
-        noIndex
-        title
-        twitterCard
-      }
     }
   }
 `);

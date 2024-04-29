@@ -3,7 +3,15 @@ import { getBlock } from "@/components/blocks/get-block";
 import { request } from "@/lib/dato";
 import { Fragment } from "react";
 import query from "./page.graphql";
+import { toNextMetadata } from "react-datocms";
 const getHomeContent = async () => await request(query);
+
+export async function generateMetadata() {
+  const response = await getHomeContent();
+
+  return toNextMetadata([...response.site.favicon, ...response.home!.seo]);
+}
+
 
 export default async function Home() {
   const { home } = await getHomeContent();
