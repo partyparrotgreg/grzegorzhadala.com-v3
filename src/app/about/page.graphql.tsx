@@ -3,7 +3,7 @@ import { graphql } from "@/gql";
 export default graphql(/* GraphQL */ `
   query AboutQuery {
     about {
-      meta: _seoMetaTags {
+      seo: _seoMetaTags {
         attributes
         content
         tag
@@ -87,13 +87,12 @@ export default graphql(/* GraphQL */ `
         }
       }
       introduction
-      seo {
-        description
-        image {
-          url(imgixParams: { crop: top, h: "630", w: "1200" })
-        }
-        title
-        twitterCard
+    }
+    site: _site {
+      favicon: faviconMetaTags {
+        attributes
+        content
+        tag
       }
     }
   }
