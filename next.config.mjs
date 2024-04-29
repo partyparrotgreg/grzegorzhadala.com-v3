@@ -1,5 +1,29 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/projects/:slug",
+        destination: "/", // Matched parameters can be used in the destination
+        permanent: true,
+      },
+      {
+        source: "/projects",
+        destination: "/", // Matched parameters can be used in the destination
+        permanent: true,
+      },
+      {
+        source: "/blog",
+        destination: "/", // Matched parameters can be used in the destination
+        permanent: false,
+      },
+      {
+        source: "/blog/:slug",
+        destination: "/", // Matched parameters can be used in the destination
+        permanent: false,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
