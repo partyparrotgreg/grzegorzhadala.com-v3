@@ -13,7 +13,7 @@ interface ProjectPromoCardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const ProjectPromoCard = ({ project }: ProjectPromoCardProps) => {
   return (
-    <div className="py-12">
+    <div className="py-12" id={project?.id}>
       <Link
         scroll
         href={`/project/${project?.slug}`}
