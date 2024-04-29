@@ -3,8 +3,8 @@ import { Image as ReactDatocmsImage } from "react-datocms";
 
 import { ThemedImageBlockRecord } from "@/gql/graphql";
 import { useIsDark } from "@/hooks/useIsDark";
-import { ThemeToggle } from "../shared/theme-toggle";
 import posthog from "posthog-js";
+import { ThemeSwitch } from "../shared/theme-switch";
 
 export const BlockProjectSlider = ({
   blocks,
@@ -12,38 +12,24 @@ export const BlockProjectSlider = ({
   blocks: ThemedImageBlockRecord[];
 }) => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-[2%]">
+    <div className="flex flex-row flex-wrap gap-8">
       {blocks.map((block) => (
-        <ImageDescriptionBlock
+        <div
+          className="w-full lg:w-[calc(calc(100%/3)-1.5rem)] group relative"
           key={block.id}
-          block={block as ThemedImageBlockRecord}
-        />
+          onClickCapture={() => {
+            posthog.capture("slider_photo_clicked", {
+              id: block.id,
+              image: block.images[0]?.responsiveImage?.title,
+              label: block.description,
+            });
+          }}
+        >
+          <div className="filter drop-shadow-lg h-full">
+            <ThemedDatoImage images={block.images} />
+          </div>
+        </div>
       ))}
-    </div>
-  );
-};
-
-export const ImageDescriptionBlock = ({
-  block,
-}: {
-  block: ThemedImageBlockRecord;
-}) => {
-  return (
-    <div
-      key={block.id}
-      className="flex flex-col overflow-hidden p-6 lg:p-24 bg-foreground/5 gap-[2%]"
-      onClickCapture={() => {
-        posthog.capture("slider_photo_clicked", {
-          id: block.id,
-          image: block.images[0]?.responsiveImage?.title,
-          label: block.description,
-        });
-      }}
-    >
-      <div>
-        <ThemedDatoImage images={block.images} />
-      </div>
-      <div className="flex justify-center">{block.description}</div>
     </div>
   );
 };
@@ -57,21 +43,21 @@ export const ThemedDatoImage = ({ images }: { images: any[] }) => {
         data={images[0].responsiveImage}
         lazyLoad
         layout="responsive"
-        pictureStyle={{ filter: "drop-shadow(0 0 0.75rem crimson)" }}
       />
     );
   }
   const lightImage = images[0].responsiveImage;
   const darkImage = images[1].responsiveImage;
   return (
-    <div className="overflow-hidden rounded-3xl h-full w-full relative group">
-      <div className="group-hover:opacity-100 opacity-0 -translate-y-20 group-hover:translate-y-0 absolute z-10 right-2 top-2 rounded-full transition-all bg-foreground/70 backdrop-blur-lg p-1">
-        <ThemeToggle isInverted />
+    <div className="overflow-hidden rounded-lg md:rounded-xl lg:rounded-3xl group">
+      <div className="group-hover:opacity-100 opacity-0 -translate-y-20 group-hover:translate-y-0 absolute z-10 right-2 top-2 rounded-full transition-all bg-background/70 backdrop-blur-lg p-1">
+        <ThemeSwitch />
       </div>
       <ReactDatocmsImage
         data={isDark ? darkImage : lightImage}
         lazyLoad
         layout="responsive"
+        className="filter drop-shadow-2xl"
       />
     </div>
   );

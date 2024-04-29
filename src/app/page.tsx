@@ -2,8 +2,8 @@ import { Hero } from "@/components/home/hero";
 import { getBlock } from "@/components/blocks/get-block";
 import { request } from "@/lib/dato";
 import { Fragment } from "react";
-import query from "./page.graphql";
 import { toNextMetadata } from "react-datocms";
+import query from "./page.graphql";
 const getHomeContent = async () => await request(query);
 
 export async function generateMetadata() {

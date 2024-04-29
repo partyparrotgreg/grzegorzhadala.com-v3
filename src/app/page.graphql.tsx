@@ -9,6 +9,25 @@ export default graphql(`
         tag
       }
     }
+    miniProjects: allProjects(first: 3, orderBy: _firstPublishedAt_DESC) {
+      id
+      slug
+      cover {
+        responsiveImage {
+          src
+          srcSet
+          base64
+          width
+          height
+          alt
+          title
+          webpSrcSet
+          sizes
+          aspectRatio
+          bgColor
+        }
+      }
+    }
     home {
       seo: _seoMetaTags {
         attributes

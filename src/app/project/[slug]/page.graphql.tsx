@@ -149,6 +149,7 @@ export default graphql(/* GraphQL */ `
           ... on SliderShowcaseBlockRecord {
             id
             blocks {
+              imageTitle
               description
               id
               images {
