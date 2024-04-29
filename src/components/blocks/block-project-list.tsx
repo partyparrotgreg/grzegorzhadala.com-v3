@@ -2,7 +2,7 @@
 
 import { ProjectRecord } from "@/gql/graphql";
 import { Fade } from "react-awesome-reveal";
-import { ProjectPromoCard } from "./project-promo-card";
+import { ProjectPromoCard } from "../project/project-promo-card";
 
 export const BlockProjectList = ({
   projects,

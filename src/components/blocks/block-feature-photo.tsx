@@ -2,6 +2,7 @@ import { FeaturephotoblockRecord } from "@/gql/graphql";
 import { Image as ReactDatocmsImage } from "react-datocms";
 import { TitleDescription } from "../shared/title-description";
 import { cn } from "@/lib/utils";
+import posthog from "posthog-js";
 
 export const BlockFeaturePhoto = ({
   block,
@@ -30,6 +31,14 @@ export const BlockFeaturePhoto = ({
                 span,
                 padding && "p-4 lg:p-[4%]"
               )}
+              onClickCapture={() => {
+                posthog.capture("feature_photo_clicked", {
+                  id: image.id + "_" + index,
+                  index: index,
+                  image: image?.responsiveImage?.title,
+                  block: title,
+                });
+              }}
             >
               {image.responsiveImage && (
                 <ReactDatocmsImage data={image.responsiveImage} />

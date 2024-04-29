@@ -3,7 +3,7 @@ import { request } from "@/lib/dato";
 import query from "./page.graphql";
 
 import { SectionAbout } from "@/components/about/section-about";
-import { getBlock } from "@/components/project/get-block";
+import { getBlock } from "@/components/blocks/get-block";
 import { Fragment } from "react";
 const getAboutContent = async () => await request(query);
 

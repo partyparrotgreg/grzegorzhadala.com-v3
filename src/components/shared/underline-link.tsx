@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
+import posthog from "posthog-js";
 
 interface UnderlineLinkProps extends LinkProps {
   children: React.ReactNode;
@@ -23,7 +24,16 @@ export const UnderlineLink = ({
   );
 
   return (
-    <Link {...props} className={linkClass}>
+    <Link
+      {...props}
+      className={linkClass}
+      onClickCapture={() => {
+        posthog.capture("underline_link_clicked", {
+          href: props.href,
+          label: children,
+        });
+      }}
+    >
       {children}
     </Link>
   );

@@ -2,6 +2,7 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
+import posthog from "posthog-js";
 
 const badgeVariants = cva(
   "inline-flex items-center  px-2 uppercase py-0.5 text-xs font-normal transition-colors",
@@ -31,7 +32,16 @@ export interface BadgeProps
 
 function Badge({ className, variant, ...props }: BadgeProps) {
   return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props} />
+    <div
+      className={cn(badgeVariants({ variant }), className)}
+      {...props}
+      onClickCapture={() => {
+        posthog.capture("badge_clicked", {
+          variant: variant,
+          label: props.children,
+        });
+      }}
+    />
   );
 }
 

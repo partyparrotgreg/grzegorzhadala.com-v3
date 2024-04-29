@@ -5,6 +5,7 @@ import { ArrowLineUp, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { BlockSectionTitle } from "../blocks/block-section-title";
 import { UnderlineLink } from "../shared/underline-link";
 import { Button } from "../ui/button";
+import posthog from "posthog-js";
 
 const NAV_ICON_SIZE = 14;
 
@@ -20,6 +21,7 @@ export const SectionFooter = () => {
             variant={"filled"}
             onClick={() => {
               window.scrollTo({ top: 0, behavior: "smooth" });
+              posthog.capture("footer_back_to_top_clicked");
             }}
           >
             <ArrowLineUp size={NAV_ICON_SIZE} />

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Image as ReactDatocmsImage } from "react-datocms";
 import { SkillsRender } from "../shared/skills-render";
 import { TitleDescription } from "../shared/title-description";
+import posthog from "posthog-js";
 
 interface ProjectPromoCardProps extends React.HTMLAttributes<HTMLDivElement> {
   project: ProjectRecord | undefined;
@@ -17,6 +18,11 @@ export const ProjectPromoCard = ({ project }: ProjectPromoCardProps) => {
         scroll
         href={`/project/${project?.slug}`}
         className="w-full relative flex flex-col xl:grid xl:grid-cols-3 group gap-12"
+        onClickCapture={() => {
+          posthog.capture("project_promo_card_clicked", {
+            project: project?.projectName,
+          });
+        }}
       >
         <div className="flex flex-col gap-6">
           <div>

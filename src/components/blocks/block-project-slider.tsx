@@ -4,6 +4,7 @@ import { Image as ReactDatocmsImage } from "react-datocms";
 import { ThemedImageBlockRecord } from "@/gql/graphql";
 import { useIsDark } from "@/hooks/useIsDark";
 import { ThemeToggle } from "../shared/theme-toggle";
+import posthog from "posthog-js";
 
 export const BlockProjectSlider = ({
   blocks,
@@ -11,7 +12,7 @@ export const BlockProjectSlider = ({
   blocks: ThemedImageBlockRecord[];
 }) => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-[2%]">
       {blocks.map((block) => (
         <ImageDescriptionBlock
           key={block.id}
@@ -30,7 +31,14 @@ export const ImageDescriptionBlock = ({
   return (
     <div
       key={block.id}
-      className="flex flex-col overflow-hidden p-6 lg:p-24 bg-foreground/5 gap-6"
+      className="flex flex-col overflow-hidden p-6 lg:p-24 bg-foreground/5 gap-[2%]"
+      onClickCapture={() => {
+        posthog.capture("slider_photo_clicked", {
+          id: block.id,
+          image: block.images[0]?.responsiveImage?.title,
+          label: block.description,
+        });
+      }}
     >
       <div>
         <ThemedDatoImage images={block.images} />

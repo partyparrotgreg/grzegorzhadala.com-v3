@@ -4,15 +4,18 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
+import posthog from "posthog-js";
 
 export function ThemeSwitch() {
   const { setTheme, resolvedTheme } = useTheme();
 
   const toggleTheme = () => {
     if (resolvedTheme === "dark") {
+      posthog.capture("theme_switched", { theme: "light" });
       setTheme("light");
     } else {
       setTheme("dark");
+      posthog.capture("theme_switched", { theme: "light" });
     }
   };
 

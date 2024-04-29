@@ -1,5 +1,5 @@
 import { Hero } from "@/components/home/hero";
-import { getBlock } from "@/components/project/get-block";
+import { getBlock } from "@/components/blocks/get-block";
 import { request } from "@/lib/dato";
 import { Fragment } from "react";
 import query from "./page.graphql";

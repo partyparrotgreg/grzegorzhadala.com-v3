@@ -13,15 +13,15 @@ import {
   StatListRecord,
 } from "@/gql/graphql";
 import { Image as ReactDatocmsImage, ResponsiveImageType } from "react-datocms";
-import { BlockBeforeAfter } from "../blocks/block-before-after";
-import { BlockFeaturePhoto } from "../blocks/block-feature-photo";
-import { BlockProcessList } from "../blocks/block-process-list";
-import { BlockProjectOverview } from "../blocks/block-project-overview";
-import { BlockProjectSlider } from "../blocks/block-project-slider";
-import { BlockSectionTitle } from "../blocks/block-section-title";
-import { BlockClients } from "../blocks/block-clients";
+import { BlockBeforeAfter } from "./block-before-after";
+import { BlockFeaturePhoto } from "./block-feature-photo";
+import { BlockProcessList } from "./block-process-list";
+import { BlockProjectOverview } from "./block-project-overview";
+import { BlockProjectSlider } from "./block-project-slider";
+import { BlockSectionTitle } from "./block-section-title";
+import { BlockClients } from "./block-clients";
 import { ExperienceList } from "../shared/experience-list";
-import { BlockStats } from "../blocks/block-stats";
+import { BlockStats } from "./block-stats";
 import { BlockProjectList } from "./block-project-list";
 
 export const getBlock = (record: any) => {
