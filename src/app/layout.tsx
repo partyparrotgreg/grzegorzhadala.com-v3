@@ -51,11 +51,13 @@ export default async function RootLayout({
             <SmoothScrollLayout>
               {util && (
                 <>
-                  <div className="fixed outline inset-0 w-dvw h-dvh z-[9000] pointer-events-none mix-blend-soft-light dark:mix-blend-overlay opacity-40">
+                  <div className="fixed inset-0 w-[100%] z-[9000] pointer-events-none mix-blend-soft-light dark:mix-blend-overlay opacity-40">
                     <ReactDatocmsImage
                       lazyLoad
                       data={util.noiseGradient!.responsiveImage!}
-                      className="object-cover h-full w-full"
+                      layout="responsive"
+                      className="h-full w-full"
+                      pictureClassName="object-cover"
                     />
                   </div>
                 </>
