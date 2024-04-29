@@ -17,7 +17,7 @@ export const HeaderNav = () => {
   const isProjectPage = pathname.includes("/project");
   return (
     <div className="z-50 fixed bottom-0 lg:p-4 p-0 lg:left-1/2 lg:-translate-x-1/2 left-0 right-0">
-      <div className="flex flex-row justify-between font-medium uppercase gap-8 text-xs tracking-wider px-2 py-2 max-w-[96rem] mx-auto bg-white/75 dark:bg-black/75 backdrop-blur-2xl lg:rounded-full rounded-t-2xl">
+      <div className="flex flex-row justify-between font-medium uppercase gap-8 text-xs tracking-wider px-2 py-2 max-w-[96rem] mx-auto bg-white/75 dark:bg-neutral-800/75 backdrop-blur-2xl lg:rounded-full rounded-t-2xl">
         <Link
           href="/"
           className={cn(
