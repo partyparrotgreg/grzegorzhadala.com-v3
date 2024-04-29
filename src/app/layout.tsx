@@ -8,7 +8,6 @@ import { safiro } from "./fonts";
 import "./globals.css";
 import { CSPostHogProvider } from "./providers";
 
-import Image from "next/image";
 import query from "./page.graphql";
 const getHomeContent = async () => await request(query);
 
