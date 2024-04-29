@@ -10,7 +10,7 @@ import { Button } from "../ui/button";
 export const ProjectHero = ({ project }: { project: any }) => {
   const { role, projectName, summary, client, skills } = project;
   return project ? (
-    <div className="flex flex-col gap-24 relative w-full mt-16 overflow-hidden">
+    <div className="flex flex-col gap-24 relative w-full mt-16 overflow-hidden mb-16">
       <div className="relative flex flex-row justify-between items-start">
         <Fade direction="down" triggerOnce>
           <div className="flex flex-col gap-1 text-xs">
@@ -29,7 +29,7 @@ export const ProjectHero = ({ project }: { project: any }) => {
           <div className="flex flex-row gap-2">
             {project.client?.website && (
               <Link href={new URL(project.client?.website)} target="_blank">
-                <Button variant={"filled"}>
+                <Button variant={"filled"} size="sm">
                   Website <ArrowUpRight className="ml-2" />
                 </Button>
               </Link>
