@@ -9,6 +9,32 @@ export default graphql(`
         tag
       }
     }
+    util {
+      noise {
+        responsiveImage {
+          src
+          srcSet
+          base64
+          width
+          height
+          alt
+          title
+          webpSrcSet
+        }
+      }
+      noiseGradient {
+        responsiveImage {
+          src
+          srcSet
+          base64
+          width
+          height
+          alt
+          title
+          webpSrcSet
+        }
+      }
+    }
     miniProjects: allProjects(first: 3, orderBy: _firstPublishedAt_DESC) {
       id
       slug

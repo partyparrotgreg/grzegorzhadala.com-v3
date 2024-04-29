@@ -1,27 +1,23 @@
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { request } from "@/lib/dato";
+import { Image as ReactDatocmsImage } from "react-datocms";
 
 import { HeaderNav } from "@/components/shared/header-nav";
 import SmoothScrollLayout from "@/components/shared/smooth-scroll";
-import type { Metadata } from "next";
 import { safiro } from "./fonts";
 import "./globals.css";
 import { CSPostHogProvider } from "./providers";
 
-// TODO: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons
-// TODO: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
-// TODO: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image
+import Image from "next/image";
+import query from "./page.graphql";
+const getHomeContent = async () => await request(query);
 
-export const metadata: Metadata = {
-  title: "Greg Hadala - Product Designer & Frontend Developer",
-  description:
-    "I am a product designer and frontend developer with a passion for creating beautiful and functional user interfaces.",
-};
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { util } = await getHomeContent();
   return (
     <html lang="en" suppressHydrationWarning>
       <CSPostHogProvider>
@@ -54,6 +50,17 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <SmoothScrollLayout>
+              {util && (
+                <>
+                  <div className="fixed outline inset-0 w-dvw h-dvh z-[9000] pointer-events-none mix-blend-soft-light dark:mix-blend-overlay opacity-40">
+                    <ReactDatocmsImage
+                      lazyLoad
+                      data={util.noiseGradient!.responsiveImage!}
+                      className="object-cover h-full w-full"
+                    />
+                  </div>
+                </>
+              )}
               <HeaderNav />
               {children}
             </SmoothScrollLayout>
