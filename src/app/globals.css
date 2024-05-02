@@ -74,8 +74,9 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-base text-foreground pb-12;
+    @apply bg-background text-base text-foreground pb-12 overflow-x-hidden;
     font-family: var(--font-inter)
+    
   }
   :focus-visible {
     @apply outline-1 outline-brand outline-offset-8 opacity-100;

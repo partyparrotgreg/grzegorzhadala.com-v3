@@ -48,6 +48,19 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <HeaderNav />
+            <div
+              className="bg-background/75 fixed top-0 h-[20rem] lg:h-[40rem] left-0 right-0 z-[1] backdrop-blur-2xl pointer-events-none"
+              style={{
+                maskImage: `linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0))`,
+              }}
+            />
+            <div
+              className="bg-background/95 fixed bottom-0 h-[16rem] lg:h-[40rem] left-0 right-0 z-[1] backdrop-blur-2xl pointer-events-none"
+              style={{
+                maskImage: `linear-gradient(to top, rgba(0, 0, 0, 1),  rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0))`,
+              }}
+            />
             <SmoothScrollLayout>
               {util && (
                 <>
@@ -62,7 +75,6 @@ export default async function RootLayout({
                   </div>
                 </>
               )}
-              <HeaderNav />
               {children}
             </SmoothScrollLayout>
           </ThemeProvider>

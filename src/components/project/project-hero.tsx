@@ -11,7 +11,7 @@ export const ProjectHero = ({ project }: { project: any }) => {
   const { role, projectName, summary, client, skills } = project;
   return project ? (
     <div className="flex flex-col gap-24 relative w-full overflow-hidden mb-16">
-      <div className="relative flex flex-row justify-between items-start">
+      <div className="relative flex flex-row justify-between items-start z-[999]">
         <Fade direction="down" triggerOnce>
           <div className="flex flex-col gap-1 text-xs">
             <div className="uppercase text-brand font-medium" key="year">

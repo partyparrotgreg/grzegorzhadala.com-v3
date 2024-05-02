@@ -30,7 +30,7 @@ export const SectionFooter = () => {
       >
         Connect
       </BlockSectionTitle>
-      <div className="flex flex-col gap-16 lg:grid lg:grid-cols-3 place-items-start">
+      <div className="flex flex-col gap-16 lg:grid lg:grid-cols-3 place-items-start mb-24">
         <div className="gap-4 flex flex-row">
           <UnderlineLink href="https://www.linkedin.com/in/greghadala/">
             LinkedIn <ArrowUpRight size={NAV_ICON_SIZE} />

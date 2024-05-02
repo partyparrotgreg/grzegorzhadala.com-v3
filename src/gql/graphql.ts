@@ -61,10 +61,12 @@ export type AboutRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
+export type ArticleModelBodyBlocksField = FeaturephotoblockRecord | ProcessListBlockRecord | ProjectListBlockRecord | ProjectOverviewBlockRecord | SimpleImageBlockRecord | ThemedImageBlockRecord | ToolsListBlockRecord;
+
 export type ArticleModelBodyField = {
   __typename?: 'ArticleModelBodyField';
-  blocks: Array<Scalars['String']['output']>;
-  links: Array<Scalars['String']['output']>;
+  blocks: Array<ArticleModelBodyBlocksField>;
+  links: Array<ProjectRecord>;
   value: Scalars['JsonField']['output'];
 };
 
@@ -3038,6 +3040,33 @@ export type SeoField = {
 export type SeoFilter = {
   /** Filter records with the specified field defined (i.e. with any value) or not */
   exists?: InputMaybe<Scalars['BooleanType']['input']>;
+};
+
+/** Block of type Simple Image Block (simple_image_block) */
+export type SimpleImageBlockRecord = RecordInterface & {
+  __typename?: 'SimpleImageBlockRecord';
+  _createdAt: Scalars['DateTime']['output'];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>;
+  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
+  _isValid: Scalars['BooleanType']['output'];
+  _modelApiKey: Scalars['String']['output'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _updatedAt: Scalars['DateTime']['output'];
+  css?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ItemId']['output'];
+  images: Array<FileField>;
+};
+
+
+/** Block of type Simple Image Block (simple_image_block) */
+export type SimpleImageBlockRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
 };
 
 export type Site = {
