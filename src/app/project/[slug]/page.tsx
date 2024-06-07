@@ -18,7 +18,7 @@ export async function generateMetadata({
   const response = await request(query, { slug });
 
   return {
-    title: `${response.project?.client?.company}: ${response.project?.projectName} - by Grzegorz Hadala`,
+    title: `${response.project?.client?.company}: ${response.project?.projectName} - by Greg Hadala`,
     description: response.project?.summary,
   };
 }
