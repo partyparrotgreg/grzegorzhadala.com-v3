@@ -87,6 +87,10 @@
     @apply leading-relaxed;
   }
 
+  p:not(:last-child) {
+    @apply mb-6;
+  }
+
   strong {
     @apply font-semibold;
   }
