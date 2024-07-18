@@ -2,13 +2,12 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { request } from "@/lib/dato";
 import { Image as ReactDatocmsImage } from "react-datocms";
 
-import { HeaderNav } from "@/components/shared/header-nav";
-import SmoothScrollLayout from "@/components/shared/smooth-scroll";
-import { safiro } from "./fonts";
+import { MainFooter } from "@/components/shared/main-footer";
+import { MainNavigation } from "@/components/shared/main-navigation";
+import { manrope } from "./fonts";
 import "./globals.css";
-import { CSPostHogProvider } from "./providers";
-
 import query from "./page.graphql";
+import { CSPostHogProvider } from "./providers";
 const getHomeContent = async () => await request(query);
 
 export default async function RootLayout({
@@ -41,30 +40,31 @@ export default async function RootLayout({
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
-        <body className={safiro.className}>
+        <body className={manrope.className}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-            <SmoothScrollLayout>
-              {util && (
-                <>
-                  <div className="fixed inset-0 w-[100%] z-[9000] pointer-events-none mix-blend-soft-light dark:mix-blend-overlay opacity-40">
-                    <ReactDatocmsImage
-                      lazyLoad
-                      data={util.noiseGradient!.responsiveImage!}
-                      layout="responsive"
-                      className="h-full w-full"
-                      pictureClassName="object-cover"
-                    />
-                  </div>
-                </>
-              )}
-              <HeaderNav />
+            {util && (
+              <>
+                <div className="fixed inset-0 w-[100%] z-[9000] pointer-events-none mix-blend-soft-light dark:mix-blend-overlay opacity-40">
+                  <ReactDatocmsImage
+                    lazyLoad
+                    data={util.noiseGradient!.responsiveImage!}
+                    layout="responsive"
+                    className="h-full w-full"
+                    pictureClassName="object-cover"
+                  />
+                </div>
+              </>
+            )}
+            <div className="3xl:max-w-[120rem] 3xl:mx-auto 3xl:border-l 3xl:border-r">
+              <MainNavigation />
               {children}
-            </SmoothScrollLayout>
+              <MainFooter />
+            </div>
           </ThemeProvider>
         </body>
       </CSPostHogProvider>

@@ -35,9 +35,13 @@ export default graphql(`
         }
       }
     }
-    miniProjects: allProjects(first: 3, orderBy: _firstPublishedAt_DESC) {
+    miniProjects: allProjects {
       id
       slug
+      projectName
+      client {
+        company
+      }
       cover {
         responsiveImage {
           src

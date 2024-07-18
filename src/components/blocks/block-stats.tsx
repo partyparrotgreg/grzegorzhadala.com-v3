@@ -11,7 +11,7 @@ const dummyStats = {
 export const BlockStats = ({ block }: { block: StatListRecord }) => {
   const { blocks: items } = block;
   return (
-    <div className="flex flex-col lg:flex-row gap-8 bg-foreground p-6 relative items-stretch justify-stretch">
+    <div className="flex flex-col lg:flex-row content-padding bg-foreground relative items-stretch justify-stretch">
       {items.map(({ label, value, id }, index) => (
         <React.Fragment key={id}>
           <div className="w-full">

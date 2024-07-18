@@ -9,8 +9,6 @@ import {
   UserFocus,
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
-import { Fade } from "react-awesome-reveal";
-import { TitleDescription } from "../shared/title-description";
 
 export const BlockProcessList = ({
   block,
@@ -35,45 +33,35 @@ export const BlockProcessList = ({
     }
   };
   return (
-    <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-24">
-      <Fade direction="up" cascade triggerOnce>
-        {items.map(({ id, icon, title, processDescription, customIcon }) => {
-          const Icon = parseIcon(icon);
-          return (
-            <div key={id} className="lg:my-24">
-              <div className="flex flex-row gap-6">
-                <div className="absolute -top-4 right-0 lg:static lg:flex">
-                  {customIcon ? (
-                    <Image
-                      src={customIcon?.url}
-                      width={48}
-                      height={48}
-                      alt={title}
-                      className="w-8 h-8 lg:w-16 lg:h-16"
-                    />
-                  ) : (
-                    <>
-                      <Icon size={32} weight="light" color="#FF5D17" />
-                      <Icon
-                        size={32}
-                        weight="fill"
-                        color="#FE390C"
-                        className="filter blur-xl absolute"
-                      />
-                    </>
-                  )}
-                </div>
-                <div className="">
-                  <TitleDescription
-                    title={title}
-                    description={processDescription}
+    <div className="relative grid grid-cols-1 lg:grid-cols-3 overflow-hidden content-padding">
+      {items.map(({ id, icon, title, processDescription, customIcon }) => {
+        const Icon = parseIcon(icon);
+        return (
+          <div key={id}>
+            <div className="flex flex-col gap-8">
+              <div>
+                {customIcon ? (
+                  <Image
+                    src={customIcon?.url}
+                    width={48}
+                    height={48}
+                    alt={title}
+                    className="w-8 h-8 lg:w-16 lg:h-16"
                   />
-                </div>
+                ) : (
+                  <>
+                    <Icon size={32} weight="light" color="#FF5D17" />
+                  </>
+                )}
+              </div>
+              <div className="space-y-4">
+                <h2>{title}</h2>
+                <p className="text-foreground/75">{processDescription}</p>
               </div>
             </div>
-          );
-        })}
-      </Fade>
+          </div>
+        );
+      })}
     </div>
   );
 };

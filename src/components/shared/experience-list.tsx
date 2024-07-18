@@ -16,10 +16,11 @@ export const ExperienceList = ({
   });
 
   return (
-    <div className="flex flex-col flex-wrap pb-8 relative lg:grid lg:grid-rows-5 lg:gap-x-12 grid-flow-col">
+    <div className="flex flex-col flex-wrap relative ">
       {sortedExperiencesByStartDate?.map((experience, index) => {
         return (
           <ExperienceItem
+            isLast={index === sortedExperiencesByStartDate.length - 1}
             experience={experience}
             key={experience.id + "_" + index}
           />
