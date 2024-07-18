@@ -3,11 +3,9 @@
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function HomeTemplate({
-  params,
   children,
 }: Readonly<{
   children: React.ReactNode;
-  params: { slug: string };
 }>) {
   const variants = {
     initial: { opacity: 0, y: 100, scale: 0.95, x: 100 },
