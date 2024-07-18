@@ -1,7 +1,7 @@
 export const menu = [
   {
-    id: "home",
-    label: "Home",
+    id: "work",
+    label: "Work",
     href: "/",
   },
   //   {

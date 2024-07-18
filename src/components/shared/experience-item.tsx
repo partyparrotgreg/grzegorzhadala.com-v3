@@ -21,7 +21,9 @@ export const ExperienceItem = ({
         !isLast && "border-b"
       )}
     >
-      <div className="w-1/6 text-brand font-medium">{parseYear(start)}</div>
+      <div className="w-8 lg:w-1/6 text-brand font-medium">
+        {parseYear(start)}
+      </div>
       <div className="flex-grow">{client.company}</div>
       <div className="flex text-muted-foreground">{role}</div>
     </div>

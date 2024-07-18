@@ -61,11 +61,7 @@ export default async function ProjectPage({
         text={project?.summary as string}
         callout={project?.client?.company as string}
       />
-      <div className="content-padding grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <div className="flex flex-col gap-2">
-          <div className="font-semibold">Industry</div>
-          <div className="text-foreground/75">Crypto</div>
-        </div>
+      <div className="content-padding grid grid-cols-1 lg:grid-cols-3">
         <div className="flex flex-col gap-2">
           <div className="font-semibold" key="role">
             Role

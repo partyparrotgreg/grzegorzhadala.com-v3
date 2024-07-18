@@ -28,7 +28,7 @@ export const MainFooter = () => {
           artworks, and screenshots are copyright of their respective owners.
         </p>
       </div>
-      <div className="bg-brand text-black">
+      <div className="bg-brand text-black lg:pb-0 pb-16">
         <Hero text="I am available for hire." />
       </div>
     </div>

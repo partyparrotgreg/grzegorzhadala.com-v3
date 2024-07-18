@@ -9,7 +9,7 @@ import { ThemeToggle } from "./theme-toggle";
 export const MainNavigation = () => {
   const pathname = usePathname();
   return pathname === "/" || pathname === "/about" || pathname === "/lab" ? (
-    <div className="sticky bottom-0 lg:top-0 bg-background left-0 right-0 flex flex-row gap-4 justify-between z-[800] items-center uppercase border-b section-padding">
+    <div className="fixed lg:sticky bottom-0 lg:top-0 bg-background left-0 right-0 flex flex-row gap-4 justify-between z-[800] items-center uppercase border-t lg:border-b section-padding lg:border-t-0">
       <TheDot />
       {menu.map((item) => (
         <CustomLink

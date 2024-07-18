@@ -19,7 +19,9 @@ export const BlockProjectOverview = ({
           />
         )}
       </div>
-      <Markdown>{block.projectDescription}</Markdown>
+      <Markdown className="text-foreground/75">
+        {block.projectDescription}
+      </Markdown>
     </div>
   );
 };
