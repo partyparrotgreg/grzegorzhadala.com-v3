@@ -21,7 +21,7 @@ export default async function AboutPage() {
 
   return (
     <>
-      <Hero text={about?.introduction as string} />
+      <Hero text={about?.intro as string} />
       <SectionAbout />
       {about?.body.map((block) => {
         return <Fragment key={block.id}>{getBlock(block)}</Fragment>;
