@@ -1,7 +1,7 @@
 "use client";
 
 import { ClientRecord } from "@/gql/graphql";
-import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 import { ThemedImage } from "../shared/themed-image";
 
 interface ClientsProps {
@@ -12,14 +12,17 @@ export const BlockClients = ({ clients }: ClientsProps) => {
   return (
     <div className="grid grid-cols-2 md:grid-cols-5 items-start">
       {clients.map((client, index) => (
-        <motion.div
+        <div
           key={client.id + "reverse" + index}
-          className="aspect-square flex w-full border-b items-center justify-center lg:last-of-type:border-r lg:first-of-type:col-start-2 lg:first-of-type:border-l"
+          className={cn(
+            "aspect-video flex w-full items-center justify-center",
+            (index + 1) % 5 == 0 && "border-r-0"
+          )}
         >
           <div>
             <ThemedImage images={client.logo} />
           </div>
-        </motion.div>
+        </div>
       ))}
     </div>
   );

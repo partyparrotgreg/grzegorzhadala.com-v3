@@ -5,8 +5,8 @@
 @layer base {
   :root {
     --brand: 9 100% 58%;
-    --background: 0 9% 85%; 
-    --foreground: 0 9% 20%;
+    --background: 0 5% 96%; 
+    --foreground: 0 5% 15%;
 
     --card: 0 0% 97%;
     --card-foreground: 0 0% 3%;
@@ -29,18 +29,18 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 80%;
+    --border: 0 0% 85%;
     --input: 0 0% 80%;
     --ring: 0 0% 50%;
  
-    --radius: 0.5rem;
+    --radius: 0rem;
   }
  
   .dark {
     --brand: 9 100% 58%;
 
-    --background: 0 0% 5%;
-    --foreground: 0 0% 95%;
+    --background: 0 0% 10%;
+    --foreground: 0 0% 87%;
  
     --card: 0 0% 5%;
     --card-foreground: 0 0% 90%;
@@ -74,14 +74,11 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-base text-foreground pb-12;
-    font-family: var(--font-inter)
+    @apply bg-background text-base text-foreground;
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
   }
   :focus-visible {
     @apply outline-1 outline-brand outline-offset-8 opacity-100;
-  }
-  h1, h2, h3, h4, h5 {
-    font-family: var(--font-safiro)
   }
   p {
     @apply leading-relaxed;
@@ -92,36 +89,45 @@
   }
 
   strong {
-    @apply font-semibold;
+    @apply font-medium;
   }
   ul {
     @apply space-y-2;
   }
 
   h1 {
-    font-size: 2em;
+    font-size: clamp(2rem, 2.5vw, 2.5rem);
   }
   h2 {
-    font-size: 1.5em;
+    font-size: clamp(1.5rem, 1.75vw, 1.75rem);
+    @apply font-medium;
   }
   h3 {
-    font-size: 1.17em;
+    font-size: clamp(1.17rem, 1.5vw, 1.5rem);
+    @apply font-medium;
   }
   h4 {
-    font-size: 1em;
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
+    @apply font-semibold;
   }
   h5 {
-    font-size: 0.83em;
   }
 
 }
 
 @layer component {
   .project-summary-text {
-    @apply text-3xl lg:text-5xl tracking-tighter font-medium block -ml-2;
   }
   .project-title {
-    @apply text-4xl lg:text-6xl tracking-tighter font-bold block -ml-2;
+  }
+  .content-padding { 
+    @apply p-6 lg:p-16 gap-6 lg:gap-16;
+  }
+  .content-vertical-padding {
+    @apply px-6 lg:px-16 gap-6 lg:gap-16;
+  }
+  .section-padding {
+    @apply px-6 lg:px-16 gap-6 lg:gap-16 py-4 lg:py-8;
   }
 }
 

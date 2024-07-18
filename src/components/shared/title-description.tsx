@@ -9,10 +9,10 @@ export const TitleDescription = ({
   description?: any;
 }) => {
   return (
-    <div className="lg:max-w-[50ch] space-y-2 mb-6">
-      <h3 className="font-semibold">{title}</h3>
+    <div className="lg:max-w-[50ch]">
+      <h3 className="">{title}</h3>
       {description && (
-        <div className="text-foreground/75 leading-normal">
+        <div className="">
           <Markdown>{description}</Markdown>
         </div>
       )}

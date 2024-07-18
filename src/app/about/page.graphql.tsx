@@ -86,7 +86,7 @@ export default graphql(/* GraphQL */ `
           }
         }
       }
-      introduction
+      intro
     }
     site: _site {
       favicon: faviconMetaTags {
