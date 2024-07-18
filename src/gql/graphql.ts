@@ -51,6 +51,7 @@ export type AboutRecord = RecordInterface & {
   _updatedAt: Scalars['DateTime']['output'];
   body: Array<AboutModelBodyField>;
   id: Scalars['ItemId']['output'];
+  intro?: Maybe<Scalars['String']['output']>;
   introduction?: Maybe<Scalars['String']['output']>;
   seo?: Maybe<SeoField>;
 };
@@ -59,6 +60,12 @@ export type AboutRecord = RecordInterface & {
 /** Record of type About (about) */
 export type AboutRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
+};
+
+
+/** Record of type About (about) */
+export type AboutRecordIntroArgs = {
+  markdown?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type ArticleModelBodyBlocksField = FeaturephotoblockRecord | ProcessListBlockRecord | ProjectListBlockRecord | ProjectOverviewBlockRecord | SimpleImageBlockRecord | ThemedImageBlockRecord | ToolsListBlockRecord;
@@ -2470,6 +2477,8 @@ export enum ItemStatus {
   Updated = 'updated'
 }
 
+export type LabModelBodyField = ProjectOverviewBlockRecord | ThemedImageBlockRecord;
+
 export type LabModelFilter = {
   AND?: InputMaybe<Array<InputMaybe<LabModelFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<LabModelFilter>>>;
@@ -2481,7 +2490,12 @@ export type LabModelFilter = {
   _status?: InputMaybe<StatusFilter>;
   _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
   _updatedAt?: InputMaybe<UpdatedAtFilter>;
+  description?: InputMaybe<TextFilter>;
+  embed?: InputMaybe<StringFilter>;
   id?: InputMaybe<ItemIdFilter>;
+  images?: InputMaybe<GalleryFilter>;
+  title?: InputMaybe<StringFilter>;
+  url?: InputMaybe<StringFilter>;
 };
 
 export enum LabModelOrderBy {
@@ -2501,8 +2515,14 @@ export enum LabModelOrderBy {
   UnpublishingScheduledAtDesc = '_unpublishingScheduledAt_DESC',
   UpdatedAtAsc = '_updatedAt_ASC',
   UpdatedAtDesc = '_updatedAt_DESC',
+  EmbedAsc = 'embed_ASC',
+  EmbedDesc = 'embed_DESC',
   IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC'
+  IdDesc = 'id_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+  UrlAsc = 'url_ASC',
+  UrlDesc = 'url_DESC'
 }
 
 /** Record of type Lab (lab) */
@@ -2521,13 +2541,25 @@ export type LabRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
   _updatedAt: Scalars['DateTime']['output'];
+  body: Array<LabModelBodyField>;
+  description?: Maybe<Scalars['String']['output']>;
+  embed?: Maybe<Scalars['String']['output']>;
   id: Scalars['ItemId']['output'];
+  images: Array<FileField>;
+  title?: Maybe<Scalars['String']['output']>;
+  url?: Maybe<Scalars['String']['output']>;
 };
 
 
 /** Record of type Lab (lab) */
 export type LabRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
+};
+
+
+/** Record of type Lab (lab) */
+export type LabRecordDescriptionArgs = {
+  markdown?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** Specifies how to filter Single-link fields */
