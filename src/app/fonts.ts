@@ -1,4 +1,4 @@
-import { Inter, Poppins, Manrope } from "next/font/google";
+import { Inter, Manrope, Poppins } from "next/font/google";
 import localFont from "next/font/local";
 
 export const safiro = localFont({
@@ -53,4 +53,4 @@ const manrope = Manrope({
   subsets: ["latin"],
 });
 
-export { inter, poppins, manrope };
+export { inter, manrope, poppins };

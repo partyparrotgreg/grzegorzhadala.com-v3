@@ -11,5 +11,5 @@ export default function ProjectTemplate({
     // smooth scroll top
     window.scrollTo(0, 0);
   }, []);
-  return <div>{children}</div>;
+  return <>{children}</>;
 }

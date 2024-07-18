@@ -31,42 +31,40 @@ export const ProjectTextFormatter = ({
     }
   };
   return (
-    <div className="flex flex-col gap-8">
-      <StructuredText
-        data={body as StructuredTextType}
-        customNodeRules={[
-          renderNodeRule(isHeading, ({ node, children, key }) => {
-            const level = node.level;
-            const renderElement = createElement(
-              `h${level}`,
-              {
-                className: cn("max-w-4xl w-full mx-auto", headingClass(level)),
-                key,
-              },
-              children
-            );
+    <StructuredText
+      data={body as StructuredTextType}
+      customNodeRules={[
+        renderNodeRule(isHeading, ({ node, children, key }) => {
+          const level = node.level;
+          const renderElement = createElement(
+            `h${level}`,
+            {
+              className: cn("max-w-4xl w-full mx-auto", headingClass(level)),
+              key,
+            },
+            children
+          );
 
-            return renderElement;
-          }),
-          renderNodeRule(isParagraph, ({ children, key }) => {
-            return (
-              <p key={key} className="max-w-4xl w-full mx-auto">
-                {children}
-              </p>
-            );
-          }),
-          renderNodeRule(isCode, ({ node, key }) => {
-            return (
-              <SyntaxHighlighter
-                key={key}
-                code={node.code}
-                language={node.language || "plaintext"}
-              />
-            );
-          }),
-        ]}
-        renderBlock={({ record }) => <FadeContent record={record} />}
-      />
-    </div>
+          return renderElement;
+        }),
+        renderNodeRule(isParagraph, ({ children, key }) => {
+          return (
+            <p key={key} className="max-w-4xl w-full mx-auto">
+              {children}
+            </p>
+          );
+        }),
+        renderNodeRule(isCode, ({ node, key }) => {
+          return (
+            <SyntaxHighlighter
+              key={key}
+              code={node.code}
+              language={node.language || "plaintext"}
+            />
+          );
+        }),
+      ]}
+      renderBlock={({ record }) => <FadeContent record={record} />}
+    />
   );
 };

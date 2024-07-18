@@ -1,20 +1,33 @@
 "use client";
 
-import { SectionFooter } from "@/components/footer/section-footer";
-import { useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function HomeTemplate({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  useEffect(() => {
-    window.scroll({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
+  const variants = {
+    initial: { opacity: 0, y: 100, scale: 0.95, x: 100 },
+    animate: { opacity: 1, y: 0, scale: 1, x: 0 },
+  };
   return (
-    <div className="p-6 flex flex-col gap-8 max-w-[96rem] mx-auto">
-      {children}
-      <SectionFooter />
+    <div className="overflow-hidden">
+      <AnimatePresence mode="wait">
+        <motion.div
+          animate={variants.animate}
+          initial={variants.initial}
+          exit={variants.initial}
+          transition={{
+            duration: 0.5,
+            type: "spring",
+            damping: 20,
+            stiffness: 200,
+          }}
+        >
+          {children}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }

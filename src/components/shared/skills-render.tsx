@@ -1,15 +1,34 @@
 import { SkillRecord } from "@/gql/graphql";
-import { Fade } from "react-awesome-reveal";
-import { Badge } from "../ui/badge";
+import { cn } from "@/lib/utils";
 
-export const SkillsRender = ({ skills }: { skills: SkillRecord[] }) => {
+export const SkillsRender = ({
+  skills,
+  isVertical,
+}: {
+  skills: SkillRecord[];
+  isVertical?: boolean;
+}) => {
   return (
-    <div className="justify-start items-start gap-px inline-flex flex-wrap leading-4">
-      <Fade direction="up" triggerOnce cascade damping={0.1} delay={500}>
-        {skills.map(({ id, name }) => (
-          <Badge key={id}>{name}</Badge>
-        ))}
-      </Fade>
+    <div
+      className={cn(
+        "justify-start items-start gap-px inline-flex ",
+        isVertical ? "flex-col gap-2  text-foreground/75" : "flex-wrap"
+      )}
+    >
+      {skills.map(({ id, name }, index) => (
+        <div
+          key={id}
+          className={cn(
+            "inline-flex items-center gap-1",
+            !isVertical && "text-foreground/50"
+          )}
+        >
+          {name}{" "}
+          {!isVertical && index !== skills.length - 1 && (
+            <span className="mx-3 opacity-25">/</span>
+          )}
+        </div>
+      ))}
     </div>
   );
 };
