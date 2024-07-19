@@ -85,6 +85,47 @@ export default graphql(/* GraphQL */ `
             }
           }
         }
+        ... on AboutBlockRecord {
+          id
+          story
+          photo {
+            responsiveImage {
+              src
+              srcSet
+              base64
+              width
+              height
+              alt
+              title
+              webpSrcSet
+            }
+            id
+          }
+        }
+        ... on StatListRecord {
+          id
+          blocks {
+            id
+            label
+            value
+          }
+        }
+        ... on GalleryRecord {
+          id
+          photos {
+            id
+            responsiveImage {
+              src
+              srcSet
+              base64
+              width
+              height
+              alt
+              title
+              webpSrcSet
+            }
+          }
+        }
       }
       intro
     }
@@ -93,6 +134,15 @@ export default graphql(/* GraphQL */ `
         attributes
         content
         tag
+      }
+    }
+    footer {
+      hiringText
+      links {
+        id
+        title
+        url
+        external
       }
     }
   }

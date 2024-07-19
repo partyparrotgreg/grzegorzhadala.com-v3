@@ -2,8 +2,10 @@ import { Hero } from "@/components/home/hero";
 import { request } from "@/lib/dato";
 import query from "./page.graphql";
 
-import { SectionAbout } from "@/components/about/section-about";
 import { getBlock } from "@/components/blocks/get-block";
+import { MainFooter } from "@/components/shared/main-footer";
+import { PageProgress } from "@/components/shared/page-progress";
+import { FooterRecord } from "@/gql/graphql";
 import { Fragment } from "react";
 import { toNextMetadata } from "react-datocms";
 
@@ -15,17 +17,17 @@ export async function generateMetadata() {
   return toNextMetadata([...response.site.favicon, ...response.about!.seo]);
 }
 
-
 export default async function AboutPage() {
-  const { about } = await getAboutContent();
+  const { about, footer } = await getAboutContent();
 
   return (
     <>
+      <PageProgress />
       <Hero text={about?.intro as string} />
-      <SectionAbout />
       {about?.body.map((block) => {
         return <Fragment key={block.id}>{getBlock(block)}</Fragment>;
       })}
+      <MainFooter footer={footer as FooterRecord} />
     </>
   );
 }

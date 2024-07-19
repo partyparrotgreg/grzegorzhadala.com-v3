@@ -2,7 +2,6 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { request } from "@/lib/dato";
 import { Image as ReactDatocmsImage } from "react-datocms";
 
-import { MainFooter } from "@/components/shared/main-footer";
 import { MainNavigation } from "@/components/shared/main-navigation";
 import { manrope } from "./fonts";
 import "./globals.css";
@@ -63,7 +62,6 @@ export default async function RootLayout({
             <div className="3xl:max-w-[120rem] 3xl:mx-auto 3xl:border-l 3xl:border-r">
               <MainNavigation />
               {children}
-              <MainFooter />
             </div>
           </ThemeProvider>
         </body>
