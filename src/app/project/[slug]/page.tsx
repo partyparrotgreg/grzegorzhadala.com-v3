@@ -50,7 +50,7 @@ export default async function ProjectPage({
         <BackButton />
         <PageProgress />
         <div
-          className="aspect-[16/10] overflow-hidden relative"
+          className="aspect-[16/10] overflow-hidden relative content-padding"
           style={{
             backgroundColor: project.color?.hex,
           }}
@@ -58,7 +58,6 @@ export default async function ProjectPage({
           <ReactDatocmsImage
             data={cover.responsiveImage as ResponsiveImageType}
             lazyLoad
-            className="w-full h-auto absolute z-10 scale-75 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 group-hover:scale-[0.8] transition-all filter drop-shadow-2xl "
           />
         </div>
         <Hero
