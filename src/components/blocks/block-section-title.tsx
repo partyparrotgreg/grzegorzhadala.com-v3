@@ -12,7 +12,7 @@ export const BlockSectionTitle = ({
   return (
     <div className="content-padding flex flex-row justify-between relative border-t text-sm">
       <div className="flex flex-row gap-4 items-center relative">
-        <div className="font-semibold uppercase tracking-widest text-foreground/50">
+        <div className="font-semibold uppercase tracking-widest text-brand">
           {children}
         </div>
       </div>
