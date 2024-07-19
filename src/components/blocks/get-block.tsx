@@ -11,21 +11,26 @@ import {
   SectionBlockRecord,
   SliderShowcaseBlockRecord,
   StatListRecord,
+  ThemedImageBlockRecord,
 } from "@/gql/graphql";
 import { Image as ReactDatocmsImage, ResponsiveImageType } from "react-datocms";
+import { ExperienceList } from "../shared/experience-list";
 import { BlockBeforeAfter } from "./block-before-after";
+import { BlockClients } from "./block-clients";
 import { BlockFeaturePhoto } from "./block-feature-photo";
 import { BlockProcessList } from "./block-process-list";
+import { BlockProjectList } from "./block-project-list";
 import { BlockProjectOverview } from "./block-project-overview";
 import { BlockProjectSlider } from "./block-project-slider";
 import { BlockSectionTitle } from "./block-section-title";
-import { BlockClients } from "./block-clients";
-import { ExperienceList } from "../shared/experience-list";
 import { BlockStats } from "./block-stats";
-import { BlockProjectList } from "./block-project-list";
+import { BlockThemedImage } from "./block-themed-image";
 
 export const getBlock = (record: any) => {
   switch (record.__typename) {
+    case "ThemedImageBlockRecord":
+      const themedImage = record as ThemedImageBlockRecord;
+      return <BlockThemedImage block={themedImage} />;
     case "ProjectListBlockRecord":
       const projectList = record as ProjectListBlockRecord;
       return <BlockProjectList projects={projectList.projects} />;

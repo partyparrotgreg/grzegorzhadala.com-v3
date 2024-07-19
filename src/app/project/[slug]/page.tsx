@@ -5,6 +5,7 @@ import { Image as ReactDatocmsImage, ResponsiveImageType } from "react-datocms";
 import { Hero } from "@/components/home/hero";
 import { BackButton } from "@/components/project/back-button";
 import { ProjectTextFormatter } from "@/components/project/project-text-formatter";
+import { PageProgress } from "@/components/shared/page-progress";
 import { SkillsRender } from "@/components/shared/skills-render";
 import { SkillRecord } from "@/gql/graphql";
 import type { Metadata } from "next";
@@ -45,6 +46,7 @@ export default async function ProjectPage({
   return (
     <div className="flex flex-col relative">
       <BackButton />
+      <PageProgress />
       <div
         className="aspect-[16/10] overflow-hidden relative"
         style={{

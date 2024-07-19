@@ -9,19 +9,25 @@ import { SkillsRender } from "../shared/skills-render";
 interface ProjectPromoCardProps extends React.HTMLAttributes<HTMLDivElement> {
   project: ProjectRecord | undefined;
   index: number;
+  length: number;
 }
 
-export const ProjectPromoCard = ({ project, index }: ProjectPromoCardProps) => {
+export const ProjectPromoCard = ({
+  project,
+  index,
+  length,
+}: ProjectPromoCardProps) => {
   return (
     <Link
       scroll
       href={`/project/${project?.slug}`}
       className={cn(
         "w-full relative flex flex-col gap-8 group content-padding hover:bg-card border-r border-b",
-        "last-of-type:border-b-0",
         index == 0 && "col-span-2 border-r-0",
         index == 2 && "border-r-0",
-        (index % 2) + 1 == 0 && "border-r-0"
+        (index % 2) + 1 == 0 && "border-r-0",
+        index == length - 1 && "border-b-0",
+        index == length - 2 && "border-b-0"
       )}
       onClickCapture={() => {
         posthog.capture("project_promo_card_clicked", {

@@ -15,6 +15,7 @@ export const BlockProjectList = ({
           project={project as ProjectRecord}
           key={project.id}
           index={index}
+          length={projects.length}
         />
       ))}
     </div>

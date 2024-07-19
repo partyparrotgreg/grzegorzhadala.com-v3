@@ -215,6 +215,24 @@ export default graphql(/* GraphQL */ `
               }
             }
           }
+          ... on ThemedImageBlockRecord {
+            id
+            description
+            imageTitle
+            images {
+              responsiveImage {
+                src
+                srcSet
+                base64
+                width
+                height
+                alt
+                title
+                webpSrcSet
+              }
+            }
+            contentPadding
+          }
         }
         value
       }
