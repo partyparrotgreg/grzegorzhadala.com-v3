@@ -12,9 +12,7 @@ export const Hero = ({
 }) => {
   return (
     <div className="flex flex-col relative isolate content-padding">
-      {callout && (
-        <div className="mb-4 tracking-wider text-foreground/75">{callout}</div>
-      )}
+      {callout && <div className="mb-4 text-foreground/75">{callout}</div>}
       <Markdown
         components={{
           p: (props) => (
