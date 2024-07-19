@@ -38,7 +38,7 @@ export const ProjectPromoCard = ({
     >
       {project?.cover.responsiveImage && (
         <div
-          className="aspect-[16/10] overflow-hidden relative rounded-2xl content-padding grid place-items-center"
+          className="aspect-[16/10] overflow-hidden relative rounded-2xl flex place-items-center items-center justify-center"
           style={{
             backgroundColor: project.color?.hex,
           }}
@@ -46,7 +46,7 @@ export const ProjectPromoCard = ({
           <ReactDatocmsImage
             data={project.cover.responsiveImage}
             lazyLoad
-            className="group-hover:scale-[0.95] transition-all filter drop-shadow-2xl"
+            className="group-hover:scale-[0.8] transition-all filter drop-shadow-2xl scale-75"
           />
         </div>
       )}
