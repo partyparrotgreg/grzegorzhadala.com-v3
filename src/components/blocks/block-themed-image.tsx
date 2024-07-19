@@ -15,13 +15,15 @@ export const BlockThemedImage = ({
   const images = block.images;
   if (!images || images.length === 0 || !images[0].responsiveImage) return null;
   if (images.length === 1 && images[0].responsiveImage) {
-    return (
-      <ReactDatocmsImage
-        data={images[0].responsiveImage as ResponsiveImageType}
-        lazyLoad
-        layout="responsive"
-      />
-    );
+      return (
+        <div className={cn(block.contentPadding && "content-padding")}>
+          <ReactDatocmsImage
+            data={images[0].responsiveImage as ResponsiveImageType}
+            lazyLoad
+            layout="responsive"
+          />
+        </div>
+      );
   }
   const lightImage = images[0].responsiveImage as ResponsiveImageType;
   const darkImage = images[1].responsiveImage as ResponsiveImageType;
