@@ -251,5 +251,14 @@ export default graphql(/* GraphQL */ `
         twitterCard
       }
     }
+    footer {
+      hiringText
+      links {
+        id
+        title
+        url
+        external
+      }
+    }
   }
 `);

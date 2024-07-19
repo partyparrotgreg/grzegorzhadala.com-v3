@@ -1,10 +1,12 @@
 import {
+  AboutBlockRecord,
   BeforeAfterBlockRecord,
   ClientRecord,
   ExperienceListBlockRecord,
   ExperienceRecord,
   FeaturephotoblockRecord,
   FlowBlockRecord,
+  GalleryRecord,
   ProcessListBlockRecord,
   ProjectListBlockRecord,
   ProjectOverviewBlockRecord,
@@ -15,9 +17,11 @@ import {
 } from "@/gql/graphql";
 import { Image as ReactDatocmsImage, ResponsiveImageType } from "react-datocms";
 import { ExperienceList } from "../shared/experience-list";
+import { BlockAbout } from "./block-about";
 import { BlockBeforeAfter } from "./block-before-after";
 import { BlockClients } from "./block-clients";
 import { BlockFeaturePhoto } from "./block-feature-photo";
+import { BlockGallery } from "./block-gallery";
 import { BlockProcessList } from "./block-process-list";
 import { BlockProjectList } from "./block-project-list";
 import { BlockProjectOverview } from "./block-project-overview";
@@ -28,6 +32,12 @@ import { BlockThemedImage } from "./block-themed-image";
 
 export const getBlock = (record: any) => {
   switch (record.__typename) {
+    case "GalleryRecord":
+      const gallery = record as GalleryRecord;
+      return <BlockGallery record={gallery} />;
+    case "AboutBlockRecord":
+      const about = record as AboutBlockRecord;
+      return <BlockAbout record={about} />;
     case "ThemedImageBlockRecord":
       const themedImage = record as ThemedImageBlockRecord;
       return <BlockThemedImage block={themedImage} />;

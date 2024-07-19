@@ -132,5 +132,14 @@ export default graphql(`
       }
       pageIntro
     }
+    footer {
+      hiringText
+      links {
+        id
+        title
+        url
+        external
+      }
+    }
   }
 `);
