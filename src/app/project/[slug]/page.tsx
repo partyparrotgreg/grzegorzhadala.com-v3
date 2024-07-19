@@ -62,7 +62,7 @@ export default async function ProjectPage({
         </div>
         <Hero
           text={project?.summary as string}
-          callout={project?.client?.company as string}
+          callout={project?.projectName as string}
         />
         <div className="content-padding grid grid-cols-1 lg:grid-cols-3">
           <div className="flex flex-col gap-2">
