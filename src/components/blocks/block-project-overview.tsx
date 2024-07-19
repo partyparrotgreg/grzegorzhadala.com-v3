@@ -19,7 +19,15 @@ export const BlockProjectOverview = ({
           />
         )}
       </div>
-      <Markdown className="text-foreground/75">
+      <Markdown
+        className="text-foreground/75"
+        components={{
+          ul: (props) => (
+            <ul className="list-disc pl-8 space-y-2 mb-8" {...props} />
+          ),
+          strong: (props) => <strong className="font-semibold" {...props} />,
+        }}
+      >
         {block.projectDescription}
       </Markdown>
     </div>

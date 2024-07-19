@@ -8,11 +8,11 @@ export default function HomeTemplate({
   children: React.ReactNode;
 }>) {
   const variants = {
-    initial: { opacity: 0, y: 100, scale: 0.95, x: 100 },
-    animate: { opacity: 1, y: 0, scale: 1, x: 0 },
+    initial: { opacity: 0, y: 100, scale: 0.95 },
+    animate: { opacity: 1, y: 0, scale: 1 },
   };
   return (
-    <div className="overflow-hidden">
+    <div>
       <AnimatePresence mode="wait">
         <motion.div
           animate={variants.animate}

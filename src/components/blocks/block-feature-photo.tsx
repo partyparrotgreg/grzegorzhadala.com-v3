@@ -12,44 +12,44 @@ export const BlockFeaturePhoto = ({
 }) => {
   if (!block) return null;
   const { title, description, image, span, images } = block;
-  return (
-    <div className="grid lg:grid-cols-3 content-padding">
-      <div className="col-span-2 lg:col-span-1">
-        <div className="space-y-4">
-          <h2>{title}</h2>
-          <p className="text-foreground/75">{description}</p>
-        </div>
+return (
+  <div className="grid lg:grid-cols-3 content-padding relative">
+    <div className="col-span-2 lg:col-span-1">
+      <div className="space-y-4">
+        <h2>{title}</h2>
+        <p className="text-foreground/75">{description}</p>
       </div>
-      {image?.responsiveImage && (
-        <div className={cn(span)}>
-          <ReactDatocmsImage
-            data={image.responsiveImage}
-            className={cn("flex flex-col")}
-          />
-        </div>
-      )}
-      {images && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 col-span-2 gap-[4%]">
-          {images.map((image, index) => (
-            <div
-              key={image.id + "_" + index}
-              className={cn("flex flex-col", span)}
-              onClickCapture={() => {
-                posthog.capture("feature_photo_clicked", {
-                  id: image.id + "_" + index,
-                  index: index,
-                  image: image?.responsiveImage?.title,
-                  block: title,
-                });
-              }}
-            >
-              {image.responsiveImage && (
-                <ReactDatocmsImage data={image.responsiveImage} />
-              )}
-            </div>
-          ))}
-        </div>
-      )}
     </div>
-  );
+    {image?.responsiveImage && (
+      <div className={cn(span)}>
+        <ReactDatocmsImage
+          data={image.responsiveImage}
+          className={cn("flex flex-col")}
+        />
+      </div>
+    )}
+    {images && (
+      <div className="grid grid-cols-1 lg:grid-cols-2 col-span-2 grid-gaps">
+        {images.map((image, index) => (
+          <div
+            key={image.id + "_" + index}
+            className={cn("flex flex-col", span)}
+            onClickCapture={() => {
+              posthog.capture("feature_photo_clicked", {
+                id: image.id + "_" + index,
+                index: index,
+                image: image?.responsiveImage?.title,
+                block: title,
+              });
+            }}
+          >
+            {image.responsiveImage && (
+              <ReactDatocmsImage data={image.responsiveImage} />
+            )}
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+);
 };

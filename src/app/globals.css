@@ -132,6 +132,9 @@
   .about-image {
     @apply relative object-cover object-center filter grayscale contrast-200;
   }
+  .grid-gaps {
+    @apply gap-6 lg:gap-16;
+  }
 }
 
 
