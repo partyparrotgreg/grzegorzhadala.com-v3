@@ -50,7 +50,7 @@ export default async function ProjectPage({
         <BackButton />
         <PageProgress />
         <div
-          className="aspect-[16/10] overflow-hidden relative content-padding"
+          className=" overflow-hidden relative content-padding"
           style={{
             backgroundColor: project.color?.hex,
           }}
@@ -73,8 +73,12 @@ export default async function ProjectPage({
               {project.role?.role}
             </div>
             <div key="year" className="text-foreground/75">
-              {new Date(project.role?.start).getFullYear()} —{" "}
-              {new Date(project.role?.end).getFullYear()}
+              {new Date(project.role?.start).getFullYear()}{" "}
+              {project.role?.end ? (
+                <>— {new Date(project.role?.end).getFullYear()}</>
+              ) : (
+                <>— Current</>
+              )}
             </div>
           </div>
           <div className="flex flex-col gap-2">
