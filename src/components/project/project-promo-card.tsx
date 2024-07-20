@@ -62,9 +62,9 @@ export const ProjectPromoCard = ({
             {project?.client?.company}
           </small>
         </div>
-        <h2 className="m-0 inline-flex gap-4 overflow-hidden">
+        <h2 className="m-0 inline-flex gap-4 overflow-hidden leading-snug">
           {project?.projectName}{" "}
-          <span className="group-hover:scale-100 scale-0 transition-all translate-y-24 group-hover:translate-y-0">
+          <span className="group-hover:scale-100 scale-0 transition-all -translate-y-24 group-hover:translate-y-2">
             <ArrowRight />
           </span>
         </h2>
