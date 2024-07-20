@@ -15,15 +15,19 @@ export const BlockThemedImage = ({
   const images = block.images;
   if (!images || images.length === 0 || !images[0].responsiveImage) return null;
   if (images.length === 1 && images[0].responsiveImage) {
-      return (
-        <div className={cn(block.contentPadding && "content-padding")}>
-          <ReactDatocmsImage
-            data={images[0].responsiveImage as ResponsiveImageType}
-            lazyLoad
-            layout="responsive"
-          />
-        </div>
-      );
+    return (
+      <div className={cn(block.contentPadding && "content-padding")}>
+        <ReactDatocmsImage
+          data={images[0].responsiveImage as ResponsiveImageType}
+          lazyLoad
+          layout="responsive"
+          className={cn(
+            block.rounded && "rounded-2xl overflow-hidden",
+            "bg-card"
+          )}
+        />
+      </div>
+    );
   }
   const lightImage = images[0].responsiveImage as ResponsiveImageType;
   const darkImage = images[1].responsiveImage as ResponsiveImageType;
@@ -37,6 +41,7 @@ export const BlockThemedImage = ({
           data={isDark ? darkImage : lightImage}
           lazyLoad
           layout="responsive"
+          className={cn(block.rounded && "rounded-2xl overflow-hidden")}
         />
       </div>
     </div>

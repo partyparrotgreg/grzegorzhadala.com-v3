@@ -232,6 +232,7 @@ export default graphql(/* GraphQL */ `
               }
             }
             contentPadding
+            rounded
           }
         }
         value
