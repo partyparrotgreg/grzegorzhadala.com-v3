@@ -1,7 +1,6 @@
 "use client";
 
 import { ReactNode } from "react";
-
 export const BlockSectionTitle = ({
   children,
   action,
@@ -10,13 +9,15 @@ export const BlockSectionTitle = ({
   action?: ReactNode;
 }) => {
   return (
-    <div className="content-padding flex flex-row justify-between relative border-t text-sm">
-      <div className="flex flex-row gap-4 items-center relative">
-        <div className="font-semibold uppercase tracking-widest text-brand">
-          {children}
+    <div className="sticky top-0 md:top-12 z-[100] bg-background">
+      <div className="nav-padding flex flex-row justify-between relative border-b text-sm items-center overflow-hidden">
+        <div className="flex flex-row gap-4 items-center relative ">
+          <div className="font-semibold uppercase tracking-widest text-brand">
+            {children}
+          </div>
         </div>
+        {action && <div>{action}</div>}
       </div>
-      {action && <div>{action}</div>}
     </div>
   );
 };

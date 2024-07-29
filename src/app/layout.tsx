@@ -3,6 +3,7 @@ import { request } from "@/lib/dato";
 import { Image as ReactDatocmsImage } from "react-datocms";
 
 import { MainNavigation } from "@/components/shared/main-navigation";
+import { FooterRecord } from "@/gql/graphql";
 import { manrope } from "./fonts";
 import "./globals.css";
 import query from "./page.graphql";
@@ -14,7 +15,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { util } = await getHomeContent();
+  const { util, footer } = await getHomeContent();
   return (
     <html lang="en" suppressHydrationWarning>
       <CSPostHogProvider>
@@ -60,7 +61,7 @@ export default async function RootLayout({
               </>
             )}
             <div className="3xl:max-w-[120rem] 3xl:mx-auto 3xl:border-l 3xl:border-r">
-              <MainNavigation />
+              <MainNavigation footer={footer as FooterRecord} />
               {children}
             </div>
           </ThemeProvider>
