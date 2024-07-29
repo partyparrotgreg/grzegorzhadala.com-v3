@@ -6,44 +6,7 @@ import { Image as ReactDatocmsImage } from "react-datocms";
 import { SkillsRender } from "../shared/skills-render";
 import { Button } from "../ui/button";
 
-import PhoneOne from "@/assets/test/phone2.png";
-import PhoneTwo from "@/assets/test/phone4.png";
-import PhoneThree from "@/assets/test/phone5.png";
-import PhoneFour from "@/assets/test/phone6.png";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
 import Link from "next/link";
-
-const images = [
-  {
-    source: PhoneOne,
-    colSpan: 2,
-    rowSpan: 2,
-    colStart: 1,
-    rowStart: 1,
-  },
-  {
-    source: PhoneTwo,
-    colSpan: 2,
-    rowSpan: 2,
-    colStart: 1,
-    rowStart: 1,
-  },
-  {
-    source: PhoneThree,
-    colSpan: 1,
-    rowSpan: 1,
-    colStart: 1,
-    rowStart: 1,
-  },
-  {
-    source: PhoneFour,
-    colSpan: 1,
-    rowSpan: 1,
-    colStart: 3,
-    rowStart: 1,
-  },
-];
 
 export const NewPromoCard = ({ project }: { project: ProjectRecord }) => {
   return (
@@ -104,7 +67,7 @@ export const NewPromoCard = ({ project }: { project: ProjectRecord }) => {
           <SkillsRender skills={project.skills as SkillRecord[]} isVertical />
         </div>
 
-        <div className="col-span-4 grid sm:grid-cols-2 grid-gaps hidden">
+        {/* <div className="col-span-4 grid sm:grid-cols-2 grid-gaps hidden">
           {images.map(({ source }, index) => (
             <div
               className={cn(
@@ -121,7 +84,7 @@ export const NewPromoCard = ({ project }: { project: ProjectRecord }) => {
               />
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
