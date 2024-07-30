@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export const NewPromoCard = ({ project }: { project: ProjectRecord }) => {
   return (
-    <div>
+    <div className="relative">
       {project?.cover.responsiveImage && (
         <Link href={`/project/${project.slug}`}>
           <div
@@ -29,11 +29,22 @@ export const NewPromoCard = ({ project }: { project: ProjectRecord }) => {
       )}
       <div className="flex flex-col sm:grid sm:grid-cols-4 md:grid-cols-4 relative content-padding z-50 bg-background">
         <div className="flex flex-col md:flex-row justify-between md:items-center col-span-4 gap-4">
-          <h2 className="text-base">{project.projectName}</h2>
+          <h2 className="text-lg flex items-center">{project.projectName}</h2>
           <div className="flex gap-4">
-            <Button variant={"outline"}>
-              Web app <ExternalLink className="h-4 w-4 ml-2" />
-            </Button>
+            {project.websiteUrl && (
+              <Link href={project.websiteUrl} target="_blank">
+                <Button variant={"outline"}>
+                  Website <ExternalLink className="h-4 w-4 ml-2" />
+                </Button>
+              </Link>
+            )}
+            {project.appUrl && (
+              <Link href={project.appUrl}>
+                <Button variant={"outline"}>
+                  Get app <ExternalLink className="h-4 w-4 ml-2" />
+                </Button>
+              </Link>
+            )}
             <Link href={`/project/${project.slug}`}>
               <Button variant={"filled"}>Case study</Button>
             </Link>
@@ -46,12 +57,8 @@ export const NewPromoCard = ({ project }: { project: ProjectRecord }) => {
         <div className="hidden lg:block col-span-2" />
 
         <div className="flex flex-col gap-2 col-span-2 lg:col-span-1">
-          <div className="font-semibold" key="role">
-            Role
-          </div>
-          <div key="role" className="text-foreground/75">
-            {project.role?.role}
-          </div>
+          <div className="font-semibold">Role</div>
+          <div className="text-foreground/75">{project.role?.role}</div>
           <div key="year" className="text-foreground/75">
             {new Date(project.role?.start).getFullYear()}{" "}
             {project.role?.end ? (

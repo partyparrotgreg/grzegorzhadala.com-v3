@@ -64,9 +64,7 @@ export default async function ProjectPage({
         />
         <div className="content-padding grid grid-cols-1 lg:grid-cols-3">
           <div className="flex flex-col gap-2">
-            <div className="font-semibold" key="role">
-              Role
-            </div>
+            <div className="font-semibold">Role</div>
             <div key="role" className="text-foreground/75">
               {project.role?.role}
             </div>
