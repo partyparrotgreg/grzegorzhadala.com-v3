@@ -17,9 +17,19 @@ export const NewPromoCard = ({ project }: { project: ProjectRecord }) => {
             className="col-span-4 cover-padding sticky top-0 md:h-screen md:grid md:place-items-center overflow-hidden"
             style={{ backgroundColor: project.color?.hex }}
           >
-            <div className="absolute -left-6 top-28 text-[24rem] font-bold text-white/10">
-              {project.client?.company}
+            <div
+              className="absolute md:block break-keep whitespace-nowrap z-50 mix-blend-multiply gap-4 grid place-items-center "
+              style={{ color: project.color?.hex }}
+            >
+              <div className="text-[7rem] font-bold  leading-snug font-safiro">
+                {project.client?.company}
+              </div>
             </div>
+          </div>
+          <div
+            className="col-span-4 cover-padding sticky top-0 md:h-screen md:grid md:place-items-center overflow-hidden"
+            // style={{ backgroundColor: project.color?.hex }}
+          >
             <div className="aspect-video">
               <ReactDatocmsImage
                 data={project.cover.responsiveImage}
@@ -53,7 +63,7 @@ export const NewPromoCard = ({ project }: { project: ProjectRecord }) => {
             </Link>
           </div>
         </div>
-        <p className="text-2xl md:text-3xl lg:text-4xl col-span-4 lg:col-span-2 leading-snug">
+        <p className="text-2xl md:text-3xl lg:text-4xl col-span-4 lg:col-span-2 leading-snug font-safiro">
           {project.summary}
         </p>
 

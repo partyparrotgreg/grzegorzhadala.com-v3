@@ -71,7 +71,8 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border font-manrope;
+    
   }
   body {
     @apply bg-background text-base text-foreground;
@@ -95,6 +96,11 @@
     @apply space-y-2;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-safiro;
+  }
+
+
   h1 {
     font-size: clamp(2rem, 2.5vw, 2.5rem);
   }
@@ -115,10 +121,6 @@
 }
 
 @layer component {
-  .project-summary-text {
-  }
-  .project-title {
-  }
   .content-padding {
     @apply p-6 md:p-12 xl:p-16 gap-6 xl:gap-16 md:gap-12;
   }

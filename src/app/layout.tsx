@@ -4,7 +4,7 @@ import { Image as ReactDatocmsImage } from "react-datocms";
 
 import { MainNavigation } from "@/components/shared/main-navigation";
 import { FooterRecord } from "@/gql/graphql";
-import { manrope } from "./fonts";
+import { inter, safiro } from "./fonts";
 import "./globals.css";
 import query from "./page.graphql";
 import { CSPostHogProvider } from "./providers";
@@ -17,7 +17,11 @@ export default async function RootLayout({
 }>) {
   const { util, footer } = await getHomeContent();
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${safiro.variable}`}
+    >
       <CSPostHogProvider>
         <link
           rel="apple-touch-icon"
@@ -40,7 +44,7 @@ export default async function RootLayout({
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
-        <body className={manrope.className}>
+        <body>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
