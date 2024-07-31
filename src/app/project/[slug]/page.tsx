@@ -3,7 +3,6 @@ import { StructuredText as StructuredTextType } from "datocms-structured-text-ut
 import { Image as ReactDatocmsImage, ResponsiveImageType } from "react-datocms";
 
 import { Hero } from "@/components/home/hero";
-import { BackButton } from "@/components/project/back-button";
 import { ProjectTextFormatter } from "@/components/project/project-text-formatter";
 import { MainFooter } from "@/components/shared/main-footer";
 import { PageProgress } from "@/components/shared/page-progress";
@@ -47,10 +46,9 @@ export default async function ProjectPage({
   return (
     <>
       <div className="flex flex-col relative">
-        <BackButton />
         <PageProgress />
         <div
-          className=" overflow-hidden relative content-padding"
+          className=" overflow-hidden relative cover-padding"
           style={{
             backgroundColor: project.color?.hex,
           }}
@@ -58,6 +56,7 @@ export default async function ProjectPage({
           <ReactDatocmsImage
             data={cover.responsiveImage as ResponsiveImageType}
             lazyLoad
+            className="filter drop-shadow-lg"
           />
         </div>
         <Hero
@@ -66,9 +65,7 @@ export default async function ProjectPage({
         />
         <div className="content-padding grid grid-cols-1 lg:grid-cols-3">
           <div className="flex flex-col gap-2">
-            <div className="font-semibold" key="role">
-              Role
-            </div>
+            <div className="font-semibold">Role</div>
             <div key="role" className="text-foreground/75">
               {project.role?.role}
             </div>

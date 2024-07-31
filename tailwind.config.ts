@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
@@ -21,6 +21,11 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        inter: ["var(--font-inter)"],
+        manrope: ["var(--font-manrope)"],
+        safiro: ["var(--font-safiro)"],
+      },
       screens: {
         "3xl": "1920px",
         "4xl": "2560px",
@@ -106,4 +111,4 @@ function addVariablesForColors({ addBase, theme }: any) {
   });
 }
 
-export default config
+export default config;

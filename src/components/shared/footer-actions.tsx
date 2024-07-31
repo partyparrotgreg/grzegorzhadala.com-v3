@@ -2,12 +2,10 @@
 
 import { ArrowUp } from "lucide-react";
 import { Button } from "../ui/button";
-import { ThemeToggle } from "./theme-toggle";
 
 export const FooterActions = () => {
   return (
     <div className="flex flex-row gap-4">
-      <ThemeToggle />
       <Button
         variant="filled"
         size="icon"

@@ -89,6 +89,8 @@ export default graphql(`
           projects {
             id
             projectName
+            appUrl
+            websiteUrl
             client {
               company
               id

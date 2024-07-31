@@ -10,18 +10,16 @@ interface ClientsProps {
 
 export const BlockClients = ({ clients }: ClientsProps) => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-5 items-start">
+    <div className="grid grid-cols-2 md:grid-cols-5 min-h-dvh">
       {clients.map((client, index) => (
         <div
           key={client.id + "reverse" + index}
           className={cn(
-            "aspect-video flex w-full items-center justify-center",
+            "flex w-full items-center justify-center ",
             (index + 1) % 5 == 0 && "border-r-0"
           )}
         >
-          <div>
-            <ThemedImage images={client.logo} />
-          </div>
+          <ThemedImage images={client.logo} />
         </div>
       ))}
     </div>

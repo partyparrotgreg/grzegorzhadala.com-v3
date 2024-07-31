@@ -24,7 +24,10 @@ return (
       <div className={cn(span)}>
         <ReactDatocmsImage
           data={image.responsiveImage}
-          className={cn("flex flex-col")}
+          className={cn(
+            "flex flex-col filter drop-shadow-2xl dark:drop-shadow-none",
+            span
+          )}
         />
       </div>
     )}
@@ -33,7 +36,10 @@ return (
         {images.map((image, index) => (
           <div
             key={image.id + "_" + index}
-            className={cn("flex flex-col", span)}
+            className={cn(
+              "flex flex-col filter drop-shadow-2xl dark:drop-shadow-none",
+              span
+            )}
             onClickCapture={() => {
               posthog.capture("feature_photo_clicked", {
                 id: image.id + "_" + index,
