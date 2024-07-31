@@ -15,7 +15,7 @@ export const BlockProjectSlider = ({
     <div className="grid grid-cols-1 lg:grid-cols-3 content-padding">
       {blocks.map((block) => (
         <div
-          className=" group relative"
+          className="group relative"
           key={block.id}
           onClickCapture={() => {
             posthog.capture("slider_photo_clicked", {
@@ -43,13 +43,14 @@ export const ThemedDatoImage = ({ images }: { images: any[] }) => {
         data={images[0].responsiveImage}
         lazyLoad
         layout="responsive"
+        className="filter drop-shadow-lg dark:drop-shadow-none"
       />
     );
   }
   const lightImage = images[0].responsiveImage;
   const darkImage = images[1].responsiveImage;
   return (
-    <div className="overflow-hidden rounded-lg md:rounded-xl lg:rounded-3xl group relative">
+    <div className="overflow-hidden rounded-xl lg:rounded-3xl group relative filter drop-shadow-2xl">
       <div className="group-hover:opacity-100 opacity-0 -translate-y-20 group-hover:translate-y-0 absolute z-10 right-2 top-2 rounded-full transition-all bg-background/70 backdrop-blur-lg p-1">
         <ThemeSwitch />
       </div>

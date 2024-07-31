@@ -1,7 +1,9 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { Button } from "../ui/button";
 
 export const BackButton = () => {
   const router = useRouter();
@@ -10,11 +12,15 @@ export const BackButton = () => {
     router.push("/");
   };
   return (
-    <div
-      className="fixed bottom-0 lg:top-0  right-0 z-10 h-12 w-12 flex items-center justify-center bg-foreground cursor-pointer text-background"
-      onClick={handleGoBack}
+    <motion.div
+      initial={{ y: "150%" }}
+      animate={{ y: 0 }}
+      exit={{ y: "150%" }}
+      transition={{ duration: 0.5, type: "spring" }}
     >
-      <X />
-    </div>
+      <Button variant={"filled"} size={"icon"} onClick={handleGoBack}>
+        <X className="h-4 w-4" />
+      </Button>
+    </motion.div>
   );
 };

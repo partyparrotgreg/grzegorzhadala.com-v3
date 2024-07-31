@@ -18,7 +18,7 @@ export const Hero = ({
           p: (props) => (
             <p
               {...props}
-              className="relative z-50 text-3xl lg:text-[4em] leading-[1.25em] lg:leading-[1.15em]"
+              className="relative z-50 text-3xl lg:text-[4em] leading-[1.25em] lg:leading-[1.15em] tracking-tight font-safiro"
             />
           ),
           strong: (props) => (
