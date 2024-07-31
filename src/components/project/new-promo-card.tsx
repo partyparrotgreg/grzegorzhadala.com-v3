@@ -17,20 +17,23 @@ export const NewPromoCard = ({ project }: { project: ProjectRecord }) => {
             className="col-span-4 cover-padding sticky top-0 md:h-screen md:grid md:place-items-center overflow-hidden"
             style={{ backgroundColor: project.color?.hex }}
           >
+            <div className="absolute -left-6 top-28 text-[24rem] font-bold text-white/10">
+              {project.client?.company}
+            </div>
             <div className="aspect-video">
               <ReactDatocmsImage
                 data={project.cover.responsiveImage}
                 lazyLoad
-                className="md:object-contain lg:scale-90 w-[200%] h-auto"
+                className="md:object-contain lg:scale-90 w-[200%] h-auto filter drop-shadow-lg"
               />
             </div>
           </div>
         </Link>
       )}
-      <div className="flex flex-col sm:grid sm:grid-cols-4 md:grid-cols-4 relative content-padding z-50 bg-background">
+      <div className="grid sm:grid-cols-4 md:grid-cols-4 relative content-padding z-50 bg-background">
         <div className="flex flex-col md:flex-row justify-between md:items-center col-span-4 gap-4">
           <h2 className="text-lg flex items-center">{project.projectName}</h2>
-          <div className="flex gap-4">
+          <div className="gap-4 hidden md:flex">
             {project.websiteUrl && (
               <Link href={project.websiteUrl} target="_blank">
                 <Button variant={"outline"}>
@@ -50,9 +53,10 @@ export const NewPromoCard = ({ project }: { project: ProjectRecord }) => {
             </Link>
           </div>
         </div>
-        <p className="text-2xl md:text-4xl col-span-4 lg:col-span-2 leading-snug">
+        <p className="text-2xl md:text-3xl lg:text-4xl col-span-4 lg:col-span-2 leading-snug">
           {project.summary}
         </p>
+
         <div className="hidden lg:block col-span-2" />
         <div className="hidden lg:block col-span-2" />
 
@@ -72,6 +76,27 @@ export const NewPromoCard = ({ project }: { project: ProjectRecord }) => {
         <div className="flex flex-col gap-2 col-span-2 lg:col-span-1">
           <div className="font-semibold">Expertise</div>
           <SkillsRender skills={project.skills as SkillRecord[]} isVertical />
+        </div>
+        <div className="flex gap-4 col-span-4 md:hidden grow">
+          <Link href={`/project/${project.slug}`} className="grow">
+            <Button variant={"filled"} className="w-full">
+              Case study
+            </Button>
+          </Link>
+          {project.appUrl && (
+            <Link href={project.appUrl} className="grow">
+              <Button variant={"outline"} className="w-full">
+                Get app <ExternalLink className="h-4 w-4 ml-2" />
+              </Button>
+            </Link>
+          )}
+          {project.websiteUrl && (
+            <Link href={project.websiteUrl} target="_blank" className="grow">
+              <Button variant={"outline"} className="w-full">
+                Website <ExternalLink className="h-4 w-4 ml-2" />
+              </Button>
+            </Link>
+          )}
         </div>
 
         {/* <div className="col-span-4 grid sm:grid-cols-2 grid-gaps hidden">

@@ -80,54 +80,58 @@ export const MainNavigation = ({ footer }: { footer: FooterRecord }) => {
         ))}
       </div>
       <div className="flex flex-row gap-2 items-center">
-        <div className="flex flex-row-reverse md:flex-row gap-2 items-center">
-          <div className="flex flex-row gap-2 items-center">
-            <Button
-              className="flex text-center md:hidden"
-              size={"icon"}
-              variant={"ghost"}
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? (
-                <X className="h-4 w-4" />
-              ) : (
-                <MenuIcon className="h-4 w-4" />
-              )}
-            </Button>
-            <AnimatePresence mode="wait">
-              {isOpen && (
-                <motion.div
-                  className="flex md:flex-row gap-2 items-center flex-col md:static fixed md:p-0 p-2 bg-background bottom-16 right-4 rounded-full"
-                  initial={{ opacity: 0, x: 100, scale: 0.95 }}
-                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                  exit={{ opacity: 0, x: 100, scale: 0.95 }}
-                  transition={{ duration: 0.5, type: "spring" }}
-                >
-                  {links.map((link) => (
-                    <Link
-                      href={link.url as string}
-                      key={link.id}
-                      target="_blank"
-                    >
-                      <Button
-                        className="flex text-center"
-                        size={"icon"}
-                        variant={"ghost"}
+        <motion.div
+          className="flex flex-row gap-2 items-center"
+          initial={{ opacity: 1 }}
+          animate={{ x: showBackButton ? -1 : 0 }}
+        >
+          <div className="flex flex-row-reverse md:flex-row gap-2 items-center">
+            <motion.div className="flex flex-row gap-2 items-center">
+              <Button
+                className="flex text-center md:hidden"
+                size={"icon"}
+                variant={"ghost"}
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                {isOpen ? (
+                  <X className="h-4 w-4" />
+                ) : (
+                  <MenuIcon className="h-4 w-4" />
+                )}
+              </Button>
+              <AnimatePresence mode="wait">
+                {isOpen && (
+                  <motion.div
+                    className="flex md:flex-row gap-2 items-center flex-col md:static fixed md:p-0 p-2 bg-background bottom-16 right-4 rounded-full"
+                    initial={{ opacity: 0, x: 100, scale: 0.95 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: 100, scale: 0.95 }}
+                    transition={{ duration: 0.5, type: "spring" }}
+                  >
+                    {links.map((link) => (
+                      <Link
+                        href={link.url as string}
+                        key={link.id}
+                        target="_blank"
                       >
-                        {getIconForUrl(link.url!)}
-                      </Button>
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
+                        <Button
+                          className="flex text-center"
+                          size={"icon"}
+                          variant={"ghost"}
+                        >
+                          {getIconForUrl(link.url!)}
+                        </Button>
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+            <div className="w-px h-4 bg-border hidden md:block" />
+            <ThemeToggle />
           </div>
-          <div className="w-px h-4 bg-border hidden md:block" />
-          <ThemeToggle />
-        </div>
-        <AnimatePresence mode="wait">
-          {showBackButton && <BackButton />}
-        </AnimatePresence>
+        </motion.div>
+        {showBackButton && <BackButton />}
       </div>
     </div>
   );

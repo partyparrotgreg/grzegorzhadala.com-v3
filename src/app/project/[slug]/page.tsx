@@ -56,6 +56,7 @@ export default async function ProjectPage({
           <ReactDatocmsImage
             data={cover.responsiveImage as ResponsiveImageType}
             lazyLoad
+            className="filter drop-shadow-lg"
           />
         </div>
         <Hero
