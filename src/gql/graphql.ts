@@ -2861,6 +2861,7 @@ export type ProjectModelFilter = {
   _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
   _updatedAt?: InputMaybe<UpdatedAtFilter>;
   active?: InputMaybe<BooleanFilter>;
+  appUrl?: InputMaybe<StringFilter>;
   body?: InputMaybe<StructuredTextFilter>;
   client?: InputMaybe<LinkFilter>;
   color?: InputMaybe<ColorFilter>;
@@ -2872,6 +2873,7 @@ export type ProjectModelFilter = {
   skills?: InputMaybe<LinksFilter>;
   slug?: InputMaybe<SlugFilter>;
   summary?: InputMaybe<TextFilter>;
+  websiteUrl?: InputMaybe<StringFilter>;
 };
 
 export enum ProjectModelOrderBy {
@@ -2893,10 +2895,14 @@ export enum ProjectModelOrderBy {
   UpdatedAtDesc = '_updatedAt_DESC',
   ActiveAsc = 'active_ASC',
   ActiveDesc = 'active_DESC',
+  AppUrlAsc = 'appUrl_ASC',
+  AppUrlDesc = 'appUrl_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
   ProjectNameAsc = 'projectName_ASC',
-  ProjectNameDesc = 'projectName_DESC'
+  ProjectNameDesc = 'projectName_DESC',
+  WebsiteUrlAsc = 'websiteUrl_ASC',
+  WebsiteUrlDesc = 'websiteUrl_DESC'
 }
 
 /** Block of type Project Overview Block (project_overview_block) */
@@ -2949,6 +2955,7 @@ export type ProjectRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
   _updatedAt: Scalars['DateTime']['output'];
   active?: Maybe<Scalars['BooleanType']['output']>;
+  appUrl?: Maybe<Scalars['String']['output']>;
   body?: Maybe<ProjectModelBodyField>;
   client?: Maybe<ClientRecord>;
   color?: Maybe<ColorField>;
@@ -2960,6 +2967,7 @@ export type ProjectRecord = RecordInterface & {
   skills: Array<SkillRecord>;
   slug: Scalars['String']['output'];
   summary: Scalars['String']['output'];
+  websiteUrl?: Maybe<Scalars['String']['output']>;
 };
 
 
