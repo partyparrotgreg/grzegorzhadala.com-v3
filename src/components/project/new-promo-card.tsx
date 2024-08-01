@@ -6,11 +6,33 @@ import { Image as ReactDatocmsImage } from "react-datocms";
 import { SkillsRender } from "../shared/skills-render";
 import { Button } from "../ui/button";
 
+import { useStore } from "@/store";
+import { useInView } from "framer-motion";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
-export const NewPromoCard = ({ project }: { project: ProjectRecord }) => {
+export const NewPromoCard = ({
+  project,
+  ...props
+}: {
+  project: ProjectRecord;
+} & React.HTMLAttributes<HTMLDivElement>) => {
+  const setYear = useStore((state) => state.updateYear);
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref);
+
+  useEffect(() => {
+    if (isInView) {
+      const endDate = project.role?.end
+        ? new Date(project.role?.end).getFullYear()
+        : 2024;
+
+      setYear(endDate);
+    }
+  }, [isInView, project.role?.end, setYear]);
+
   return (
-    <div className="relative">
+    <div className="relative" ref={ref} {...props}>
       {project?.cover.responsiveImage && (
         <Link href={`/project/${project.slug}`}>
           <div
