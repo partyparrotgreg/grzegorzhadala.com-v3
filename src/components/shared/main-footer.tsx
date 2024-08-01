@@ -7,7 +7,7 @@ import { FooterActions } from "./footer-actions";
 export const MainFooter = ({ footer }: { footer: FooterRecord }) => {
   const { links, hiringText } = footer;
   return (
-    <div className="bg-foreground text-background h-screen flex flex-col justify-between relative">
+    <div className="bg-foreground text-background h-[calc(100dvh+120px)] flex flex-col justify-between relative">
       <BlockSectionTitle action={<FooterActions />}>Connect</BlockSectionTitle>
       <div className="content-padding flex flex-col justify-end h-full">
         <p className="relative z-50 text-3xl lg:text-[4em] leading-[1.25em] lg:leading-[1.15em]">
@@ -36,7 +36,7 @@ export const MainFooter = ({ footer }: { footer: FooterRecord }) => {
         </div>
       </div>
       {hiringText && (
-        <div className="bg-brand text-black content-padding">
+        <div className="bg-brand text-background content-padding">
           <p className="relative z-50 text-3xl lg:text-[4em] leading-[1.25em] lg:leading-[1.15em] mb-12 md:mb-0">
             {hiringText as string}
           </p>

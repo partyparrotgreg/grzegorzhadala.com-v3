@@ -8,7 +8,6 @@ export const BlockSectionTitle = ({
   children: ReactNode;
   action?: ReactNode;
 }) => {
-
   return (
     <>
       <div className="h-24 w-full bg-background" />
