@@ -36,22 +36,17 @@ export const NewPromoCard = ({
       {project?.cover.responsiveImage && (
         <Link href={`/project/${project.slug}`}>
           <div
-            className="col-span-4 cover-padding sticky top-0 md:h-screen md:grid md:place-items-center overflow-hidden"
+            className="col-span-4 cover-padding sticky top-0 h-dvh grid place-items-center overflow-hidden"
             style={{ backgroundColor: project.color?.hex }}
           >
             <div
-              className="absolute md:block break-keep whitespace-nowrap z-50 mix-blend-multiply gap-4 grid place-items-center "
+              className="text-3xl lg:text-[7rem] font-bold  leading-snug font-safiro mix-blend-multiply"
               style={{ color: project.color?.hex }}
             >
-              <div className="text-[7rem] font-bold  leading-snug font-safiro">
-                {project.client?.company}
-              </div>
+              {project.client?.company}
             </div>
           </div>
-          <div
-            className="col-span-4 cover-padding sticky top-0 md:h-screen md:grid md:place-items-center overflow-hidden"
-            // style={{ backgroundColor: project.color?.hex }}
-          >
+          <div className="col-span-4 cover-padding sticky top-12 md:top-24 md:h-screen md:grid md:place-items-center overflow-hidden">
             <div className="aspect-video">
               <ReactDatocmsImage
                 data={project.cover.responsiveImage}
