@@ -1,18 +1,19 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { LayoutTransition } from "@/components/shared/layout-transition";
 
 export default function HomeTemplate({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
-    <AnimatePresence mode="wait">
-      <motion.div>
-        <motion.div>{children}</motion.div>
-      </motion.div>
-    </AnimatePresence>
+    <LayoutTransition
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -100 }}
+    >
+      {children}
+    </LayoutTransition>
   );
 }
