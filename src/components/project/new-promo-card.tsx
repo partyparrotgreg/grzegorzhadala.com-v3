@@ -32,7 +32,7 @@ export const NewPromoCard = ({
   }, [isInView, project.role?.end, setYear]);
 
   return (
-    <div className="relative" ref={ref} {...props}>
+    <div className="relative" ref={ref} {...props} id={project.slug}>
       {project?.cover.responsiveImage && (
         <Link href={`/project/${project.slug}`}>
           <div

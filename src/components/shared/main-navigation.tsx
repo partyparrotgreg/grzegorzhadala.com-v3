@@ -71,6 +71,7 @@ export const MainNavigation = ({ footer }: { footer: FooterRecord }) => {
         <TheDot />
         {menu.map((item) => (
           <CustomLink
+            id={item.id}
             key={item.id}
             href={item.href}
             className="text-sm tracking-wider"
@@ -88,6 +89,7 @@ export const MainNavigation = ({ footer }: { footer: FooterRecord }) => {
           <div className="flex flex-row-reverse md:flex-row gap-2 items-center">
             <motion.div className="flex flex-row gap-2 items-center">
               <Button
+                id={"menu-button"}
                 className="flex text-center md:hidden"
                 size={"icon"}
                 variant={"ghost"}
@@ -110,6 +112,7 @@ export const MainNavigation = ({ footer }: { footer: FooterRecord }) => {
                   >
                     {links.map((link) => (
                       <Link
+                        id={`${link.id}-icon`}
                         href={link.url as string}
                         key={link.id}
                         target="_blank"

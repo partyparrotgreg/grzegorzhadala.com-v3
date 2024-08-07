@@ -10,13 +10,14 @@ export const MainFooter = ({ footer }: { footer: FooterRecord }) => {
     <div className="bg-foreground text-background h-[calc(100dvh+120px)] flex flex-col justify-between relative">
       <BlockSectionTitle action={<FooterActions />}>Connect</BlockSectionTitle>
       <div className="content-padding flex flex-col justify-end h-full">
-        <p className="relative z-50 text-3xl lg:text-[4em] leading-[1.25em] lg:leading-[1.15em]">
+        <p className="relative z-50 text-3xl lg:text-[4em] leading-[1.25em] lg:leading-[1.15em] font-safiro">
           Find me on
         </p>
         <div className="flex flex-col lg:flex-row grid-gaps">
           {links &&
             links.map((link) => (
               <CustomLink
+                id={`${link.id}-link`}
                 key={link.id}
                 href={link.url}
                 target={link.external ? "_blank" : "_self"}
@@ -37,7 +38,7 @@ export const MainFooter = ({ footer }: { footer: FooterRecord }) => {
       </div>
       {hiringText && (
         <div className="bg-brand text-background content-padding">
-          <p className="relative z-50 text-3xl lg:text-[4em] leading-[1.25em] lg:leading-[1.15em] mb-12 md:mb-0">
+          <p className="relative z-50 text-3xl lg:text-[4em] leading-[1.25em] lg:leading-[1.15em] mb-12 md:mb-0 font-safiro">
             {hiringText as string}
           </p>
         </div>
