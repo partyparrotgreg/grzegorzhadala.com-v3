@@ -13,6 +13,7 @@ export const BlockClients = ({ clients }: ClientsProps) => {
     <div className="grid grid-cols-2 md:grid-cols-5 min-h-dvh">
       {clients.map((client, index) => (
         <div
+          id={client.company as string}
           key={client.id + "reverse" + index}
           className={cn(
             "flex w-full items-center justify-center ",
