@@ -4,6 +4,7 @@ import { Image as ReactDatocmsImage, ResponsiveImageType } from "react-datocms";
 
 import { Hero } from "@/components/home/hero";
 import { ProjectTextFormatter } from "@/components/project/project-text-formatter";
+import { CoverTransition } from "@/components/shared/cover-transition";
 import { MainFooter } from "@/components/shared/main-footer";
 import { PageProgress } from "@/components/shared/page-progress";
 import { SkillsRender } from "@/components/shared/skills-render";
@@ -45,6 +46,12 @@ export default async function ProjectPage({
 
   return (
     <>
+      <div
+        className="inset-0 pointer-events-none"
+        style={{
+          backgroundColor: project.color?.hex,
+        }}
+      />
       <div className="flex flex-col relative">
         <PageProgress />
         <div
@@ -53,11 +60,13 @@ export default async function ProjectPage({
             backgroundColor: project.color?.hex,
           }}
         >
-          <ReactDatocmsImage
-            data={cover.responsiveImage as ResponsiveImageType}
-            lazyLoad
-            className="filter drop-shadow-lg"
-          />
+          <CoverTransition>
+            <ReactDatocmsImage
+              data={cover.responsiveImage as ResponsiveImageType}
+              lazyLoad
+              className="filter drop-shadow-lg relative"
+            />
+          </CoverTransition>
         </div>
         <Hero
           text={project?.summary as string}
