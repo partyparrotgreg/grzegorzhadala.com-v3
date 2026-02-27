@@ -2,7 +2,6 @@ import { request } from "@/lib/dato";
 import { StructuredText as StructuredTextType } from "datocms-structured-text-utils/dist/types/types";
 import { Image as ReactDatocmsImage, ResponsiveImageType } from "react-datocms";
 
-import { Hero } from "@/components/home/hero";
 import { ProjectTextFormatter } from "@/components/project/project-text-formatter";
 import { MainFooter } from "@/components/shared/main-footer";
 import { PageProgress } from "@/components/shared/page-progress";
@@ -10,6 +9,7 @@ import { SkillsRender } from "@/components/shared/skills-render";
 import { FooterRecord, SkillRecord } from "@/gql/graphql";
 import type { Metadata } from "next";
 import query from "./page.graphql";
+import { Hero } from "@/components/home/hero";
 
 type ProjectPageProps = {
   params: { slug: string };
@@ -59,9 +59,30 @@ export default async function ProjectPage({
             className="filter drop-shadow-lg"
           />
         </div>
+        {/* <div className="flex flex-col relative isolate content-padding">
+          <h1 className="text-lg">{project?.summary}</h1>
+          <Markdown
+            components={{
+              p: (props) => (
+                <p
+                  {...props}
+                  className="relative z-50 text-3xl lg:text-[3em] leading-[1.25em] lg:leading-[1.15em] tracking-tight font-safiro"
+                />
+              ),
+              strong: (props) => (
+                <strong {...props} className="text-brand font-normal" />
+              ),
+              a: (props) => (
+                <CustomLink {...props} target="_blank" className="text-blue-600" />
+              ),
+            }}
+          >
+            {project?.projectName}
+          </Markdown>
+        </div> */}
         <Hero
-          text={project?.summary as string}
-          callout={project?.projectName as string}
+          text={project?.summary}
+          callout={project?.projectName}
         />
         <div className="content-padding grid grid-cols-1 lg:grid-cols-3">
           <div className="flex flex-col gap-2">

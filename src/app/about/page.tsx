@@ -1,4 +1,3 @@
-import { Hero } from "@/components/home/hero";
 import { request } from "@/lib/dato";
 import query from "./page.graphql";
 
@@ -23,7 +22,7 @@ export default async function AboutPage() {
   return (
     <>
       <PageProgress />
-      <Hero text={about?.intro as string} />
+
       {about?.body.map((block) => {
         return <Fragment key={block.id}>{getBlock(block)}</Fragment>;
       })}

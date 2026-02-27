@@ -3,22 +3,22 @@
 import Markdown from "react-markdown";
 import { CustomLink } from "../shared/custom-link";
 
-export const Hero = ({
-  text,
-  callout,
-}: {
-  text?: string;
-  callout?: string;
-}) => {
+export type HeroProps = {
+  text: string | undefined;
+  callout: string;
+};
+
+export const Hero = ({ text, callout }: HeroProps) => {
+
   return (
     <div className="flex flex-col relative isolate content-padding">
-      {callout && <div className="mb-4 text-foreground/75">{callout}</div>}
+      {callout ?? <h1>{callout}</h1>}
       <Markdown
         components={{
           p: (props) => (
             <p
               {...props}
-              className="relative z-50 text-3xl lg:text-[3em] leading-[1.25em] lg:leading-[1.15em] tracking-tight font-safiro"
+              className="relative z-50 text-3xl lg:text-[3em] leading-[1.25em] lg:leading-[1.15em] tracking-tight font-safiro max-w-7xl"
             />
           ),
           strong: (props) => (

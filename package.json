@@ -16,6 +16,7 @@
     "@graphql-codegen/typescript-operations": "^4.2.0",
     "@graphql-typed-document-node/core": "^3.2.0",
     "@gsap/react": "^2.1.2",
+    "@mux/mux-player-react": "^3.11.5",
     "@parcel/watcher": "^2.5.6",
     "@phosphor-icons/react": "^2.1.10",
     "@radix-ui/react-aspect-ratio": "^1.1.8",

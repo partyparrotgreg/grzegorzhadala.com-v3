@@ -891,6 +891,7 @@ export type HomeRecord = RecordInterface & {
   body: Array<HomeModelBodyField>;
   experience: Array<ExperienceListBlockRecord>;
   id: Scalars['ItemId']['output'];
+  myName?: Maybe<Scalars['String']['output']>;
   pageIntro?: Maybe<Scalars['String']['output']>;
   projects: Array<NewExperienceBlockRecord>;
   seo?: Maybe<SeoField>;

@@ -37,11 +37,9 @@ export const NewPromoCard = ({
         <Link href={`/project/${project.slug}`}>
           <div
             className="col-span-4 cover-padding sticky top-0 h-dvh grid place-items-center overflow-hidden"
-            style={{ backgroundColor: project.color?.hex }}
           >
             <div
-              className="text-3xl lg:text-[7rem] font-bold  leading-snug font-safiro mix-blend-multiply"
-              style={{ color: project.color?.hex }}
+              className="text-3xl lg:text-[7rem] font-bold  leading-snug font-safiro mix-blend-multiply opacity-10"
             >
               {project.client?.company}
             </div>
