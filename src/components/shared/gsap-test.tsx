@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 import { SlowMo } from "gsap/EasePack";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Observer } from "gsap/Observer";
+import { Observer } from "gsap/all";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { EaselPlugin } from "gsap/EaselPlugin";
 import { TextPlugin } from "gsap/TextPlugin";
