@@ -20,7 +20,7 @@ export const BlockProjectOverview = ({
         )}
       </div>
       <Markdown
-        className="text-foreground/75"
+        className="text-foreground/75 col-span-2"
         components={{
           ul: (props) => (
             <ul className="list-disc pl-8 space-y-2 mb-8" {...props} />

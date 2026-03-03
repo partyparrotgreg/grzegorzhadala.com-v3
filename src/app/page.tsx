@@ -27,6 +27,7 @@ export default async function Home() {
       <PageProgress />
       <Hero
         text={home?.pageIntro}
+        callout={"Greg Hadala"}
       />
       {home?.body.map((block: any) => {
         return <Fragment key={block.id}>{getBlock(block)}</Fragment>;

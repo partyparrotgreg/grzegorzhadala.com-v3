@@ -111,7 +111,7 @@ export const NewPromoCard = ({
           {project.appUrl && (
             <Link href={project.appUrl} className="grow">
               <Button variant={"outline"} className="w-full">
-                Get app <ExternalLink className="h-4 w-4 ml-2" />
+                App <ExternalLink className="h-4 w-4 ml-2" />
               </Button>
             </Link>
           )}

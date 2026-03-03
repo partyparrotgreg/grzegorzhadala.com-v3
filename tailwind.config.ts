@@ -24,7 +24,7 @@ const config = {
       fontFamily: {
         inter: ["var(--font-inter)"],
         manrope: ["var(--font-manrope)"],
-        safiro: ["var(--font-safiro)"],
+        onest: ["var(--font-onest)"],
       },
       screens: {
         "3xl": "1920px",

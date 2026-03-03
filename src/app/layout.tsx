@@ -3,7 +3,7 @@ import { request } from "@/lib/dato";
 
 import { MainNavigation } from "@/components/shared/main-navigation";
 import { FooterRecord } from "@/gql/graphql";
-import { inter, safiro } from "./fonts";
+import { inter, onest } from "./fonts";
 import "./globals.css";
 import query from "./page.graphql";
 import { CSPostHogProvider } from "./providers";
@@ -14,12 +14,12 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { util, footer } = await getHomeContent();
+  const { footer } = await getHomeContent();
   return (
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${safiro.variable}`}
+      className={`${inter.variable} ${onest.variable}`}
     >
       <CSPostHogProvider>
         <link

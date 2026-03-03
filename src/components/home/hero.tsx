@@ -12,13 +12,13 @@ export const Hero = ({ text, callout }: HeroProps) => {
 
   return (
     <div className="flex flex-col relative isolate content-padding">
-      {callout ?? <h1>{callout}</h1>}
+      {callout && <p className="text-lg">{callout}</p>}
       <Markdown
         components={{
           p: (props) => (
             <p
               {...props}
-              className="relative z-50 text-3xl lg:text-[3em] leading-[1.25em] lg:leading-[1.15em] tracking-tight font-safiro max-w-7xl"
+              className="relative z-50 text-2xl lg:text-[2.5em] leading-[1.25em] lg:leading-[1.15em] tracking-tight font-safiro max-w-7xl"
             />
           ),
           strong: (props) => (
