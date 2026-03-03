@@ -27,7 +27,7 @@ export async function generateOgImage(pageName?: string) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "60px 80px",
+          padding: "50px",
           fontFamily: "Safiro",
           color: "white",
         }}
@@ -35,8 +35,7 @@ export async function generateOgImage(pageName?: string) {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
-              fontSize: 36,
-              fontWeight: 700,
+              fontSize: 24,
               marginBottom: 16,
             }}
           >
@@ -44,10 +43,9 @@ export async function generateOgImage(pageName?: string) {
           </div>
           <div
             style={{
-              fontSize: 20,
+              fontSize: 42,
               fontWeight: 400,
-              lineHeight: 1.5,
-              opacity: 0.85,
+              lineHeight: 1.2,
             }}
           >
             {bio}
