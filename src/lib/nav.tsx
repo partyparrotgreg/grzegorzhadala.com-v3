@@ -4,14 +4,14 @@ export const menu = [
     label: "Work",
     href: "/",
   },
-  //   {
-  //     id: "lab",
-  //     label: "Lab",
-  //     href: "/lab",
-  //   },
   {
     id: "about",
     label: "About",
     href: "/about",
+  },
+  {
+    id: "resume",
+    label: "Resume",
+    href: "/resume",
   },
 ];

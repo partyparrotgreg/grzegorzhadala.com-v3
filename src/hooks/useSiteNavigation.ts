@@ -12,6 +12,11 @@ export const useSiteNavigation = () => {
       href: "/about",
       target: undefined,
     },
+    {
+      label: "Resume",
+      href: "/resume",
+      target: undefined,
+    },
   ];
 
   const parsedNavigation = nav.filter((item) => {
