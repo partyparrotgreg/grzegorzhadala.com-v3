@@ -44,11 +44,11 @@ export const NewPromoCard = ({
               {project.client?.company}
             </div>
           </div>
-          <div className="col-span-4 sticky top-12 md:top-24 md:h-screen md:grid md:place-items-center overflow-hidden">
-            <div className="aspect-video">
+          <div className="col-span-4 sticky top-8 md:top-12 md:h-screen md:grid overflow-hidden place-content-start">
+            <div className="aspect-video w-[200%] md:w-[100%] p-6 md:p-12">
               <ReactDatocmsImage
                 data={project.cover.responsiveImage}
-                className="md:object-contain lg:scale-90 w-[200%] h-auto filter drop-shadow-lg"
+                className="md:object-contain p-6 w-[200%] h-auto filter drop-shadow-lg"
               />
             </div>
           </div>
