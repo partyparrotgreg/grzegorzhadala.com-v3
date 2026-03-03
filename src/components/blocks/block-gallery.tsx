@@ -13,7 +13,6 @@ export const BlockGallery = ({ record }: { record: GalleryRecord }) => {
         >
           <ReactDatocmsImage
             data={photo?.responsiveImage as ResponsiveImageType}
-            lazyLoad
             layout="responsive"
             className="object-cover filter grayscale w-auto"
           />

@@ -2,11 +2,11 @@
 
 import { ProcessListBlockRecord } from "@/gql/graphql";
 import {
-  Code,
-  Compass,
-  FigmaLogo,
-  NotionLogo,
-  UserFocus,
+  CodeIcon,
+  CompassIcon,
+  FigmaLogoIcon,
+  NotionLogoIcon,
+  UserFocusIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 
@@ -19,17 +19,17 @@ export const BlockProcessList = ({
   const parseIcon = (icon: string) => {
     switch (icon) {
       case "code":
-        return Code;
+        return CodeIcon;
       case "discover":
-        return Compass;
+        return CompassIcon;
       case "figma":
-        return FigmaLogo;
+        return FigmaLogoIcon;
       case "notion":
-        return NotionLogo;
+        return NotionLogoIcon;
       case "user":
-        return UserFocus;
+        return UserFocusIcon;
       default:
-        return Code;
+        return CodeIcon;
     }
   };
   return (
@@ -38,7 +38,7 @@ export const BlockProcessList = ({
         const Icon = parseIcon(icon);
         return (
           <div key={id}>
-            <div className="flex flex-col gap-8">
+            <div className="gap-6 grid grid-rows-3" style={{ gridTemplateRows: `auto auto 1fr` }}>
               <div>
                 {customIcon ? (
                   <Image
@@ -50,14 +50,12 @@ export const BlockProcessList = ({
                   />
                 ) : (
                   <>
-                    <Icon size={32} weight="light" color="#FF5D17" />
+                    <Icon size={32} weight="light" className="text-brand" />
                   </>
                 )}
               </div>
-              <div className="space-y-4">
-                <h2>{title}</h2>
-                <p className="text-foreground/75">{processDescription}</p>
-              </div>
+              <h2 className="min-h-[2.4em]">{title}</h2>
+              <p className="text-foreground/75">{processDescription}</p>
             </div>
           </div>
         );

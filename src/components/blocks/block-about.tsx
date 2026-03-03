@@ -12,7 +12,6 @@ export const BlockAbout = ({ record }: { record: AboutBlockRecord }) => {
         <div className="relative overflow-hidden aspect-[10/12] mix-blend-multiply dark:mix-blend-normal">
           <ReactDatocmsImage
             data={photo?.responsiveImage as ResponsiveImageType}
-            lazyLoad
             layout="responsive"
             className="object-cover object-center filter grayscale contrast-200"
           />

@@ -39,13 +39,9 @@ export const ProjectPromoCard = ({
       {project?.cover.responsiveImage && (
         <div
           className="aspect-[16/10] overflow-hidden relative rounded-2xl flex place-items-center items-center justify-center"
-          style={{
-            backgroundColor: project.color?.hex,
-          }}
         >
           <ReactDatocmsImage
             data={project.cover.responsiveImage}
-            lazyLoad
             className="group-hover:scale-[0.8] transition-all filter drop-shadow-2xl scale-75"
           />
         </div>
@@ -54,9 +50,6 @@ export const ProjectPromoCard = ({
         <div className="flex flex-row gap-2 items-center">
           <div
             className="h-2 w-2 rounded-full bg-foreground/20"
-            style={{
-              backgroundColor: project?.color?.hex,
-            }}
           />
           <small className="leading-none mb-0 uppercase tracking-wider">
             {project?.client?.company}

@@ -41,7 +41,6 @@ export const ThemedDatoImage = ({ images }: { images: any[] }) => {
     return (
       <ReactDatocmsImage
         data={images[0].responsiveImage}
-        lazyLoad
         layout="responsive"
         className="filter drop-shadow-lg dark:drop-shadow-none"
       />
@@ -56,7 +55,6 @@ export const ThemedDatoImage = ({ images }: { images: any[] }) => {
       </div>
       <ReactDatocmsImage
         data={isDark ? darkImage : lightImage}
-        lazyLoad
         layout="responsive"
       />
     </div>

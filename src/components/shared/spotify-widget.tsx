@@ -27,8 +27,8 @@ export const SpotifyWidget = () => {
       <Image
         src={AlbumCover}
         alt="Album cover"
-        layout="fill"
-        className="inset-0 z-0 mix-blend-darken"
+        fill
+        className="inset-0 z-0 mix-blend-darken object-cover"
       />
     </div>
   );

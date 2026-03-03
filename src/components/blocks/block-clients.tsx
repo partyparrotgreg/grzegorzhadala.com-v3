@@ -1,7 +1,7 @@
 "use client";
 
 import { ClientRecord } from "@/gql/graphql";
-import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import { ThemedImage } from "../shared/themed-image";
 
 interface ClientsProps {
@@ -10,19 +10,28 @@ interface ClientsProps {
 
 export const BlockClients = ({ clients }: ClientsProps) => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-5 min-h-dvh">
-      {clients.map((client, index) => (
-        <div
-          id={client.company as string}
-          key={client.id + "reverse" + index}
-          className={cn(
-            "flex w-full items-center justify-center ",
-            (index + 1) % 5 == 0 && "border-r-0"
-          )}
-        >
-          <ThemedImage images={client.logo} />
-        </div>
-      ))}
+    <div className="overflow-hidden py-12">
+      <motion.div
+        className="flex w-max gap-12 items-center"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{
+          x: {
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 30,
+            ease: "linear",
+          },
+        }}
+      >
+        {[...clients, ...clients].map((client, index) => (
+          <div
+            key={client.id + "-" + index}
+            className="flex shrink-1 items-center justify-center px-4"
+          >
+            <ThemedImage images={client.logo} className="h-8 w-auto" />
+          </div>
+        ))}
+      </motion.div>
     </div>
   );
 };

@@ -2,7 +2,6 @@ import { request } from "@/lib/dato";
 import { StructuredText as StructuredTextType } from "datocms-structured-text-utils/dist/types/types";
 import { Image as ReactDatocmsImage, ResponsiveImageType } from "react-datocms";
 
-import { Hero } from "@/components/home/hero";
 import { ProjectTextFormatter } from "@/components/project/project-text-formatter";
 import { MainFooter } from "@/components/shared/main-footer";
 import { PageProgress } from "@/components/shared/page-progress";
@@ -10,15 +9,18 @@ import { SkillsRender } from "@/components/shared/skills-render";
 import { FooterRecord, SkillRecord } from "@/gql/graphql";
 import type { Metadata } from "next";
 import query from "./page.graphql";
+import { Hero } from "@/components/home/hero";
+import { JsonLdScript, projectJsonLd } from "@/lib/json-ld";
+import { siteConfig } from "@/lib/site-config";
 
 type ProjectPageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
-  const slug = params.slug;
+  const { slug } = await params;
   const response = await request(query, { slug });
 
   return {
@@ -35,33 +37,49 @@ const getProjectData = async (slug: string) => await request(query, { slug });
 export default async function ProjectPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { project, footer } = await getProjectData(params.slug);
+  const { slug } = await params;
+  const { project, footer } = await getProjectData(slug);
 
   if (!project) return null;
 
   const { cover } = project;
 
+  const jsonLd = projectJsonLd({
+    name: project.projectName,
+    description: project.summary,
+    url: `${siteConfig.url}/project/${project.slug}`,
+    image: cover.responsiveImage?.src ?? cover.url,
+    dateCreated: project.role?.start,
+    dateModified: project.role?.end ?? undefined,
+    skills: project.skills?.map((s) => s.name).filter(Boolean) as string[],
+    client: project.client
+      ? {
+          name: project.client.company,
+          url: project.client.website ?? undefined,
+          logo: project.client.logo?.[0]?.url,
+        }
+      : undefined,
+  });
+
   return (
     <>
       <div className="flex flex-col relative">
+        <JsonLdScript data={jsonLd} />
         <PageProgress />
         <div
-          className=" overflow-hidden relative cover-padding"
-          style={{
-            backgroundColor: project.color?.hex,
-          }}
+          className=" overflow-hidden relative cover-padding bg-brand"
         >
           <ReactDatocmsImage
             data={cover.responsiveImage as ResponsiveImageType}
-            lazyLoad
             className="filter drop-shadow-lg"
           />
         </div>
+
         <Hero
-          text={project?.summary as string}
-          callout={project?.projectName as string}
+          text={project?.summary}
+          callout={project?.projectName}
         />
         <div className="content-padding grid grid-cols-1 lg:grid-cols-3">
           <div className="flex flex-col gap-2">

@@ -32,32 +32,29 @@ export const NewPromoCard = ({
   }, [isInView, project.role?.end, setYear]);
 
   return (
-    <div className="relative" ref={ref} {...props} id={project.slug}>
+    <div className="relative bg-foreground/10" ref={ref} {...props} id={project.slug}>
       {project?.cover.responsiveImage && (
         <Link href={`/project/${project.slug}`}>
           <div
-            className="col-span-4 cover-padding sticky top-0 h-dvh grid place-items-center overflow-hidden"
-            style={{ backgroundColor: project.color?.hex }}
+            className="col-span-4 sticky top-0 h-dvh grid place-items-center overflow-hidden bg-brand"
           >
             <div
-              className="text-3xl lg:text-[7rem] font-bold  leading-snug font-safiro mix-blend-multiply"
-              style={{ color: project.color?.hex }}
+              className="text-3xl lg:text-[7rem] font-bold leading-snug font-safiro mix-blend-multiply opacity-50"
             >
               {project.client?.company}
             </div>
           </div>
-          <div className="col-span-4 cover-padding sticky top-12 md:top-24 md:h-screen md:grid md:place-items-center overflow-hidden">
+          <div className="col-span-4 sticky top-12 md:top-24 md:h-screen md:grid md:place-items-center overflow-hidden">
             <div className="aspect-video">
               <ReactDatocmsImage
                 data={project.cover.responsiveImage}
-                lazyLoad
                 className="md:object-contain lg:scale-90 w-[200%] h-auto filter drop-shadow-lg"
               />
             </div>
           </div>
         </Link>
       )}
-      <div className="grid sm:grid-cols-4 md:grid-cols-4 relative content-padding z-50 bg-background">
+      <div className="border-t grid sm:grid-cols-4 md:grid-cols-4 relative content-padding z-50 bg-background">
         <div className="flex flex-col md:flex-row justify-between md:items-center col-span-4 gap-4">
           <h2 className="text-lg flex items-center">{project.projectName}</h2>
           <div className="gap-4 hidden md:flex">
@@ -80,7 +77,7 @@ export const NewPromoCard = ({
             </Link>
           </div>
         </div>
-        <p className="text-2xl md:text-3xl lg:text-4xl col-span-4 lg:col-span-2 leading-snug font-safiro">
+        <p className="text-xl md:text-2xl lg:text-3xl col-span-4 lg:col-span-2 leading-snug font-safiro">
           {project.summary}
         </p>
 
@@ -113,7 +110,7 @@ export const NewPromoCard = ({
           {project.appUrl && (
             <Link href={project.appUrl} className="grow">
               <Button variant={"outline"} className="w-full">
-                Get app <ExternalLink className="h-4 w-4 ml-2" />
+                App <ExternalLink className="h-4 w-4 ml-2" />
               </Button>
             </Link>
           )}

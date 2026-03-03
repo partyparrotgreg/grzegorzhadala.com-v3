@@ -4,79 +4,77 @@
 
 @layer base {
   :root {
-    --brand: 9 100% 58%;
-    --background: 0 5% 96%;
-    --foreground: 0 5% 15%;
+    --brand: hsl(9 100% 58);
+    --background: hsl(0 5% 96%);
+    --foreground: hsl(0 5% 15%);
 
-    --card: 0 0% 97%;
-    --card-foreground: 0 0% 3%;
+    --card: hsl(0 0% 97%);
+    --card-foreground: hsl(0 0% 3%);
 
-    --popover: 0 0% 85%;
-    --popover-foreground: 0 0% 10%;
+    --popover: hsl(0 0% 85%);
+    --popover-foreground: hsl(0 0% 10%);
 
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
+    --primary: hsl(0 0% 100%);
+    --primary-foreground: hsl(0 0% 0%);
 
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
+    --secondary: hsl(0 0% 96.1%);
+    --secondary-foreground: hsl(0 0% 9%);
 
-    --muted: 0 9% 90%;
-    --muted-foreground: 0 0% 45.1%;
+    --muted: hsl(0 9% 90%);
+    --muted-foreground: hsl(0 0% 45.1%);
 
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --accent: hsl(0 0% 96.1%);
+    --accent-foreground: hsl(0 0% 9%);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: hsl(0 84.2% 60.2%);
+    --destructive-foreground: hsl(0 0% 98%);
 
-    --border: 0 0% 85%;
-    --input: 0 0% 80%;
-    --ring: 0 0% 50%;
+    --border: hsl(0 0% 85%);
+    --input: hsl(0 0% 80%);
+    --ring: hsl(0 0% 50%);
 
     --radius: 0rem;
   }
 
   .dark {
-    --brand: 9 100% 58%;
+    --brand: hsl(9 100% 58);
+    --background: hsl(1, 3%, 5%);
+    --foreground: hsl(1 3% 50%);
 
-    --background: 0 0% 10%;
-    --foreground: 0 0% 87%;
+    --card: hsl(0 0% 5%);
+    --card-foreground: hsl(0 0% 90%);
 
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 90%;
+    --popover: hsl(0 0% 10%);
+    --popover-foreground: hsl(0 0% 90%);
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 90%;
+    --primary: hsl(0 0% 100%);
+    --primary-foreground: hsl(0 0% 0%);
 
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
+    --secondary: hsl(0 0% 14.9%);
+    --secondary-foreground: hsl(0 0% 98%);
 
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
+    --muted: hsl(35 10% 8%);
+    --muted-foreground: hsl(0 0% 63.9%);
 
-    --muted: 35 10% 8%;
-    --muted-foreground: 0 0% 63.9%;
+    --accent: hsl(0 0% 14.9%);
+    --accent-foreground: hsl(0 0% 98%);
 
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+    --destructive: hsl(0 62.8% 30.6%);
+    --destructive-foreground: hsl(0 0% 98%);
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 0% 50%;
+    --border: hsl(0 0% 20%);
+    --input: hsl(0 0% 20%);
+    --ring: hsl(0 0% 50%);
   }
 }
 
 @layer base {
   * {
-    @apply border-border font-manrope;
+    @apply border-border font-onest;
     
   }
   body {
     @apply bg-background text-base text-foreground;
-    font-size: clamp(1rem, 1.25vw, 1.25rem);
   }
   :focus-visible {
     @apply outline-1 outline-brand outline-offset-8 opacity-100;
@@ -96,45 +94,40 @@
     @apply space-y-2;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-safiro;
-  }
-
-
   h1 {
-    font-size: clamp(2rem, 2.5vw, 2.5rem);
+    font-size: clamp(1.75rem, 2.25vw, 2.25rem);
+    line-height: 1.2;
   }
   h2 {
-    font-size: clamp(1.5rem, 1.75vw, 1.75rem);
+    font-size: clamp(1.25rem, 1.5vw, 1.5rem);
+    line-height: 1.2;
     @apply font-medium;
   }
   h3 {
-    font-size: clamp(1.17rem, 1.5vw, 1.5rem);
+    font-size: clamp(1.05rem, 1.25vw, 1.25rem);
     @apply font-medium;
   }
   h4 {
-    font-size: clamp(1rem, 1.25vw, 1.25rem);
+    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
     @apply font-semibold;
-  }
-  h5 {
   }
 }
 
 @layer component {
   .content-padding {
-    @apply p-6 md:p-12 xl:p-16 gap-6 xl:gap-16 md:gap-12;
+    @apply p-6 md:p-10 xl:p-12 gap-6 xl:gap-12 md:gap-10;
   }
   .cover-padding {
     @apply p-6 md:p-16 xl:p-24 gap-6 xl:gap-24 md:gap-16;
   }
   .content-vertical-padding {
-    @apply px-6 md:px-12 xl:px-16 gap-6 xl:gap-16 md:gap-12;
+    @apply px-6 md:px-10 xl:px-12 gap-6 xl:gap-12 md:gap-10;
   }
   .section-padding {
-    @apply px-6 xl:px-16 gap-6 xl:gap-16 py-4 xl:py-8 md:px-12 md:py-6 md:gap-12;
+    @apply px-6 xl:px-12 gap-6 xl:gap-12 py-4 xl:py-6 md:px-10 md:py-5 md:gap-10;
   }
   .nav-padding {
-    @apply px-6 py-0 h-12;
+    @apply px-4 py-0 h-12;
   }
   .about-image {
     @apply relative object-cover object-center filter grayscale contrast-200;
@@ -146,7 +139,7 @@
     inset: 0;
     height: 100%;
     width: 100%;
-    background-image: radial-gradient(hsla(var(--border)) 2px, transparent 2px);
+    background-image: radial-gradient(var(--border) 2px, transparent 2px);
     background-size: 8px 8px;
   }
 }

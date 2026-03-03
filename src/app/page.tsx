@@ -1,5 +1,4 @@
 import { getBlock } from "@/components/blocks/get-block";
-import { Hero } from "@/components/home/hero";
 import { MainFooter } from "@/components/shared/main-footer";
 import { PageProgress } from "@/components/shared/page-progress";
 import { FooterRecord } from "@/gql/graphql";
@@ -7,6 +6,8 @@ import { request } from "@/lib/dato";
 import { Fragment } from "react";
 import { toNextMetadata } from "react-datocms";
 import query from "./page.graphql";
+import { Hero } from "@/components/home/hero";
+import { JsonLdScript, webSiteJsonLd } from "@/lib/json-ld";
 const getHomeContent = async () => await request(query);
 
 export async function generateMetadata() {
@@ -16,12 +17,20 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-  const { home, footer } = await getHomeContent();
+  const homeContent = await getHomeContent();
+
+  if (!homeContent) return <>Something went wrong</>
+
+  const { home, footer } = homeContent;
 
   return (
     <>
+      <JsonLdScript data={webSiteJsonLd()} />
       <PageProgress />
-      <Hero text={home?.pageIntro as string} />
+      <Hero
+        text={home?.pageIntro}
+        callout={"Greg Hadala"}
+      />
       {home?.body.map((block: any) => {
         return <Fragment key={block.id}>{getBlock(block)}</Fragment>;
       })}
