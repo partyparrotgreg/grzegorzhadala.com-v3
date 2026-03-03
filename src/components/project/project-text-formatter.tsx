@@ -5,7 +5,7 @@ import { isCode, isHeading, isParagraph } from "datocms-structured-text-utils";
 import { createElement } from "react";
 import { StructuredText, renderNodeRule } from "react-datocms";
 import { SyntaxHighlighter } from "../shared/syntax-highlighter";
-import { FadeContent } from "./fade-content";
+import { getBlock } from "../blocks/get-block";
 
 export const ProjectTextFormatter = ({
   body,
@@ -64,7 +64,7 @@ export const ProjectTextFormatter = ({
           );
         }),
       ]}
-      renderBlock={({ record }) => <FadeContent record={record} />}
+      renderBlock={({ record }) => getBlock(record)}
     />
   );
 };

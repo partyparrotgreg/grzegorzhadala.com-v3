@@ -70,7 +70,7 @@
 
 @layer base {
   * {
-    @apply border-border font-manrope;
+    @apply border-border font-onest;
     
   }
   body {
