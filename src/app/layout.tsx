@@ -7,7 +7,13 @@ import { inter, onest } from "./fonts";
 import "./globals.css";
 import query from "./page.graphql";
 import { CSPostHogProvider } from "./providers";
+import type { Metadata } from "next";
+
 const getHomeContent = async () => await request(query);
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://grzegorzhadala.com"),
+};
 
 export default async function RootLayout({
   children,
