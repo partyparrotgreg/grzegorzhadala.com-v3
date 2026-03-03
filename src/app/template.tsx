@@ -10,9 +10,7 @@ export default function HomeTemplate({
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div>
-        <motion.div>{children}</motion.div>
-      </motion.div>
+      <motion.div>{children}</motion.div>
     </AnimatePresence>
   );
 }

@@ -12,6 +12,9 @@ import query from "./page.graphql";
 import { Hero } from "@/components/home/hero";
 import { JsonLdScript, projectJsonLd } from "@/lib/json-ld";
 import { siteConfig } from "@/lib/site-config";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -31,8 +34,6 @@ export async function generateMetadata({
 
 const getProjectData = async (slug: string) => await request(query, { slug });
 
-// TODO: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
-// TODO: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image
 
 export default async function ProjectPage({
   params,
@@ -56,10 +57,10 @@ export default async function ProjectPage({
     skills: project.skills?.map((s) => s.name).filter(Boolean) as string[],
     client: project.client
       ? {
-          name: project.client.company,
-          url: project.client.website ?? undefined,
-          logo: project.client.logo?.[0]?.url,
-        }
+        name: project.client.company,
+        url: project.client.website ?? undefined,
+        logo: project.client.logo?.[0]?.url,
+      }
       : undefined,
   });
 
@@ -81,7 +82,9 @@ export default async function ProjectPage({
           text={project?.summary}
           callout={project?.projectName}
         />
+
         <div className="content-padding grid grid-cols-1 lg:grid-cols-3">
+
           <div className="flex flex-col gap-2">
             <div className="font-semibold">Role</div>
             <div key="role" className="text-foreground/75">
@@ -104,6 +107,22 @@ export default async function ProjectPage({
                 isVertical
               />
             </div>
+          </div>
+          <div className="gap-4 flex justify-end">
+            {project.websiteUrl && (
+              <Link href={project.websiteUrl} target="_blank">
+                <Button variant={"outline"}>
+                  Website <ExternalLink className="h-4 w-4 ml-2" />
+                </Button>
+              </Link>
+            )}
+            {project.appUrl && (
+              <Link href={project.appUrl}>
+                <Button variant={"outline"}>
+                  Get app <ExternalLink className="h-4 w-4 ml-2" />
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
 

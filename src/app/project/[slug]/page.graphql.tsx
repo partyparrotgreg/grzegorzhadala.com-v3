@@ -5,6 +5,8 @@ export default graphql(/* GraphQL */ `
     project(filter: { slug: { eq: $slug } }) {
       id
       projectName
+      appUrl
+      websiteUrl
       cover {
         responsiveImage {
           src
