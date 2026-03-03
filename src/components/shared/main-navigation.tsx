@@ -66,8 +66,8 @@ export const MainNavigation = ({ footer }: { footer: FooterRecord }) => {
   };
 
   return (
-    <div className="fixed lg:sticky bottom-0 lg:top-0 bg-background left-0 right-0 flex flex-row gap-4 justify-between z-[800] items-center uppercase border-t lg:border-b nav-padding lg:border-t-0 overflow-hidden">
-      <div className="flex flex-row gap-4 items-center">
+    <div className="fixed p-6 lg:sticky bottom-0 lg:top-0 bg-background left-0 right-0 flex flex-row gap-4 justify-between z-[800] items-center uppercase border-t lg:border-b nav-padding lg:border-t-0 overflow-hidden">
+      <div className="flex flex-row gap-4 items-center ">
         <TheDot />
         {menu.map((item) => (
           <CustomLink
@@ -104,7 +104,7 @@ export const MainNavigation = ({ footer }: { footer: FooterRecord }) => {
               <AnimatePresence mode="wait">
                 {isOpen && (
                   <motion.div
-                    className="flex md:flex-row gap-2 items-center flex-col md:static fixed md:p-0 p-2 bg-background bottom-16 right-4 rounded-full"
+                    className="flex md:flex-row gap-2 items-center flex-col md:static fixed md:p-0 p-2 bg-background border bg-opacity-25 backdrop-blur-2xl bottom-16 right-4 rounded-full"
                     initial={{ opacity: 0, x: 100, scale: 0.95 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     exit={{ opacity: 0, x: 100, scale: 0.95 }}
