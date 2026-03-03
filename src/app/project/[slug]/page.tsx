@@ -10,6 +10,8 @@ import { FooterRecord, SkillRecord } from "@/gql/graphql";
 import type { Metadata } from "next";
 import query from "./page.graphql";
 import { Hero } from "@/components/home/hero";
+import { JsonLdScript, projectJsonLd } from "@/lib/json-ld";
+import { siteConfig } from "@/lib/site-config";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -44,9 +46,27 @@ export default async function ProjectPage({
 
   const { cover } = project;
 
+  const jsonLd = projectJsonLd({
+    name: project.projectName,
+    description: project.summary,
+    url: `${siteConfig.url}/project/${project.slug}`,
+    image: cover.responsiveImage?.src ?? cover.url,
+    dateCreated: project.role?.start,
+    dateModified: project.role?.end ?? undefined,
+    skills: project.skills?.map((s) => s.name).filter(Boolean) as string[],
+    client: project.client
+      ? {
+          name: project.client.company,
+          url: project.client.website ?? undefined,
+          logo: project.client.logo?.[0]?.url,
+        }
+      : undefined,
+  });
+
   return (
     <>
       <div className="flex flex-col relative">
+        <JsonLdScript data={jsonLd} />
         <PageProgress />
         <div
           className=" overflow-hidden relative cover-padding bg-brand"

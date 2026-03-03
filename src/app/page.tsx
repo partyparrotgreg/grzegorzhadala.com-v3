@@ -7,6 +7,7 @@ import { Fragment } from "react";
 import { toNextMetadata } from "react-datocms";
 import query from "./page.graphql";
 import { Hero } from "@/components/home/hero";
+import { JsonLdScript, webSiteJsonLd } from "@/lib/json-ld";
 const getHomeContent = async () => await request(query);
 
 export async function generateMetadata() {
@@ -24,6 +25,7 @@ export default async function Home() {
 
   return (
     <>
+      <JsonLdScript data={webSiteJsonLd()} />
       <PageProgress />
       <Hero
         text={home?.pageIntro}
