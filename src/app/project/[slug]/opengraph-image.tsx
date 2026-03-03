@@ -14,8 +14,9 @@ export default async function Image({
   const { slug } = await params;
   const { project } = await request(query, { slug });
 
-  const title = project?.projectName ?? "Project";
-  const subtitle = project?.client?.company ?? "Greg Hadala";
+  const client = project?.client?.company;
+  const name = project?.projectName ?? "Project";
+  const pageName = client ? `${client}: ${name}` : name;
 
-  return generateOgImage(title, subtitle);
+  return generateOgImage(pageName);
 }

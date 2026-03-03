@@ -5,5 +5,5 @@ export const size = ogSize;
 export const contentType = ogContentType;
 
 export default async function Image() {
-  return generateOgImage("Resume", "Greg Hadala — Design Engineer");
+  return generateOgImage("Resume");
 }

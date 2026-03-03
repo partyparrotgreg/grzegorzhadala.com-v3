@@ -6,8 +6,10 @@ export const ogSize = { width: 1200, height: 630 };
 export const ogContentType = "image/png";
 
 const brandColor = "hsl(9, 100%, 58%)";
+const bio =
+  "Design Engineer specializing in Fintech & Web3 products. Nearly 20 years in, he designs and builds production React code, design systems, and AI-augmented workflows — making complex things feel simple.";
 
-export async function generateOgImage(title: string, subtitle?: string) {
+export async function generateOgImage(pageName?: string) {
   const fontBold = await readFile(
     join(process.cwd(), "src/app/fonts/safiro/safiro-bold-webfont.ttf"),
   );
@@ -24,33 +26,52 @@ export async function generateOgImage(title: string, subtitle?: string) {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
           padding: "60px 80px",
           fontFamily: "Safiro",
+          color: "white",
         }}
       >
-        {subtitle && (
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
-              fontSize: 28,
-              color: "rgba(0, 0, 0, 0.6)",
+              fontSize: 36,
+              fontWeight: 700,
               marginBottom: 16,
-              fontWeight: 400,
             }}
           >
-            {subtitle}
+            Greg Hadala
+          </div>
+          <div
+            style={{
+              fontSize: 20,
+              fontWeight: 400,
+              lineHeight: 1.5,
+              opacity: 0.85,
+            }}
+          >
+            {bio}
+          </div>
+        </div>
+        {pageName && (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <div
+              style={{
+                borderTop: "1px solid rgba(255, 255, 255, 0.4)",
+                paddingTop: 24,
+                fontSize: 28,
+                fontWeight: 700,
+              }}
+            >
+              {pageName}
+            </div>
           </div>
         )}
-        <div
-          style={{
-            fontSize: title.length > 40 ? 52 : 64,
-            fontWeight: 700,
-            color: "black",
-            lineHeight: 1.15,
-          }}
-        >
-          {title}
-        </div>
       </div>
     ),
     {
