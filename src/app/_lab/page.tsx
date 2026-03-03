@@ -30,7 +30,6 @@ export default async function LabsPage() {
                 <ReactDatocmsImage
                   key={image.id}
                   data={image.responsiveImage as ResponsiveImageType}
-                  lazyLoad
                   className="rounded-xl overflow-hidden"
                 />
               ))}

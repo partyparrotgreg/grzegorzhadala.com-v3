@@ -48,7 +48,6 @@ export const NewPromoCard = ({
             <div className="aspect-video">
               <ReactDatocmsImage
                 data={project.cover.responsiveImage}
-                lazyLoad
                 className="md:object-contain lg:scale-90 w-[200%] h-auto filter drop-shadow-lg"
               />
             </div>

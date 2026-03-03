@@ -19,7 +19,6 @@ export const BlockThemedImage = ({
       <div className={cn(block.contentPadding && "content-padding")}>
         <ReactDatocmsImage
           data={images[0].responsiveImage as ResponsiveImageType}
-          lazyLoad
           layout="responsive"
           className={cn(
             block.rounded && "rounded-2xl overflow-hidden",
@@ -39,7 +38,6 @@ export const BlockThemedImage = ({
         </div>
         <ReactDatocmsImage
           data={isDark ? darkImage : lightImage}
-          lazyLoad
           layout="responsive"
           className={cn(block.rounded && "rounded-2xl overflow-hidden")}
         />

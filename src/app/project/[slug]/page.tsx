@@ -12,13 +12,13 @@ import query from "./page.graphql";
 import { Hero } from "@/components/home/hero";
 
 type ProjectPageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
-  const slug = params.slug;
+  const { slug } = await params;
   const response = await request(query, { slug });
 
   return {
@@ -35,9 +35,10 @@ const getProjectData = async (slug: string) => await request(query, { slug });
 export default async function ProjectPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { project, footer } = await getProjectData(params.slug);
+  const { slug } = await params;
+  const { project, footer } = await getProjectData(slug);
 
   if (!project) return null;
 
@@ -52,7 +53,6 @@ export default async function ProjectPage({
         >
           <ReactDatocmsImage
             data={cover.responsiveImage as ResponsiveImageType}
-            lazyLoad
             className="filter drop-shadow-lg"
           />
         </div>

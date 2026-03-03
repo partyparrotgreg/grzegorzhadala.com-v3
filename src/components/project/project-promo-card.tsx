@@ -42,7 +42,6 @@ export const ProjectPromoCard = ({
         >
           <ReactDatocmsImage
             data={project.cover.responsiveImage}
-            lazyLoad
             className="group-hover:scale-[0.8] transition-all filter drop-shadow-2xl scale-75"
           />
         </div>
