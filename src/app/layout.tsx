@@ -1,6 +1,5 @@
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { request } from "@/lib/dato";
-import { Image as ReactDatocmsImage } from "react-datocms";
 
 import { MainNavigation } from "@/components/shared/main-navigation";
 import { FooterRecord } from "@/gql/graphql";
@@ -51,20 +50,8 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {util && (
-              <>
-                <div className="fixed inset-0 w-[100%] z-[9000] pointer-events-none mix-blend-soft-light dark:mix-blend-overlay opacity-40">
-                  <ReactDatocmsImage
-                    lazyLoad
-                    data={util.noiseGradient!.responsiveImage!}
-                    layout="responsive"
-                    className="h-full w-full"
-                    pictureClassName="object-cover"
-                  />
-                </div>
-              </>
-            )}
-            <div className="3xl:max-w-[120rem] 3xl:mx-auto 3xl:border-l 3xl:border-r">
+
+            <div className="max-w-[80rem] mx-auto border-l border-r">
               <MainNavigation footer={footer as FooterRecord} />
               {children}
             </div>

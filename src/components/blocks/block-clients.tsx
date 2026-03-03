@@ -10,7 +10,7 @@ interface ClientsProps {
 
 export const BlockClients = ({ clients }: ClientsProps) => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-5 min-h-dvh">
+    <div className="grid grid-cols-2 md:grid-cols-6 min-h-dvh outline">
       {clients.map((client, index) => (
         <div
           id={client.company as string}

@@ -4,8 +4,8 @@ import Markdown from "react-markdown";
 import { CustomLink } from "../shared/custom-link";
 
 export type HeroProps = {
-  text: string | undefined;
-  callout: string;
+  text: string | null | undefined;
+  callout?: string | null | undefined;
 };
 
 export const Hero = ({ text, callout }: HeroProps) => {
