@@ -57,7 +57,7 @@ export default async function RootLayout({
             disableTransitionOnChange
           >
 
-            <div className="max-w-[80rem] mx-auto border-l border-r">
+            <div className="max-w-[80rem] mx-auto md:border-l md:border-r">
               <MainNavigation footer={footer as FooterRecord} />
               {children}
             </div>
